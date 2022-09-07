@@ -2,7 +2,7 @@
 title: Code Solutions
 subtitle: Make it simple, make it memorable
 email: frederick@codesolutions.be
-# baseurl: "/code-solutions-be" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: www.codesolutions.be
 author:
 street_address: Plankenbergstraat 38
