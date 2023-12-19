@@ -1,0 +1,53 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% include head.html %}
+</head>
+
+<body>
+    {% include navbar.html %}
+
+    <section class="hero is-fullheight" id="post">
+        <div class="hero-body">
+            <div class="container">
+                <a href="{{page.url | relative_url}}" class="has-text-black" id="title">
+                    <h1 class="title has-text-centered is-2 has-text-weight-semibold ">{{page.title}}</h1>
+                </a>
+
+                <br />
+
+                <div>
+                    {% unless page.author.size == 0 %}
+                    <p id="description" class="content is-small has-text-weight-semibold is-uppercase">
+                        Published by: {{page.author | strip | strip_html | strip_newlines }}, on {{ page.date | date:
+                        "%-B %d, %Y" }}</p>
+                    {% endunless %}
+                </div>
+
+                <div class="content">
+                    <p>{{ content }}</p>
+                </div>
+
+                <div>
+                    {%- assign tags = page.tags -%}
+                    {%- unless tags.size == 0 -%}
+                    <p class="subtitle is-uppercase">
+                        <i class="fas fa-tags"></i>
+                        {% assign i = 0 %}
+                        {% for tags in page.tags %}
+                        <span class="tag is-link">{{page.tags[i]}}</span>
+                        {% assign i = i | plus:1 %}
+                        {% endfor %}
+                    </p>
+                    {%- endunless -%}
+                </div>
+            </div>
+    </section>
+</body>
+
+</html>

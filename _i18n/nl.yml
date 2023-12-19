@@ -1,0 +1,42 @@
+global:
+  english: English
+  dutch: Nederlands
+  title: Code Solutions
+  description: Slimme software voor slimmere bedrijven
+
+  home: Home
+  services: Diensten
+  contact: Contact
+  blog: Blog
+  projects: Projecten
+
+  frederick-about: Als software engineer met een achtergrond in informatica en meer dan tien jaar ervaring als freelance consultant, specialiseer ik me in het oplossen van complexe technische uitdagingen. Bij toonaangevende bedrijven zoals Engie Digital en Evonik heb ik bijgedragen aan de modernisering van bedrijfskritische systemen die significante verbeteringen brachten in hun operationele efficiëntie. Wat mij onderscheidt is mijn vermogen om functionele uitdagingen te vertalen naar praktische, werkbare oplossingen. Door mijn analytische benadering en technische expertise kan ik complexe bedrijfsprocessen omzetten in efficiënte, gestroomlijnde systemen die direct waarde toevoegen aan de organisatie. Met diepgaande expertise in Java, Spring Boot en AWS richt ik me op het bouwen van toekomstbestendige, robuuste systemen. Mijn kracht ligt in het nauw samenwerken met klanten om hun visie te vertalen naar praktische, effectieve oplossingen die echte meerwaarde bieden voor hun organisatie.
+  mieke-about: Ik ben Mieke, een gepassioneerde developer met een diepe toewijding in het creëren van gebruiksvriendelijke, visueel aantrekkelijke applicaties. Mijn carrière begon ik als productontwikkelaar, waar ik vaardigheden ontwikkelde in gebruikersgerichte en universele ontwerpprincipes. Van 2010 tot 2015 was ik project manager van een universitair onderzoeksproject, waarbij ik samenwerkte met diverse gebruikers om producten en applicaties te testen en te verbeteren. Sinds mijn overstap naar development in 2015 combineer ik mijn ontwerpexpertise met technische vaardigheden, waarbij ik me richt op frontend-ontwikkeling om ideeën visueel en intuïtief tot leven te brengen. Ik heb ook ervaring met backend-technologieën zoals PHP, Golang en Java, wat me een veelzijdige professional maakt. Gedreven door een passie voor design, gebruiksvriendelijkheid en probleemoplossend denken, vind ik voldoening in het ontwikkelen van oplossingen die direct aansluiten bij de gebruikers.
+
+  read-more: Lees meer
+  send-mail: Stuur ons een mail
+
+name: Nederlands
+code: nl
+icon: 🇳🇱
+
+navigation:
+  home: Home
+  blog: Blog
+  projects: Projecten
+  contact: Contact
+
+services:
+  consultancy:
+    title: Consultancy
+    description: Als ervaren software consultant...
+  web:
+    title: Website en webapplicaties
+    description: We zijn gespecialiseerd in het ontwerpen...
+  networking:
+    title: Netwerken
+    description: We bieden uitgebreide netwerkoplossingen...
+  automation:
+    title: Domotica
+    description: We bieden geavanceerde domotica-oplossingen...
+

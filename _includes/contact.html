@@ -1,0 +1,69 @@
+<section class="hero is-fullheight has-text-centered has-background-white-ter" id="contact-about">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-fullhd">
+                    <figure class="image">
+                        <img class="is-rounded" src="{{site.author-image-1 | absolute_url}}" alt="{{site.author-name-1}}">
+                    </figure>
+                </div>
+                <div class="column has-text-left-desktop has-text-left-tablet has-text-left-fullhd has-text-left-widescreen">
+                    <p>{% t global.frederick-about %}</p>
+                    <br>
+                    <div class="container columns is-centered">
+                        <div class="column is-full is-size-3">
+                            {% unless site.facebook_username-1 == %}
+                            <a href="http://www.facebook.com/{{site.facebook_username-1}}" target="_blank" class="has-text-black"><i class="fab fa-facebook"></i></a>
+                            {% endunless %}
+                            {% unless site.twitter_username-1 == %}
+                            <a href="https://twitter.com/intent/user?screen_name={{site.twitter_username-1}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i></a>
+                            {% endunless %}
+                            {% unless site.linkedin_username-1 ==  %}
+                            <a href="http://www.linkedin.com/in/{{site.linkedin_username-1}}" target="_blank" class="has-text-black"><i class="fab fa-linkedin"></i></a>
+                            {% endunless %}
+                            {% unless site.github_username-1 ==  %}
+                            <a href="http://www.github.com/{{site.github_username-1}}" target="_blank" class="has-text-black"><i class="fab fa-github"></i></a>
+                            {% endunless %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-fullhd">
+                    <figure class="image">
+                        <img class="is-rounded" src="{{site.author-image-2 | absolute_url}}" alt="{{site.author-name-2}}">
+                    </figure>
+                </div>
+                <div class="column has-text-left-desktop has-text-left-tablet has-text-left-fullhd has-text-left-widescreen">
+                    <p>{% t global.mieke-about %}</p>
+                    <br>
+                    <div class="container columns is-centered">
+                        <div class="column is-full is-size-3">
+                            {% unless site.facebook_username-2 == %}
+                            <a href="http://www.facebook.com/{{site.facebook_username-2}}" target="_blank" class="has-text-black"><i class="fab fa-facebook"></i></a>
+                            {% endunless %}
+                            {% unless site.twitter_username-2 == %}
+                            <a href="https://twitter.com/intent/user?screen_name={{site.twitter_username-2}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i></a>
+                            {% endunless %}
+                            {% unless site.linkedin_username-2 ==  %}
+                            <a href="http://www.linkedin.com/in/{{site.linkedin_username-2}}" target="_blank" class="has-text-black"><i class="fab fa-linkedin"></i></a>
+                            {% endunless %}
+                            {% unless site.github_username-2 ==  %}
+                            <a href="http://www.github.com/{{site.github_username-2}}" target="_blank" class="has-text-black"><i class="fab fa-github"></i></a>
+                            {% endunless %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="contact">
+                {% unless site.email == %}
+                <a id="contact-button" href="mailto:{{site.email}}"
+                   class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
+                   target="_blank">
+                    <i class="fas fa-envelope"></i>{% t global.send-mail %}
+                </a>
+                {% endunless %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,85 @@
+# CodeSolutions
+markdown: kramdown
+
+# URL of the Site
+url: ''
+# Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
+baseurl: ''
+
+# Title of the Site
+title: Code Solutions
+# Description of the Site
+description: Smart software for smarter businesses.
+# URL of Image of the Site
+site-image: /static_site_code_solutions_be/assets/images/meta.jpg
+# Keywords of the Site
+site-keywords: Software, Development, IT
+# URL for the Image of custom Favicon
+favicon-url:
+
+# Social Media and Contact
+# If you don't want to use any icon, you can leave them blank.
+email: info@codesolutions.be
+facebook_username-1: 61554727747753
+linkedin_username-1: frederick-gaens-810163142
+github_username-1: fgaens
+linkedin_username-2: mieke-nijs-2a854133
+github_username-2: Mi3k3
+
+# Google Analytics
+google-analytics: G-JBY0KRXYH9
+
+# Disqus
+disqus-shortname: thedevslot
+
+author-name-1: Frederick Gaens
+author-image-1: /assets/images/profile/frederick-gaens.jpeg
+
+author-name-2: Mieke Nijs
+author-image-2: /assets/images/profile/mieke-nijs.jpeg
+
+# URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
+author-url: https://github.com/fgaens
+
+# SASS
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Build settings
+plugins:
+  - jekyll-admin
+  - jekyll-feed
+  - jekyll-multiple-languages-plugin
+
+# Permalink
+permalink: "blog/:title"
+
+# Compress
+compress_html:
+  clippings: all
+
+collections:
+  services:
+    output: true
+  projects:
+    output: true
+
+# Exclude
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Multi lingual
+languages: [ "en", "nl" ]
+default_lang: "en"
+exclude_from_localizations: [ "assets", "images", "css", "js", "favicon.ico" ]
+language_data: data.languages

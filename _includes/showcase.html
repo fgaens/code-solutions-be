@@ -1,0 +1,29 @@
+<section class="hero is-fullheight has-text-centered" id="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="mb-5">
+        <img src="{{ '/assets/images/logo/code-solutions-logo-dark-background.png' | absolute_url }}" alt="Code Solutions Logo" style="max-width: 120px; margin-bottom: 1rem;">
+      </div>
+      <h1 class="title has-text-white is-size-1 is-uppercase has-text-weight-bold">
+        {% t global.title %}
+      </h1>
+      <h3 class="subtitle has-text-white-bis is-uppercase has-text-weight-medium is-marginless">
+        {% t global.description %}
+      </h3>
+
+      <hr>
+      <a href="{{site.url}}{{site.baseurl}}/#services"
+        class="button is-white is-rounded is-outlined is-uppercase has-text-weight-normal">{% t global.read-more %}</a>
+      </a>
+    </div>
+    <div class="images">
+      <figure class="image">
+        <img src="{{site.author-image-2 | absolute_url}}" alt="{{site.author-name-2}}">
+      </figure>
+      <figure class="image">
+        <img src="{{site.author-image-1 | absolute_url}}" alt="{{site.author-name-1}}">
+      </figure>
+    </div>
+  </div>
+  <div class="hero-footer"></div>
+</section>

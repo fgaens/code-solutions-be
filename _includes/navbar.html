@@ -1,0 +1,91 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="navbar" style="background-color: #3E5266;">
+    <div class="container">
+
+        <!-- logo or branding image on left side -->
+        <div class="navbar-brand">
+            <a class="navbar-item"
+                href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
+                <img src="{{ '/assets/images/logo/code-solutions-logo-dark-background.png' | absolute_url }}" alt="Code Solutions Logo" style="max-height: 3rem;">
+            </a>
+            <div class="navbar-burger" data-target="navbar-menu" style="color: white;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
+        <div class="navbar-menu" id="navbar-menu" style="background-color: #3E5266;">
+            <!-- navbar items | left side -->
+            <!-- <div class="navbar-start">
+            </div> -->
+            <!-- navbar items | right side -->
+            <div class="navbar-end">
+                <a class="navbar-item has-text-white {% if page.layout == 'default' %}is-active{% endif %}"
+                    href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">{% t global.home %}</a>
+                <a class="navbar-item has-text-white" href="{{site.url}}{{site.baseurl}}/#services">{% t global.services %}</a>
+                <a class="navbar-item has-text-white" href="{{site.url}}{{site.baseurl}}/#contact">{% t global.contact %}</a>
+                <a class="navbar-item has-text-white {% if page.layout == 'blog' %}is-active{% endif %}"
+                    href="{{site.url}}{{site.baseurl}}/blog">{% t global.blog %}</a>
+                <a class="navbar-item has-text-white {% if page.layout == 'project' %}is-active{% endif %}"
+                    href="{{site.url}}{{site.baseurl}}/projects">{% t global.projects %}</a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link has-text-white">
+                        {% if site.lang == "en" %}
+                            🇬🇧 {% t global.english %}
+                        {% else %}
+                            🇳🇱 {% t global.dutch %}
+                        {% endif %}
+                    </a>
+                    <div class="navbar-dropdown is-left" style="background-color: #3E5266;">
+                        {% for lang in site.languages %}
+                            {% if lang != site.lang %}
+                                {% if page.url contains '/blog/' or page.url contains '/projects/' %}
+                                    {% if lang == site.default_lang %}
+                                        <a href="{{ page.url | remove_first: '/nl' }}" class="navbar-item has-text-white">
+                                    {% else %}
+                                        <a href="/{{ lang }}{{ page.url }}" class="navbar-item has-text-white">
+                                    {% endif %}
+                                {% else %}
+                                    {% if lang == site.default_lang %}
+                                        <a href="/" onclick="window.location.href='/' + window.location.hash; event.preventDefault();" class="navbar-item has-text-white">
+                                    {% else %}
+                                        <a href="/{{ lang }}/" onclick="window.location.href='/{{ lang }}/' + window.location.hash; event.preventDefault();" class="navbar-item has-text-white">
+                                    {% endif %}
+                                {% endif %}
+                                    {% if lang == "en" %}
+                                        🇬🇧 {% t global.english %}
+                                    {% else %}
+                                        🇳🇱 {% t global.dutch %}
+                                    {% endif %}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</nav>
+<!-- Bulma Navbar JS -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        /* Get all "navbar-burger" elements */
+        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        /* Check if there are any navbar burgers */
+        if ($navbarBurgers.length > 0) {
+            /* Add a click event on each of them */
+            $navbarBurgers.forEach(function ($el) {
+                $el.addEventListener('click', function () {
+                    /* Get the target from the "data-target" attribute */
+                    var target = $el.dataset.target;
+                    var $target = document.getElementById(target);
+                    /* Toggle the class on both the "navbar-burger" and the "navbar-menu" */
+                    $el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        }
+    });
+</script>
