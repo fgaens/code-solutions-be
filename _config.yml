@@ -62,7 +62,7 @@ compress_html:
 
 collections:
   services:
-    order:
+    order:  # order not supported in jekyll 3 (ghp)
       - intro.md
       - networking.md
       - security.md
