@@ -62,11 +62,6 @@ compress_html:
 
 collections:
   services:
-    order:  # order not supported in jekyll 3 (ghp)
-      - intro.md
-      - networking.md
-      - security.md
-      - outtro.md
     output: false # set to true when page needs to be build (e.g. /services/intro)
   projects:
     output: true

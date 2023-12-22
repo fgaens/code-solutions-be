@@ -1,12 +1,16 @@
-<section class="hero is-fullheight has-text-centered" id="services">
+<section class="hero is-fullheight" id="services">
     <div class="hero-body">
         <div class="container">
-            <div
-                class="content has-text-justified-desktop has-text-justified-fullhd has-text-justified has-text-justified-tablet has-text-left-mobile">
-                {% for service in site.services %}
-                <p>{{ service.content | markdownify }}</p>
-                {% endfor %}
-            </div>
+            {% include projects-heading.html %}
         </div>
+    </div>
+    <div id="results-container"></div>
+    <!--Blog Cards Section-->
+    <!-- {% for service in site.services %}
+                <p>{{ service.content | markdownify }}</p>
+                {% endfor %} -->
+    {% for service in site.services %}
+    {% include service-card.html %}
+    {% endfor %}
     </div>
 </section>
