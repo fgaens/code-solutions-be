@@ -1,7 +1,7 @@
 ---
 title: Dependency hell
 layout: post
-post-image: "/assets/images/2024-02-02-dependencies.png"
+post-image: "/assets/images/2024-02-02-dependency-hell.png"
 description: 
 tags:
 - GitHub Actions
