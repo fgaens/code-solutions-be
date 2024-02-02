@@ -170,6 +170,13 @@ a.navbar-item.is-active {
             }
         }
     }
+    &.hero.is-fullheight {
+        min-height: calc(100vh - 204px);
+        justify-content: flex-start;
+        .hero-body {
+            flex-grow: unset;
+            }
+        }
 }
 
 #search {
