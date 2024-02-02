@@ -9,7 +9,6 @@ tags:
 - Evergreen
 ---
 
-Keeping Dependencies Fresh in all your  repositories
 Maintaining up-to-date dependencies in your project repositories is a critical practice in the world of software development. It ensures that your code remains secure, efficient, and compatible with the latest innovations. Regularly updating dependencies helps patch vulnerabilities, improve performance, and unlock new features, ultimately enhancing the reliability of your software.
 However, manually managing dependencies across multiple project repositories within your organisation can be an overwhelming burden. It demands significant time and effort to track version changes, evaluate compatibility, and apply updates systematically. The complexity multiplies as the number of repositories grows, making it a formidable challenge for any development team. In this blog post, we'll delve into strategies to alleviate the burden of manual dependency management, allowing you to streamline your development process and focus on delivering high-quality software.
 
