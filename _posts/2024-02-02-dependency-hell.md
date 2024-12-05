@@ -2,7 +2,8 @@
 title: Dependency hell
 layout: post
 post-image: "/assets/images/2024-02-02-dependency-hell.png"
-description: 
+description:
+author: Frederick Gaens
 tags:
 - GitHub Actions
 - Dependabot

@@ -43,6 +43,11 @@ layout: compress
                             {% endfor %}
                         </p>
                         {%- endunless -%}
+
+                        {% unless page.author.size == 0 %}
+                        <p id="description" class="content is-small has-text-weight-medium is-uppercase">
+                            {{page.author | strip | strip_html | strip_newlines }}</p>
+                        {% endunless %}
                     
                     </div>
                 </div>
