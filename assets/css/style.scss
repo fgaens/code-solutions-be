@@ -68,7 +68,7 @@ a.navbar-item.is-active {
                     }
                 }
             }
-            @media (min-width: 768px) {
+            @media (max-width: 768px) {
                 display: none;
             }
         }
