@@ -34,11 +34,14 @@ google-analytics: G-JBY0KRXYH9
 disqus-shortname: thedevslot
 
 # Name of the Author
-author-name: Frederick Gaens
+author-name-1: Frederick Gaens
 # URL for the Image of the Author
-author-image: /assets/images/profile.jpg
+author-image-1: /assets/images/profile.jpg
 # 60 Words About the Author
-author-about: As an accomplished software developer with a Bachelor's in Applied Computer Science and extensive freelance experience, I specialize in architecting innovative solutions that transcend conventional boundaries. With a proven track record in spearheading complex projects for leading companies like Engie Digital and Evonik, my expertise lies in modernizing backend landscapes, implementing scalable microservice architectures, and orchestrating seamless CI/CD migrations. Proficient in Java, Spring Boot, Micronaut, AWS, and diverse toolsets, I thrive in transforming concepts into robust, efficient software systems, delivering impactful solutions while ensuring superior technical analysis, implementation, and meticulous testing.
+author-about-1: As an accomplished software developer with a Bachelor's in Applied Computer Science and extensive freelance experience, I specialize in architecting innovative solutions that transcend conventional boundaries. With a proven track record in spearheading complex projects for leading companies like Engie Digital and Evonik, my expertise lies in modernizing backend landscapes, implementing scalable microservice architectures, and orchestrating seamless CI/CD migrations. Proficient in Java, Spring Boot, Micronaut, AWS, and diverse toolsets, I thrive in transforming concepts into robust, efficient software systems, delivering impactful solutions while ensuring superior technical analysis, implementation, and meticulous testing.
+author-name-2: Mieke Nijs
+author-image-2: /assets/images/mieke-nijs.jpeg
+author-about-2: I’m Mieke, a passionate developer with a strong foundation in product design and a deep commitment to creating user-friendly, visually compelling applications. My journey began in product design, where I honed skills in user-centered and universal design principles. From 2010 to 2015, I managed a university research project, collaborating with diverse users to test and improve products and applications. Since transitioning to development in 2015, I’ve combined my design expertise with technical skills, focusing on frontend development to bring ideas to life visually and intuitively. I also have experience in backend technologies like PHP, Golang, and Java, making me a well-rounded professional. Driven by a passion for design, usability, and problem-solving, I thrive on crafting solutions that truly resonate with users.
 author-services: Test
 
 # URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
