@@ -58,14 +58,14 @@ a.navbar-item.is-active {
                     border-radius: 2.5rem;
                     padding: 5px;
                     width: 250px;
-                    &:first-child{
-                        transform: rotate(5deg);
-                    }
-                    &:last-child{
-                        transform: rotate(-7deg);
-                        margin-top: -45px;
-                        margin-left: -43px;
-                    }
+                }
+                &:first-child img{
+                    transform: rotate(5deg);
+                }
+                &:last-child img{
+                    transform: rotate(-7deg);
+                    margin-top: -45px;
+                    margin-left: -43px;
                 }
             }
             @media (max-width: 768px) {
