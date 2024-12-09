@@ -83,7 +83,7 @@ a.navbar-item.is-active {
         --angle-width: 15rem;
         --angle-end: calc(var(--angle-start) + var(--angle-width));
         clip-path: polygon(0 12.5rem, var(--angle-start) 12.5rem, var(--angle-end) 0, 100% 0, 100% 100%, 0 100%);
-        @media (max-width: 768px) {
+        @media (max-width: 768px) and (orientation: landscape) {
             display: none;
         }
     }
