@@ -38,6 +38,7 @@ a.navbar-item.is-active {
 }
 
 
+
 #hero {
     background: rgb(0, 0, 0);
     background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
@@ -45,20 +46,43 @@ a.navbar-item.is-active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
 
-    &::before {
-        filter: blur(0.15rem);
-        background-image: url({{site.background-image}});
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        position: absolute;
-        opacity: 0.25;
-        content: "";
+    .hero-body{
+        background: rgb(9, 35, 14);
+        background: linear-gradient(90deg, rgba(9, 35, 14, 1) 0%, rgba(29, 107, 43, 1) 75%);
+        .images{
+            figure{
+                max-width: 20rem;
+                width: 20vw;
+                img{
+                    border: 2px solid #ddd;
+                    border-radius: 2.5rem;
+                    padding: 5px;
+                    width: 250px;
+                    &:first-child{
+                        transform: rotate(5deg);
+                    }
+                    &:last-child{
+                        transform: rotate(-7deg);
+                        margin-top: -45px;
+                        margin-left: -43px;
+                    }
+                }
+            }
+            @media (min-width: 768px) {
+                display: none;
+            }
+        }
+    }
+
+    .hero-footer{
+        background-color: #fff;
+        margin-top: calc(12.5em* -1);
+        padding-top: 12.5em;
+        padding-bottom: 0;
+        --angle-start: 50vw;
+        --angle-width: 15rem;
+        --angle-end: calc(var(--angle-start) + var(--angle-width));
+        clip-path: polygon(0 12.5rem, var(--angle-start) 12.5rem, var(--angle-end) 0, 100% 0, 100% 100%, 0 100%);
     }
 }
 .title {
