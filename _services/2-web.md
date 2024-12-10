@@ -4,4 +4,4 @@ layout: page
 image: "/assets/images/web.jpeg"
 ---
 
-I specialize in designing and developing bespoke websites and applications for small to medium-sized businesses. My approach involves creating user-friendly, scalable, and efficient digital solutions that cater specifically to the unique requirements and objectives of each business. Emphasizing quality and innovation, I ensure that every project, from initial concept to final deployment, is handled with utmost precision and professionalism, delivering impactful digital presences for businesses.
+We specialize in designing and developing bespoke websites and applications for small to medium-sized businesses. Our approach focuses on creating user-friendly, scalable, and efficient digital solutions that are tailored to the unique requirements and goals of each business. With an emphasis on quality and innovation, we ensure that every project, from initial concept to final deployment, is handled with precision and professionalism, delivering impactful digital presences for our clients.
