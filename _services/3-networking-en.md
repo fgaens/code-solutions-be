@@ -1,6 +1,7 @@
 ---
 title: Networking
 layout: page
+lang: en
 image: "/assets/images/networking.jpeg"
 ---
 

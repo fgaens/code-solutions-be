@@ -1,0 +1,42 @@
+global:
+  english: English
+  dutch: Nederlands
+  title: "Code Solutions"
+  description: "Smart software for smarter businesses"
+
+  home: Home
+  services: Services
+  contact: Contact
+  blog: Blog
+  projects: Projects
+
+  frederick-about: I'm Frederick, a software developer who loves solving complex technical challenges. My computer science background and years of freelance work have taught me how to turn difficult problems into elegant solutions. I've had the opportunity to work with companies like Engie Digital and Evonik, where I helped modernize their backend systems and build microservice architectures that made a real difference to their operations. I work primarily with Java, Spring Boot, and AWS, focusing on creating reliable, efficient systems that stand the test of time. What I enjoy most is working closely with end-customers to understand their needs and deliver solutions that truly work for them.
+  mieke-about: I’m Mieke, a passionate developer with a strong foundation in product design and a deep commitment to creating user-friendly, visually compelling applications. My journey began in product design, where I honed skills in user-centered and universal design principles. From 2010 to 2015, I managed a university research project, collaborating with diverse users to test and improve products and applications. Since transitioning to development in 2015, I’ve combined my design expertise with technical skills, focusing on frontend development to bring ideas to life visually and intuitively. I also have experience in backend technologies like PHP, Golang, and Java, making me a well-rounded professional. Driven by a passion for design, usability, and problem-solving, I thrive on crafting solutions that truly resonate with users.
+
+  read-more: Read more
+  send-mail: Send us an Email
+
+navigation:
+  home: Home
+  blog: Blog
+  projects: Projects
+  services: Services
+
+services:
+  consultancy:
+    title: Consultancy
+    description: As an experienced software consultant and frontend-focused software developer...
+  web:
+    title: Website and web applications
+    description: We specialize in designing and developing bespoke websites...
+  networking:
+    title: Networking
+    description: We offer comprehensive networking solutions...
+  automation:
+    title: Home automation
+    description: We provide advanced home automation solutions...
+
+footer:
+  contact: Contact us
+  email: Email
+  social: Follow us

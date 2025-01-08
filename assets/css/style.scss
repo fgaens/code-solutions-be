@@ -403,3 +403,12 @@ a.navbar-item.is-active {
         }
     }
 }
+
+.navbar-dropdown {
+    .navbar-item {
+        &:hover {
+            background-color: rgba($color: #fff, $alpha: 0.25) !important;
+            color: white !important;
+        }
+    }
+}

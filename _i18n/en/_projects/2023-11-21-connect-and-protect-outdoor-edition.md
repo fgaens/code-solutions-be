@@ -1,6 +1,7 @@
 ---
 title: "Connect & Protect: Outdoor Edition"
 layout: post
+lang: en
 post-image: "/assets/images/2023-11-21-connect-and-protect-outdoor-edition.jpeg"
 description: Elevating security and wireless accessibility
 tags:

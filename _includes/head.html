@@ -4,4 +4,23 @@
     <link rel="stylesheet" href="{% if site.baseurl %}{{site.baseurl}}{% else %}{% endif %}/assets/css/style.css">
     <script src="https://kit.fontawesome.com/6a97161b76.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{% if site.favicon-url %}{{site.favicon-url}}{% else %}{{ 'assets/images/logo_vertical_dark.png' | absolute_url }}{% endif %}" type="image/x-icon">
+
+<!--     Language redirect -->
+    <script type="text/javascript">
+     function handleLanguageRedirect() {
+       const browserLang = navigator.language || navigator.userLanguage;
+       if (window.location.pathname === '/') {
+         if (browserLang.startsWith('nl') && !document.cookie.includes('language_redirect=true')) {
+           document.cookie = 'language_redirect=true; path=/';
+           window.location.href = '/nl/';
+         }
+       }
+     }
+    </script>
+
+    <script type="text/javascript">
+     if (typeof window !== 'undefined') {
+       window.onload = handleLanguageRedirect;
+     }
+    </script>
 </head>

@@ -1,6 +1,7 @@
 ---
 title: Consultancy
 layout: page
+lang: en
 image: "/assets/images/consultancy.jpeg"
 ---
 

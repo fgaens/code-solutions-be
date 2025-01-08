@@ -1,6 +1,7 @@
 ---
 title: "Designing for real people"
 layout: post
+lang: en
 post-image: "/assets/images/2024-11-25-designing-for-real-people.png"
 description: 
 author: Mieke Nijs

@@ -1,6 +1,7 @@
 ---
 title: Dependency hell
 layout: post
+lang: en
 post-image: "/assets/images/2024-02-02-dependency-hell.png"
 description:
 author: Frederick Gaens

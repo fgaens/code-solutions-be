@@ -1,6 +1,7 @@
 ---
 title: Home automation
 layout: page
+lang: en
 image: "/assets/images/home-automation.jpeg"
 ---
 

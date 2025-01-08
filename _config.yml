@@ -15,7 +15,7 @@ site-image: /static_site_code_solutions_be/assets/images/meta.jpg
 # Keywords of the Site
 site-keywords: Software, Development, IT
 # URL for the Image of custom Favicon
-favicon-url: 
+favicon-url:
 
 # URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
 background-image: /assets/images/background_2.png
@@ -25,9 +25,9 @@ background-image: /assets/images/background_2.png
 email: info@codesolutions.be
 facebook_username-1: 61554727747753
 linkedin_username-1: frederick-gaens-810163142
-github_username-1:  fgaens
+github_username-1: fgaens
 linkedin_username-2: mieke-nijs-2a854133
-github_username-2:  Mi3k3
+github_username-2: Mi3k3
 
 # Google Analytics
 google-analytics: G-JBY0KRXYH9
@@ -37,12 +37,9 @@ disqus-shortname: thedevslot
 
 author-name-1: Frederick Gaens
 author-image-1: /assets/images/frederick-gaens.jpeg
-author-about-1: I'm a software developer who loves solving complex technical challenges. My computer science background and years of freelance work have taught me how to turn difficult problems into elegant solutions. I've had the opportunity to work with companies like Engie Digital and Evonik, where I helped modernize their backend systems and build microservice architectures that made a real difference to their operations. I work primarily with Java, Spring Boot, and AWS, focusing on creating reliable, efficient systems that stand the test of time. What I enjoy most is working closely with end-customers to understand their needs and deliver solutions that truly work for them.
 
 author-name-2: Mieke Nijs
 author-image-2: /assets/images/mieke-nijs.jpeg
-author-about-2: I’m Mieke, a passionate developer with a strong foundation in product design and a deep commitment to creating user-friendly, visually compelling applications. My journey began in product design, where I honed skills in user-centered and universal design principles. From 2010 to 2015, I managed a university research project, collaborating with diverse users to test and improve products and applications. Since transitioning to development in 2015, I’ve combined my design expertise with technical skills, focusing on frontend development to bring ideas to life visually and intuitively. I also have experience in backend technologies like PHP, Golang, and Java, making me a well-rounded professional. Driven by a passion for design, usability, and problem-solving, I thrive on crafting solutions that truly resonate with users.
-author-services: Test
 
 # URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
 author-url: https://github.com/fgaens
@@ -56,6 +53,7 @@ sass:
 plugins:
   - jekyll-admin
   - jekyll-feed
+  - jekyll-multiple-languages-plugin
 
 # Permalink
 permalink: "blog/:title"
@@ -66,7 +64,7 @@ compress_html:
 
 collections:
   services:
-    output: false # set to true when page needs to be build (e.g. /services/intro)
+    output: true
   projects:
     output: true
 
@@ -82,3 +80,9 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+
+# Multi lingual
+languages: [ "en", "nl" ]
+default_lang: "en"
+exclude_from_localizations: [ "assets", "images", "css", "js", "favicon.ico" ]
+language_data: data.languages

@@ -1,6 +1,7 @@
 ---
 title: Smart Lock Installation
 layout: post
+lang: en
 post-image: "/assets/images/2023-10-29-smart-lock-installation.jpeg"
 description: Improving home security with automated add-on door locks
 tags:

@@ -1,6 +1,7 @@
 ---
-title: Website and webapplications
+title: Websites and webapplications
 layout: page
+lang: en
 image: "/assets/images/web.jpeg"
 ---
 
