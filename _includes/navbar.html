@@ -5,7 +5,7 @@
         <div class="navbar-brand">
             <a class="navbar-item"
                 href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                <img src="{{site.url}}{{site.baseurl}}/assets/images/logo/code-solutions-logo-dark-background.png" alt="Code Solutions Logo" style="max-height: 3rem;">
+                <img src="{{ '/assets/images/logo/code-solutions-logo-dark-background.png' | absolute_url }}" alt="Code Solutions Logo" style="max-height: 3rem;">
             </a>
             <div class="navbar-burger" data-target="navbar-menu" style="color: white;">
                 <span></span>
