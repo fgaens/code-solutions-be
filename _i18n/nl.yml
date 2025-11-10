@@ -1,4 +1,6 @@
 global:
+  english: English
+  dutch: Nederlands
   title: Code Solutions
   description: Slimme software voor slimmere bedrijven
 
