@@ -1,5 +1,10 @@
 # Repository Guidance
 
+## Feature Planning
+
+- Use repo-local `openspec/` for new feature proposals, specs, and tasks; keep independent features in separate changes. See `openspec/README.md` for the OpenCode commands and lifecycle.
+- `/opsx-propose` is planning only. Review the generated artifacts before explicitly starting `/opsx-apply`; archive after implementation and verification. Repository-specific artifact guidance lives in `openspec/config.yaml`, not global `openspec config` settings.
+
 ## Commands and Validation
 
 - This is a Jekyll static website, not a backend application despite the repository name. CI uses Ruby 3.2; `Gemfile.lock` records Bundler 2.6.2.
@@ -29,6 +34,7 @@
 - Demos load only on demand: the panel shows the project cover image with a launch button, and `assets/js/site.js` creates the `iframe` on click. Do not add `src` to the markup, and keep the tablist's `aria-selected`/`tabindex` handling in that script.
 - SolarStash generates a deterministic synthetic year (35,040 quarter-hour intervals, seeded PRNG) at load and caches simulation results per capacity/power. Its figures are modelled, never measured; keep the demo notice and the honest negative-outcome messaging intact.
 - Projects link to their demo through the `demo` front matter key in `_projects/*.md`, rendered by `_layouts/post.html`.
+
 ## Layout and Styling
 
 - `index.md` only selects `layout: default`. `_layouts/default.html` assembles homepage includes and does not render `{{ content }}`. Shared navigation behavior lives in `assets/js/site.js`; listings filter their rendered cards via `_includes/search.html`.

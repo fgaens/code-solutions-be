@@ -68,6 +68,8 @@ collections:
 # Exclude
 exclude:
   - AGENTS.md
+  - openspec/
+  - .opencode/
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
