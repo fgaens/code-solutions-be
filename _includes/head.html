@@ -1,10 +1,11 @@
 {% assign root_url = site.baseurl_root %}
 {% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+{% assign asset_version = site.time | date: '%s' %}
 <head>
     {% include meta.html %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="{{ root_url }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ root_url }}/assets/css/style.css?v={{ asset_version }}">
     <link rel="icon" href="{{ root_url }}/assets/images/logo/code-solutions-logo-profile-large-white-background.jpg">
-    <script src="{{ root_url }}/assets/js/site.js" defer data-root="{{ root_url }}"></script>
+    <script src="{{ root_url }}/assets/js/site.js?v={{ asset_version }}" defer data-root="{{ root_url }}"></script>
 </head>
