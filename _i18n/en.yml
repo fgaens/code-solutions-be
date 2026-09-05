@@ -10,9 +10,6 @@ global:
   blog: Blog
   projects: Projects
 
-  frederick-about: I'm Frederick, a software developer who loves solving complex technical challenges. My computer science background and years of freelance work have taught me how to turn difficult problems into elegant solutions. I've had the opportunity to work with companies like Engie Digital and Evonik, where I helped modernize their backend systems and build microservice architectures that made a real difference to their operations. I work primarily with Java, Spring Boot, and AWS, focusing on creating reliable, efficient systems that stand the test of time. What I enjoy most is working closely with end-customers to understand their needs and deliver solutions that truly work for them.
-  mieke-about: I’m Mieke, a passionate developer with a strong foundation in product design and a deep commitment to creating user-friendly, visually compelling applications. My journey began in product design, where I honed skills in user-centered and universal design principles. From 2010 to 2015, I managed a university research project, collaborating with diverse users to test and improve products and applications. Since transitioning to development in 2015, I’ve combined my design expertise with technical skills, focusing on frontend development to bring ideas to life visually and intuitively. I also have experience in backend technologies like PHP, Golang, and Java, making me a well-rounded professional. Driven by a passion for design, usability, and problem-solving, I thrive on crafting solutions that truly resonate with users.
-
   read-more: Read more
   send-mail: Send us an Email
 
@@ -21,7 +18,6 @@ navigation:
   main: Main navigation
   footer: Footer navigation
   menu: Menu
-  team: Our team
   language: Language
   talk: Let's talk
   home: Home
@@ -83,15 +79,6 @@ home:
   work_eyebrow: Ideas in action
   work_title: Thoughtful software. Working examples.
   work_cta: Explore our projects
-  team_eyebrow: The people behind the code
-  team_title: Two perspectives. One shared standard.
-  team_description: Backend depth meets frontend craft. We're Frederick and Mieke, bringing complementary skills and a personal approach to your project.
-  frederick_role: Software engineering & architecture
-  frederick_summary: Frederick turns complex business challenges into reliable software. His focus is on Java, Spring Boot, AWS, and systems built to last.
-  mieke_role: Frontend development & design
-  mieke_summary: Mieke connects thoughtful design with intuitive development. With a background in product design, she puts real people at the heart of every interface.
-  person_more: More about my background
-  resume: Resume
   contact_eyebrow: Your next chapter
   contact_title: What would you like to build?
   contact_description: A new idea, a technical challenge, or a system that could work better. Tell us what you're thinking.

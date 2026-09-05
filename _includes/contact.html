@@ -1,27 +1,3 @@
-{% assign root_url = site.baseurl_root %}
-{% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
-<section class="section-space team-section" id="team" aria-labelledby="team-title">
-    <div class="container">
-        <div class="section-heading">
-            <div><p class="eyebrow">{% t home.team_eyebrow %}</p><h2 class="section-title" id="team-title">{% t home.team_title %}</h2></div>
-            <p class="section-copy">{% t home.team_description %}</p>
-        </div>
-        <div class="team-grid">
-            <article class="person-card">
-                <div class="person-heading"><img src="{{ root_url }}{{ site.author-image-1 }}" alt="{{ site.author-name-1 }}" width="112" height="112" loading="lazy" decoding="async"><div><h3>{{ site.author-name-1 }}</h3><p>{% t home.frederick_role %}</p></div></div>
-                <p class="person-summary">{% t home.frederick_summary %}</p>
-                <details><summary>{% t home.person_more %}</summary><p>{% t global.frederick-about %}</p></details>
-                <div class="person-links"><a href="https://www.linkedin.com/in/{{ site.linkedin_username-1 }}">LinkedIn{% include icon.html name='arrow' %}</a><a href="https://github.com/{{ site.github_username-1 }}">GitHub{% include icon.html name='arrow' %}</a><a href="https://fgaens.github.io/curriculum-vitae/">{% t home.resume %}{% include icon.html name='arrow' %}</a></div>
-            </article>
-            <article class="person-card">
-                <div class="person-heading"><img src="{{ root_url }}{{ site.author-image-2 }}" alt="{{ site.author-name-2 }}" width="112" height="112" loading="lazy" decoding="async"><div><h3>{{ site.author-name-2 }}</h3><p>{% t home.mieke_role %}</p></div></div>
-                <p class="person-summary">{% t home.mieke_summary %}</p>
-                <details><summary>{% t home.person_more %}</summary><p>{% t global.mieke-about %}</p></details>
-                <div class="person-links"><a href="https://www.linkedin.com/in/{{ site.linkedin_username-2 }}">LinkedIn{% include icon.html name='arrow' %}</a><a href="https://github.com/{{ site.github_username-2 }}">GitHub{% include icon.html name='arrow' %}</a><a href="https://mi3k3.github.io/curriculum-vitae/">{% t home.resume %}{% include icon.html name='arrow' %}</a></div>
-            </article>
-        </div>
-    </div>
-</section>
 <section class="contact-section section-space" id="contact" aria-labelledby="contact-title">
     <div class="container contact-grid">
         <div><p class="eyebrow">{% t home.contact_eyebrow %}</p><h2 class="section-title" id="contact-title">{% t home.contact_title %}</h2><p class="section-copy">{% t home.contact_description %}</p></div>

@@ -18,7 +18,6 @@
         <div class="site-menu" id="site-menu">
             <div class="nav-links">
                 <a href="{{ site.baseurl }}/#services">{% t global.services %}</a>
-                <a href="{{ site.baseurl }}/#team">{% t navigation.team %}</a>
                 <a href="{{ site.baseurl }}/projects.html"{% if page.layout == 'project' or page.collection == 'projects' %} aria-current="page"{% endif %}>{% t global.projects %}</a>
                 <a href="{{ site.baseurl }}/blog.html"{% if page.layout == 'blog' or page.collection == 'posts' %} aria-current="page"{% endif %}>{% t global.blog %}</a>
             </div>

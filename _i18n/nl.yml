@@ -10,9 +10,6 @@ global:
   blog: Blog
   projects: Projecten
 
-  frederick-about: Als software engineer met een achtergrond in informatica en meer dan tien jaar ervaring als freelance consultant, specialiseer ik me in het oplossen van complexe technische uitdagingen. Bij toonaangevende bedrijven zoals Engie Digital en Evonik heb ik bijgedragen aan de modernisering van bedrijfskritische systemen die significante verbeteringen brachten in hun operationele efficiëntie. Wat mij onderscheidt is mijn vermogen om functionele uitdagingen te vertalen naar praktische, werkbare oplossingen. Door mijn analytische benadering en technische expertise kan ik complexe bedrijfsprocessen omzetten in efficiënte, gestroomlijnde systemen die direct waarde toevoegen aan de organisatie. Met diepgaande expertise in Java, Spring Boot en AWS richt ik me op het bouwen van toekomstbestendige, robuuste systemen. Mijn kracht ligt in het nauw samenwerken met klanten om hun visie te vertalen naar praktische, effectieve oplossingen die echte meerwaarde bieden voor hun organisatie.
-  mieke-about: Ik ben Mieke, een gepassioneerde developer met een diepe toewijding in het creëren van gebruiksvriendelijke, visueel aantrekkelijke applicaties. Mijn carrière begon ik als productontwikkelaar, waar ik vaardigheden ontwikkelde in gebruikersgerichte en universele ontwerpprincipes. Van 2010 tot 2015 was ik project manager van een universitair onderzoeksproject, waarbij ik samenwerkte met diverse gebruikers om producten en applicaties te testen en te verbeteren. Sinds mijn overstap naar development in 2015 combineer ik mijn ontwerpexpertise met technische vaardigheden, waarbij ik me richt op frontend-ontwikkeling om ideeën visueel en intuïtief tot leven te brengen. Ik heb ook ervaring met backend-technologieën zoals PHP, Golang en Java, wat me een veelzijdige professional maakt. Gedreven door een passie voor design, gebruiksvriendelijkheid en probleemoplossend denken, vind ik voldoening in het ontwikkelen van oplossingen die direct aansluiten bij de gebruikers.
-
   read-more: Lees meer
   send-mail: Stuur ons een mail
 
@@ -25,7 +22,6 @@ navigation:
   main: Hoofdnavigatie
   footer: Footernavigatie
   menu: Menu
-  team: Ons team
   language: Taal
   talk: Even praten?
   home: Home
@@ -82,15 +78,6 @@ home:
   work_eyebrow: Ideeën in actie
   work_title: Doordachte software. Werkende voorbeelden.
   work_cta: Ontdek onze projecten
-  team_eyebrow: De mensen achter de code
-  team_title: Twee perspectieven. Dezelfde hoge lat.
-  team_description: Sterke backends en doordachte frontends. Wij zijn Frederick en Mieke, met aanvullende expertise en een persoonlijke aanpak voor jouw project.
-  frederick_role: Softwareontwikkeling & architectuur
-  frederick_summary: Frederick vertaalt complexe bedrijfsuitdagingen naar betrouwbare software. Zijn focus ligt op Java, Spring Boot, AWS en systemen die lang meegaan.
-  mieke_role: Frontend-ontwikkeling & design
-  mieke_summary: Mieke verbindt doordacht design met intuïtieve ontwikkeling. Vanuit haar achtergrond in productontwikkeling zet ze echte mensen centraal in elke interface.
-  person_more: Meer over mijn achtergrond
-  resume: Cv
   contact_eyebrow: Jouw volgende stap
   contact_title: Wat wil jij bouwen?
   contact_description: Een nieuw idee, een technische uitdaging of een systeem dat beter kan. Vertel ons waar je aan denkt.
