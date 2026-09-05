@@ -85,12 +85,11 @@ home:
   footer_note: Thoughtful technology. Personal collaboration.
 
 demos:
-  eyebrow: See it running
-  title: Working software, not screenshots.
-  description: Each project below runs as a real application inside this page. Change the inputs and the software answers, exactly as it does for its users.
+  eyebrow: Interactive demos
+  title: Try it yourself.
+  description: Choose a project and explore the demo. No account needed.
   tab_label: Choose a product demo
-  launch: Start the demo
-  launch_note: Runs in your browser. No account, nothing leaves this page.
+  loading: Loading demo…
   open: Open in a new tab
   case: Read the project story
   disclaimer: The demos use synthetic demonstration data and fictional accounts, and their interfaces are in Dutch, like the applications themselves. They show how the software behaves, not real customer results.

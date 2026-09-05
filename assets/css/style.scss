@@ -203,14 +203,10 @@
 .demo-external { flex-shrink: 0; font-size: 13px; font-weight: 650; }
 .demo-viewport { position: relative; aspect-ratio: 16 / 10; max-height: 700px; background: #eef2f7; }
 .demo-viewport iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; }
-.demo-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.demo-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; pointer-events: none; }
+.demo-status { position: absolute; left: 18px; bottom: 18px; max-width: calc(100% - 36px); padding: 7px 16px; border-radius: 100px; background: #0a2540d9; color: white; font-size: 13px; font-weight: 550; pointer-events: none; }
+.demo-status:empty { display: none; }
 .demo-viewport.is-live .demo-poster { display: none; }
-.demo-launch { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; width: 100%; padding: 24px; border: 0; color: white; text-align: center; background: #0a2540a6; transition: background .2s ease; }
-.demo-launch:hover { background: #0a2540c2; }
-.demo-launch-icon { display: grid; place-items: center; width: 64px; height: 64px; padding-left: 4px; border-radius: 100%; background: white; color: var(--purple); font-size: 19px; box-shadow: 0 14px 34px -12px #0a254099; transition: transform .2s ease; }
-.demo-launch:hover .demo-launch-icon { transform: scale(1.07); }
-.demo-launch-label { margin-top: 14px; font-size: 19px; font-weight: 700; letter-spacing: -.02em; }
-.demo-launch-note { margin-top: 4px; max-width: 330px; font-size: 13px; color: #cfd9e6; line-height: 1.6; }
 .demo-notes { display: flex; justify-content: space-between; align-items: flex-end; gap: 44px; margin-top: 28px; }
 .demo-notes > div { flex: 1; min-width: 0; }
 .demo-notes > .text-link { flex-shrink: 0; }
@@ -306,7 +302,6 @@
     .demo-summary { font-size: 17px; }
     .demo-address { display: none; }
     .demo-viewport { aspect-ratio: 3 / 4; max-height: 560px; }
-    .demo-launch-label { font-size: 17px; }
 }
 
 @media (max-width: 480px) {

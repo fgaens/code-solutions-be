@@ -84,12 +84,11 @@ home:
   footer_note: Doordachte technologie. Persoonlijke samenwerking.
 
 demos:
-  eyebrow: Zie het werken
-  title: Werkende software, geen screenshots.
-  description: Elk project hieronder draait als echte applicatie in deze pagina. Verander de invoer en de software antwoordt, precies zoals bij de gebruikers ervan.
+  eyebrow: Interactieve demo's
+  title: Probeer het zelf.
+  description: Kies een project en probeer de demo. Je hebt geen account nodig.
   tab_label: Kies een productdemo
-  launch: Start de demo
-  launch_note: Draait in je browser. Geen account, niets verlaat deze pagina.
+  loading: Demo wordt geladen…
   open: Openen in een nieuw tabblad
   case: Lees het projectverhaal
   disclaimer: De demo's gebruiken synthetische demonstratiedata en fictieve accounts. Ze tonen hoe de software zich gedraagt, niet echte klantresultaten.

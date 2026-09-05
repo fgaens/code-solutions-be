@@ -20,6 +20,7 @@
         {% assign demo_project = site.projects | where: 'title', demo.title | first %}
         {% capture demo_url %}{{ root_url }}/demos/{{ demo.slug }}.html{% endcapture %}
         {% capture frame_title %}{% t demos.{{ demo.slug }}.frame %}{% endcapture %}
+        {% capture loading_label %}{% t demos.loading %}{% endcapture %}
         <div class="demo-panel" id="demo-panel-{{ demo.slug }}" role="tabpanel" aria-labelledby="demo-tab-{{ demo.slug }}" tabindex="0"{% unless forloop.first %} hidden{% endunless %}>
             <div class="demo-frame">
                 <div class="demo-bar">
@@ -27,13 +28,9 @@
                     <span class="demo-address">codesolutions.be/demos/{{ demo.slug }}</span>
                     <a class="demo-external" href="{{ demo_url }}" target="_blank" rel="noopener">{% t demos.open %}</a>
                 </div>
-                <div class="demo-viewport">
+                <div class="demo-viewport" data-demo-src="{{ demo_url }}" data-demo-title="{{ frame_title | strip | escape }}" data-demo-loading="{{ loading_label | strip | escape }}">
                     <img class="demo-poster" src="{{ root_url }}{{ demo.poster }}" alt="" loading="lazy" decoding="async">
-                    <button type="button" class="demo-launch" data-demo-launch data-demo-src="{{ demo_url }}" data-demo-title="{{ frame_title | strip | escape }}">
-                        <span class="demo-launch-icon" aria-hidden="true">&#9654;</span>
-                        <span class="demo-launch-label">{% t demos.launch %}</span>
-                        <span class="demo-launch-note">{% t demos.launch_note %}</span>
-                    </button>
+                    <p class="demo-status" role="status" aria-live="polite"></p>
                 </div>
             </div>
             <div class="demo-notes">
