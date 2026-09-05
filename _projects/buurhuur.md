@@ -2,6 +2,7 @@
 title: BuurHuur
 layout: post
 order: 2
+demo: /demos/buurhuur.html
 featured: true
 category: projects.buurhuur.category
 description: projects.buurhuur.description

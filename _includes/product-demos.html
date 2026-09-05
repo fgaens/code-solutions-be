@@ -1,0 +1,57 @@
+{% assign root_url = site.baseurl_root %}
+{% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+<section class="section-space demo-section" id="demos" aria-labelledby="demos-title">
+    <div class="container">
+        <div class="section-heading">
+            <div><p class="eyebrow">{% t demos.eyebrow %}</p><h2 class="section-title" id="demos-title">{% t demos.title %}</h2></div>
+            <p class="section-copy">{% t demos.description %}</p>
+        </div>
+
+        <div class="demo-tabs" role="tablist" aria-label="{% t demos.tab_label %}">
+            {% for demo in site.data.demos %}
+            <button type="button" class="demo-tab" role="tab" id="demo-tab-{{ demo.slug }}" aria-controls="demo-panel-{{ demo.slug }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">
+                <span class="demo-tab-name">{{ demo.title }}</span>
+                <span class="demo-tab-note">{% t demos.{{ demo.slug }}.tagline %}</span>
+            </button>
+            {% endfor %}
+        </div>
+
+        {% for demo in site.data.demos %}
+        {% assign demo_project = site.projects | where: 'title', demo.title | first %}
+        {% capture demo_url %}{{ root_url }}/demos/{{ demo.slug }}.html{% endcapture %}
+        {% capture frame_title %}{% t demos.{{ demo.slug }}.frame %}{% endcapture %}
+        <div class="demo-panel" id="demo-panel-{{ demo.slug }}" role="tabpanel" aria-labelledby="demo-tab-{{ demo.slug }}" tabindex="0"{% unless forloop.first %} hidden{% endunless %}>
+            <div class="demo-frame">
+                <div class="demo-bar">
+                    <span class="demo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="demo-address">codesolutions.be/demos/{{ demo.slug }}</span>
+                    <a class="demo-external" href="{{ demo_url }}" target="_blank" rel="noopener">{% t demos.open %}</a>
+                </div>
+                <div class="demo-viewport">
+                    <img class="demo-poster" src="{{ root_url }}{{ demo.poster }}" alt="" loading="lazy" decoding="async">
+                    <button type="button" class="demo-launch" data-demo-launch data-demo-src="{{ demo_url }}" data-demo-title="{{ frame_title | strip | escape }}">
+                        <span class="demo-launch-icon" aria-hidden="true">&#9654;</span>
+                        <span class="demo-launch-label">{% t demos.launch %}</span>
+                        <span class="demo-launch-note">{% t demos.launch_note %}</span>
+                    </button>
+                </div>
+            </div>
+            <div class="demo-notes">
+                <div>
+                    <p class="demo-summary">{% t demos.{{ demo.slug }}.summary %}</p>
+                    <ul class="demo-points">
+                        <li>{% include icon.html name='check' %}<span>{% t demos.{{ demo.slug }}.point_one %}</span></li>
+                        <li>{% include icon.html name='check' %}<span>{% t demos.{{ demo.slug }}.point_two %}</span></li>
+                        <li>{% include icon.html name='check' %}<span>{% t demos.{{ demo.slug }}.point_three %}</span></li>
+                    </ul>
+                </div>
+                {% if demo_project %}
+                <a class="text-link" href="{{ site.baseurl }}{{ demo_project.url }}">{% t demos.case %}{% include icon.html name='arrow' %}</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <p class="demo-disclaimer">{% t demos.disclaimer %}</p>
+    </div>
+</section>

@@ -54,3 +54,47 @@ if (window.location.pathname === `${root}/` &&
     document.cookie = `language_redirect=true; path=${root || '/'}; SameSite=Lax`;
     window.location.replace(`${root}/nl/${window.location.hash}`);
 }
+
+const demoTabs = Array.from(document.querySelectorAll('.demo-tab'));
+
+if (demoTabs.length) {
+    const demoPanels = demoTabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+
+    function selectDemo(index, moveFocus) {
+        demoTabs.forEach((tab, position) => {
+            const active = position === index;
+            tab.setAttribute('aria-selected', String(active));
+            tab.tabIndex = active ? 0 : -1;
+            demoPanels[position].hidden = !active;
+        });
+        if (moveFocus) demoTabs[index].focus();
+    }
+
+    demoTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectDemo(index, false));
+        tab.addEventListener('keydown', (event) => {
+            const steps = { ArrowLeft: -1, ArrowRight: 1 };
+            if (event.key === 'Home' || event.key === 'End') {
+                event.preventDefault();
+                selectDemo(event.key === 'Home' ? 0 : demoTabs.length - 1, true);
+            } else if (event.key in steps) {
+                event.preventDefault();
+                selectDemo((index + steps[event.key] + demoTabs.length) % demoTabs.length, true);
+            }
+        });
+    });
+}
+
+document.querySelectorAll('[data-demo-launch]').forEach((button) => {
+    button.addEventListener('click', () => {
+        const viewport = button.closest('.demo-viewport');
+        const frame = document.createElement('iframe');
+        frame.src = button.dataset.demoSrc;
+        frame.title = button.dataset.demoTitle;
+        frame.loading = 'lazy';
+        viewport.classList.add('is-live');
+        viewport.appendChild(frame);
+        button.remove();
+        frame.focus();
+    });
+});

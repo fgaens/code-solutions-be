@@ -2,6 +2,7 @@
 title: SolarStash
 layout: post
 order: 1
+demo: /demos/solarstash.html
 featured: true
 category: projects.solarstash.category
 description: projects.solarstash.description

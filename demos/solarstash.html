@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SolarStash &mdash; interactieve demo | Code Solutions</title>
+<meta name="description" content="Interactieve demo van SolarStash: simuleer een thuisbatterij op synthetische kwartierdata en bekijk besparing, terugverdientijd en netto contante waarde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+    --ink: #0a2540;
+    --muted: #5c6f85;
+    --purple: #554bdc;
+    --line: #e4eaf1;
+    --surface: #f4f7fb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: var(--ink); font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { line-height: 1.2; margin: 0; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #7169ee; outline-offset: 3px; border-radius: 4px; }
+[hidden] { display: none !important; }
+
+.exit-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 10px 20px; background: var(--ink); color: white; font-size: 13px; }
+.exit-bar a { color: white; font-weight: 600; text-decoration: none; }
+.exit-bar a:hover { text-decoration: underline; }
+
+.app-header { background: #0b2035; color: white; }
+.app-header .row { max-width: 1180px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.app-brand { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 700; letter-spacing: -.02em; }
+.app-header .tools { display: flex; align-items: center; gap: 14px; font-size: 13px; color: #b9c7d8; }
+.app-header .tools strong { color: white; }
+.ghost-button { background: white; color: var(--ink); border: 0; border-radius: 8px; padding: 8px 16px; font-weight: 600; font-size: 14px; }
+.ghost-button:hover { background: #e8ecff; }
+.header-rule { height: 3px; background: linear-gradient(90deg, #554bdc, #8f7bf0 40%, #f3b9a0 75%, #f6d6c4); }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 22px 20px 40px; }
+.notice { border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; font-size: 13px; color: #435468; background: linear-gradient(100deg, #eef0ff, #f7f2ff 45%, #fdf0ea); }
+.card { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px; box-shadow: 0 1px 2px #0a254008; }
+.card + .card, .notice + .card, .grid + .card, .card + .grid, .notice + .grid { margin-top: 18px; }
+.card-title { font-size: 24px; font-weight: 700; letter-spacing: -.03em; display: flex; align-items: center; gap: 10px; }
+.card-sub { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+.section-label { font-size: 17px; font-weight: 700; margin: 26px 0 12px; }
+
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px 26px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+.control label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; font-weight: 600; color: #42566c; }
+.control output { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.control input[type=range] { width: 100%; margin: 8px 0 0; accent-color: var(--purple); }
+.control .hint { font-size: 12px; color: var(--muted); }
+.control-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+.pill-group { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.pill-group button { border: 0; background: white; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #42566c; }
+.pill-group button[aria-pressed=true] { background: var(--purple); color: white; }
+.link-button { border: 0; background: none; color: var(--purple); font-weight: 600; font-size: 14px; padding: 8px 0; }
+
+.grid { display: grid; gap: 14px; }
+.kpi-grid { grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); }
+.kpi { background: white; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.kpi.is-primary { background: linear-gradient(120deg, #eceaff, #f6f0ff 45%, #fdece5); border-color: #ded8ff; }
+.kpi dt { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.kpi dd { margin: 6px 0 0; font-size: 26px; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.kpi dd.is-negative { color: #b4462f; }
+.chart-grid { grid-template-columns: 1.35fr 1fr; align-items: start; }
+.chart-card h3 { font-size: 17px; font-weight: 700; }
+.chart-card p { color: var(--muted); font-size: 13px; margin: 6px 0 14px; }
+.chart-card svg { width: 100%; height: auto; display: block; overflow: visible; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; font-size: 12px; color: #42566c; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+.flows { width: 100%; border-collapse: collapse; font-size: 14px; }
+.flows th { text-align: left; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding-bottom: 8px; }
+.flows td { padding: 7px 0; border-top: 1px solid #eef2f7; font-variant-numeric: tabular-nums; }
+.flows td + td, .flows th + th { text-align: right; }
+.verdict { margin-top: 18px; border-radius: 12px; padding: 14px 18px; font-size: 14px; background: #eef2f7; color: #38495d; }
+.verdict.is-good { background: #e9f6ee; color: #1f5c39; }
+
+.app-footer { border-top: 1px solid var(--line); margin-top: 30px; padding: 22px 20px 34px; text-align: center; font-size: 13px; color: var(--muted); }
+.app-footer strong { color: var(--ink); }
+
+@media (max-width: 860px) {
+    .chart-grid { grid-template-columns: 1fr; }
+    .card-title { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="exit-bar" id="exit-bar" hidden>
+    <span>SolarStash &middot; interactieve demo met synthetische data</span>
+    <a href="/#demos">&larr; Terug naar Code Solutions</a>
+</div>
+
+<header class="app-header">
+    <div class="row">
+        <span class="app-brand"><span aria-hidden="true">&#9728;&#65039;&#128267;</span> SolarStash</span>
+        <div class="tools">
+            <button type="button" class="ghost-button" id="toggle-params">Instellingen</button>
+            <span>Aangemeld als <strong>demo</strong></span>
+        </div>
+    </div>
+</header>
+<div class="header-rule"></div>
+
+<main class="wrap">
+    <p class="notice"><strong>Demo</strong> &middot; Synthetische kwartierdata (35.040 metingen). Modelberekeningen, geen gegarandeerd rendement.</p>
+
+    <section class="card">
+        <h1 class="card-title"><span aria-hidden="true">&#128267;</span> Batterijanalyse</h1>
+        <p class="card-sub">Demo Household (Gent) &mdash; simuleer een thuisbatterij op basis van de ge&iuml;mporteerde meterdata. Verbruik 4.600 kWh/jaar, PV-installatie 5,5 kWp.</p>
+
+        <div class="controls" id="params">
+            <div class="control">
+                <label for="cap">Batterijcapaciteit <output id="cap-out" for="cap"></output></label>
+                <input type="range" id="cap" min="0" max="20" step="0.5" value="10">
+                <span class="hint">Bruikbaar vermogen 92% van de nominale capaciteit.</span>
+            </div>
+            <div class="control">
+                <label for="power">Laad-/ontlaadvermogen <output id="power-out" for="power"></output></label>
+                <input type="range" id="power" min="1" max="10" step="0.5" value="4">
+                <span class="hint">Begrenst hoe snel overschot kan worden opgeslagen.</span>
+            </div>
+            <div class="control">
+                <label for="price">Batterijprijs <output id="price-out" for="price"></output></label>
+                <input type="range" id="price" min="200" max="900" step="10" value="520">
+                <span class="hint">Plus &euro;&nbsp;1.200 installatie en omvormer.</span>
+            </div>
+            <div class="control">
+                <label for="import">Afnameprijs <output id="import-out" for="import"></output></label>
+                <input type="range" id="import" min="0.15" max="0.50" step="0.005" value="0.36">
+                <span class="hint">All-in tarief inclusief netkosten en heffingen.</span>
+            </div>
+            <div class="control">
+                <label for="inject">Injectievergoeding <output id="inject-out" for="inject"></output></label>
+                <input type="range" id="inject" min="0" max="0.15" step="0.005" value="0.04">
+                <span class="hint">Wat je krijgt voor elektriciteit die naar het net gaat.</span>
+            </div>
+            <div class="control">
+                <label for="discount">Disconto <output id="discount-out" for="discount"></output></label>
+                <input type="range" id="discount" min="0" max="8" step="0.5" value="3">
+                <span class="hint">Netto contante waarde over 15 jaar, 2% degradatie per jaar.</span>
+            </div>
+        </div>
+        <div class="control-actions">
+            <button type="button" class="link-button" id="reset">Herstel de standaardparameters</button>
+        </div>
+    </section>
+
+    <h2 class="section-label">Resultaten</h2>
+    <dl class="grid kpi-grid" id="kpis"></dl>
+
+    <div class="grid chart-grid" style="margin-top:14px">
+        <section class="card chart-card">
+            <h3>Energiestromen over een dag</h3>
+            <p id="day-caption"></p>
+            <div class="pill-group" role="group" aria-label="Dag kiezen">
+                <button type="button" data-day="172" aria-pressed="true">Zomerdag</button>
+                <button type="button" data-day="80" aria-pressed="false">Lentedag</button>
+                <button type="button" data-day="15" aria-pressed="false">Winterdag</button>
+            </div>
+            <div id="day-chart" style="margin-top:16px"></div>
+            <div class="legend">
+                <span><i style="background:#f0b47f"></i> Zonneopbrengst (kW)</span>
+                <span><i style="background:#0a2540"></i> Verbruik (kW)</span>
+                <span><i style="background:#554bdc"></i> Lading batterij (kWh, rechteras)</span>
+            </div>
+        </section>
+        <section class="card chart-card">
+            <h3>NPV vs. capaciteit</h3>
+            <p>Netto contante waarde over 15 jaar. De curve stijgt tot besparingen verzadigen en daalt daarna &mdash; het optimum is de top.</p>
+            <div id="npv-chart"></div>
+            <div class="legend">
+                <span><i style="background:#554bdc"></i> NPV (&euro;) per capaciteit (kWh)</span>
+                <span><i style="background:#0a2540"></i> Jouw keuze</span>
+            </div>
+        </section>
+    </div>
+
+    <section class="card">
+        <h3 style="font-size:17px;font-weight:700">Energiestromen per jaar</h3>
+        <table class="flows" style="margin-top:14px">
+            <thead><tr><th scope="col">&nbsp;</th><th scope="col">Zonder batterij</th><th scope="col">Met batterij</th></tr></thead>
+            <tbody id="flows"></tbody>
+        </table>
+        <p class="verdict" id="verdict"></p>
+    </section>
+</main>
+
+<footer class="app-footer">
+    SolarStash &middot; Thuisbatterij-analyse voor Vlaanderen &middot; energie in kWh, bedragen in EUR<br>
+    Een <strong>CodeSolutions</strong>-product &middot; demo met synthetische data
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    if (window.top === window.self) {
+        var exitBar = document.getElementById('exit-bar');
+        exitBar.querySelector('a').href = window.location.pathname.replace(/demos\/[^/]*$/, '') + '#demos';
+        exitBar.hidden = false;
+    }
+
+    var QUARTERS = 96, DAYS = 365, N = QUARTERS * DAYS, DT = 0.25;
+    var LOAD_YEAR = 4600, PV_YEAR = 5225;
+    var load = new Float32Array(N), pv = new Float32Array(N), month = new Uint8Array(N);
+    var MONTH_LENGTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    function mulberry32(seed) {
+        return function () {
+            seed |= 0; seed = seed + 0x6d2b79f5 | 0;
+            var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+            t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+            return ((t ^ t >>> 14) >>> 0) / 4294967296;
+        };
+    }
+
+    function bell(x, centre, width) {
+        var d = (x - centre) / width;
+        return Math.exp(-d * d);
+    }
+
+    (function generate() {
+        var random = mulberry32(20240401);
+        var monthIndex = 0, dayInMonth = 0;
+        for (var day = 0; day < DAYS; day++) {
+            if (dayInMonth >= MONTH_LENGTHS[monthIndex]) { monthIndex++; dayInMonth = 0; }
+            var seasonal = Math.sin(2 * Math.PI * (day - 81) / DAYS);
+            var daylight = 12 + 4.4 * seasonal;
+            var sunrise = 12 - daylight / 2;
+            var clearness = 0.3 + 0.7 * Math.pow(random(), 0.65);
+            var household = 0.85 + 0.3 * random();
+            for (var q = 0; q < QUARTERS; q++) {
+                var i = day * QUARTERS + q;
+                var hour = q * DT;
+                month[i] = monthIndex;
+
+                var kw = 0.16
+                    + 0.70 * bell(hour, 7.4, 1.1)
+                    + 0.30 * bell(hour, 12.6, 1.4)
+                    + 1.15 * bell(hour, 18.4, 1.7)
+                    + 0.28 * bell(hour, 21.6, 1.3);
+                kw *= 1 + 0.22 * Math.cos(2 * Math.PI * (day - 10) / DAYS);
+                load[i] = kw * household * (0.88 + 0.24 * random()) * DT;
+
+                var sun = 0;
+                if (hour > sunrise && hour < sunrise + daylight) {
+                    sun = Math.pow(Math.sin(Math.PI * (hour - sunrise) / daylight), 1.3);
+                    sun *= 0.42 + 0.58 * (0.5 + 0.5 * seasonal);
+                    sun *= clearness * (0.85 + 0.3 * random());
+                }
+                pv[i] = sun * DT;
+            }
+
+            var appliances = 2 + Math.floor(random() * 3);
+            for (var e = 0; e < appliances; e++) {
+                var from = 26 + Math.floor(random() * 62);
+                var duration = 2 + Math.floor(random() * 4);
+                var burst = (0.9 + 2.0 * random()) * DT;
+                for (var step = 0; step < duration && from + step < QUARTERS; step++) {
+                    load[day * QUARTERS + from + step] += burst;
+                }
+            }
+            dayInMonth++;
+        }
+        normalise(load, LOAD_YEAR);
+        normalise(pv, PV_YEAR);
+    })();
+
+    function normalise(series, target) {
+        var total = 0, i;
+        for (i = 0; i < N; i++) total += series[i];
+        var factor = target / total;
+        for (i = 0; i < N; i++) series[i] *= factor;
+    }
+
+    var energyCache = {};
+    var traceBuffer = new Float32Array(N);
+
+    function simulate(capacity, power, keepTrace) {
+        var key = capacity + '|' + power;
+        if (!keepTrace && energyCache[key]) return energyCache[key];
+
+        var usable = capacity * 0.92;
+        var oneWay = Math.sqrt(0.90);
+        var monthlyPeak = new Float32Array(12);
+        var trace = keepTrace ? traceBuffer : null;
+        var charge = 0, imported = 0, exported = 0, stored = 0, released = 0, selfUse = 0;
+
+        for (var i = 0; i < N; i++) {
+            var surplus = pv[i] - load[i];
+            selfUse += Math.min(pv[i], load[i]);
+            if (surplus > 0) {
+                var room = (usable - charge) / oneWay;
+                var taken = Math.min(surplus, power * DT, room);
+                charge += taken * oneWay;
+                stored += taken;
+                exported += surplus - taken;
+            } else {
+                var shortfall = -surplus;
+                var given = Math.min(shortfall, power * DT, charge * oneWay);
+                charge -= given / oneWay;
+                released += given;
+                var fromGrid = shortfall - given;
+                imported += fromGrid;
+                var kw = fromGrid / DT;
+                if (kw > monthlyPeak[month[i]]) monthlyPeak[month[i]] = kw;
+            }
+            if (trace) trace[i] = charge;
+        }
+
+        var peakSum = 0;
+        for (var m = 0; m < 12; m++) peakSum += Math.max(monthlyPeak[m], 2.5);
+
+        var result = {
+            imported: imported, exported: exported, stored: stored, released: released,
+            selfUse: selfUse, peak: peakSum / 12, trace: trace,
+            selfConsumption: (selfUse + released) / PV_YEAR,
+            cycles: capacity > 0 ? stored / (capacity * 0.92) : 0
+        };
+        if (!keepTrace) energyCache[key] = result;
+        return result;
+    }
+
+    var settings = { cap: 10, power: 4, price: 520, importPrice: 0.36, injectPrice: 0.04, discount: 3 };
+    var DEFAULTS = JSON.parse(JSON.stringify(settings));
+    var LIFETIME = 15, DEGRADATION = 0.02, CAPACITY_TARIFF = 47.5, INSTALL = 1200;
+
+    function annualCost(energy) {
+        return energy.imported * settings.importPrice - energy.exported * settings.injectPrice + energy.peak * CAPACITY_TARIFF;
+    }
+
+    function economics(capacity) {
+        var energy = simulate(capacity, settings.power, false);
+        var savings = annualCost(baseline) - annualCost(energy);
+        var investment = capacity > 0 ? capacity * settings.price + INSTALL : 0;
+        var rate = settings.discount / 100;
+        var npv = -investment;
+        for (var year = 1; year <= LIFETIME; year++) {
+            npv += savings * Math.pow(1 - DEGRADATION, year) / Math.pow(1 + rate, year);
+        }
+        var lifetimeSavings = 0;
+        for (var y = 1; y <= LIFETIME; y++) lifetimeSavings += savings * Math.pow(1 - DEGRADATION, y);
+        return {
+            energy: energy, savings: savings, investment: investment, npv: npv,
+            payback: savings > 0 ? investment / savings : Infinity,
+            roi: investment > 0 ? (lifetimeSavings - investment) / investment : 0
+        };
+    }
+
+    var baseline = simulate(0, 10, false);
+
+    var euro = new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+    var number = new Intl.NumberFormat('nl-BE', { maximumFractionDigits: 0 });
+    var oneDecimal = new Intl.NumberFormat('nl-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    var percent = new Intl.NumberFormat('nl-BE', { style: 'percent', maximumFractionDigits: 0 });
+
+    var elements = {
+        kpis: document.getElementById('kpis'),
+        flows: document.getElementById('flows'),
+        verdict: document.getElementById('verdict'),
+        dayChart: document.getElementById('day-chart'),
+        dayCaption: document.getElementById('day-caption'),
+        npvChart: document.getElementById('npv-chart')
+    };
+    var selectedDay = 172;
+
+    function renderKpis(result) {
+        var payback = result.payback === Infinity ? '&mdash;' : oneDecimal.format(result.payback) + ' jaar';
+        var tiles = [
+            ['Jaarlijkse besparing', euro.format(result.savings), true, false],
+            ['Terugverdientijd', payback, false, false],
+            ['NPV (15 jaar)', euro.format(result.npv), false, result.npv < 0],
+            ['ROI over 15 jaar', result.investment > 0 ? percent.format(result.roi) : '&mdash;', false, result.roi < 0],
+            ['Zelfconsumptie', percent.format(result.energy.selfConsumption), false, false],
+            ['Minder van het net', percent.format(1 - result.energy.imported / baseline.imported), false, false]
+        ];
+        elements.kpis.innerHTML = tiles.map(function (tile) {
+            return '<div class="kpi' + (tile[2] ? ' is-primary' : '') + '">' +
+                '<dt>' + tile[0] + '</dt>' +
+                '<dd' + (tile[3] ? ' class="is-negative"' : '') + '>' + tile[1] + '</dd></div>';
+        }).join('');
+    }
+
+    function renderFlows(result) {
+        var rows = [
+            ['Netafname', number.format(baseline.imported) + ' kWh', number.format(result.energy.imported) + ' kWh'],
+            ['Netinjectie', number.format(baseline.exported) + ' kWh', number.format(result.energy.exported) + ' kWh'],
+            ['Zelfconsumptie van de zonnestroom', percent.format(baseline.selfConsumption), percent.format(result.energy.selfConsumption)],
+            ['Maandpiek (capaciteitstarief)', oneDecimal.format(baseline.peak) + ' kW', oneDecimal.format(result.energy.peak) + ' kW'],
+            ['Opgeslagen energie', '&mdash;', number.format(result.energy.stored) + ' kWh'],
+            ['Cycli per jaar', '&mdash;', number.format(result.energy.cycles)],
+            ['Jaarlijkse netkost', euro.format(annualCost(baseline)), euro.format(annualCost(result.energy))]
+        ];
+        elements.flows.innerHTML = rows.map(function (row) {
+            return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>';
+        }).join('');
+    }
+
+    function renderVerdict(result, curve) {
+        if (settings.cap === 0) {
+            elements.verdict.className = 'verdict';
+            elements.verdict.innerHTML = 'Zonder batterij gaat ' + percent.format(1 - baseline.selfConsumption) +
+                ' van de zonnestroom naar het net. Schuif de capaciteit omhoog om te zien wat een batterij daarvan terughaalt.';
+            return;
+        }
+        var best = curve.reduce(function (a, b) { return b.npv > a.npv ? b : a; });
+        if (result.npv >= 0) {
+            elements.verdict.className = 'verdict is-good';
+            elements.verdict.innerHTML = 'Bij deze parameters is de investering rendabel. De hoogste NPV ligt rond <strong>' +
+                oneDecimal.format(best.cap) + ' kWh</strong> (' + euro.format(best.npv) + ').';
+        } else {
+            elements.verdict.className = 'verdict';
+            elements.verdict.innerHTML = 'Bij deze prijzen levert geen enkele capaciteit een positieve NPV op &mdash; de best haalbare is ' +
+                euro.format(best.npv) + ' bij ' + oneDecimal.format(best.cap) + ' kWh. Een negatief resultaat is ook een antwoord: verlaag de batterijprijs of verhoog de afnameprijs om het omslagpunt te zoeken.';
+        }
+    }
+
+    function svg(width, height, body) {
+        return '<svg viewBox="0 0 ' + width + ' ' + height + '" role="img" style="width:100%;height:auto">' + body + '</svg>';
+    }
+
+    function renderDayChart(trace) {
+        var W = 620, H = 270, left = 46, right = 46, top = 16, bottom = 28;
+        var start = selectedDay * QUARTERS;
+        var maxKw = 0.5, i;
+        for (i = 0; i < QUARTERS; i++) {
+            maxKw = Math.max(maxKw, load[start + i] / DT, pv[start + i] / DT);
+        }
+        maxKw = Math.ceil(maxKw * 2) / 2;
+        var maxCharge = Math.max(settings.cap * 0.92, 0.5);
+        var plotW = W - left - right, plotH = H - top - bottom;
+        var x = function (index) { return left + index / (QUARTERS - 1) * plotW; };
+        var yPower = function (kw) { return top + plotH - kw / maxKw * plotH; };
+        var yCharge = function (kwh) { return top + plotH - kwh / maxCharge * plotH; };
+
+        var solar = '', consumption = '', battery = '';
+        for (i = 0; i < QUARTERS; i++) {
+            solar += x(i).toFixed(1) + ',' + yPower(pv[start + i] / DT).toFixed(1) + ' ';
+            consumption += x(i).toFixed(1) + ',' + yPower(load[start + i] / DT).toFixed(1) + ' ';
+            battery += x(i).toFixed(1) + ',' + yCharge(trace[start + i]).toFixed(1) + ' ';
+        }
+
+        var body = '';
+        for (var g = 0; g <= 4; g++) {
+            var gy = top + plotH - g / 4 * plotH;
+            body += '<line x1="' + left + '" y1="' + gy + '" x2="' + (W - right) + '" y2="' + gy + '" stroke="#eef2f7"/>';
+            body += '<text x="' + (left - 8) + '" y="' + (gy + 4) + '" text-anchor="end" font-size="10" fill="#8394a8">' + oneDecimal.format(maxKw * g / 4) + '</text>';
+        }
+        [0, 6, 12, 18, 23].forEach(function (hour) {
+            body += '<text x="' + x(hour * 4) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="10" fill="#8394a8">' + hour + 'u</text>';
+        });
+        if (settings.cap > 0) {
+            body += '<polygon points="' + left + ',' + (top + plotH) + ' ' + battery + (W - right) + ',' + (top + plotH) + '" fill="#554bdc" opacity=".13"/>';
+            body += '<polyline points="' + battery + '" fill="none" stroke="#554bdc" stroke-width="2"/>';
+        }
+        body += '<polygon points="' + left + ',' + (top + plotH) + ' ' + solar + (W - right) + ',' + (top + plotH) + '" fill="#f0b47f" opacity=".35"/>';
+        body += '<polyline points="' + solar + '" fill="none" stroke="#e09257" stroke-width="1.8"/>';
+        body += '<polyline points="' + consumption + '" fill="none" stroke="#0a2540" stroke-width="1.8"/>';
+        for (var c = 0; c <= 2; c++) {
+            var cy = top + plotH - c / 2 * plotH;
+            body += '<text x="' + (W - right + 8) + '" y="' + (cy + 4) + '" font-size="10" fill="#8394a8">' + oneDecimal.format(maxCharge * c / 2) + '</text>';
+        }
+
+        elements.dayChart.innerHTML = svg(W, H, body);
+        var labels = { 172: 'dag 172 (juni)', 80: 'dag 80 (maart)', 15: 'dag 15 (januari)' };
+        elements.dayCaption.textContent = 'Kwartierwaarden voor ' + labels[selectedDay] +
+            '. De paarse vlak toont hoeveel energie de batterij op dat moment vasthoudt.';
+    }
+
+    function renderNpvChart(curve, current) {
+        var W = 440, H = 270, left = 54, right = 18, top = 16, bottom = 32;
+        var plotW = W - left - right, plotH = H - top - bottom;
+        var values = curve.map(function (point) { return point.npv; });
+        var maxValue = Math.max.apply(null, values.concat([0]));
+        var minValue = Math.min.apply(null, values.concat([0]));
+        var span = maxValue - minValue || 1;
+        var x = function (cap) { return left + cap / 20 * plotW; };
+        var y = function (value) { return top + plotH - (value - minValue) / span * plotH; };
+
+        var body = '';
+        for (var g = 0; g <= 4; g++) {
+            var value = minValue + span * g / 4;
+            body += '<line x1="' + left + '" y1="' + y(value) + '" x2="' + (W - right) + '" y2="' + y(value) + '" stroke="#eef2f7"/>';
+            body += '<text x="' + (left - 8) + '" y="' + (y(value) + 4) + '" text-anchor="end" font-size="10" fill="#8394a8">' + number.format(value) + '</text>';
+        }
+        body += '<line x1="' + left + '" y1="' + y(0) + '" x2="' + (W - right) + '" y2="' + y(0) + '" stroke="#c6d2df" stroke-dasharray="4 4"/>';
+        var line = curve.map(function (point) { return x(point.cap).toFixed(1) + ',' + y(point.npv).toFixed(1); }).join(' ');
+        body += '<polyline points="' + line + '" fill="none" stroke="#554bdc" stroke-width="2.2"/>';
+        body += '<line x1="' + x(settings.cap) + '" y1="' + top + '" x2="' + x(settings.cap) + '" y2="' + (top + plotH) + '" stroke="#0a2540" stroke-width="1" stroke-dasharray="3 3"/>';
+        body += '<circle cx="' + x(settings.cap) + '" cy="' + y(current.npv) + '" r="5" fill="#0a2540"/>';
+        [0, 5, 10, 15, 20].forEach(function (cap) {
+            body += '<text x="' + x(cap) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="10" fill="#8394a8">' + cap + '</text>';
+        });
+        elements.npvChart.innerHTML = svg(W, H, body);
+    }
+
+    function update() {
+        var current = economics(settings.cap);
+        var traced = simulate(settings.cap, settings.power, true);
+        var curve = [];
+        for (var cap = 0; cap <= 20; cap += 1) curve.push({ cap: cap, npv: economics(cap).npv });
+
+        renderKpis(current);
+        renderFlows(current);
+        renderVerdict(current, curve);
+        renderDayChart(traced.trace);
+        renderNpvChart(curve, current);
+    }
+
+    function bind(id, key, format) {
+        var input = document.getElementById(id);
+        var output = document.getElementById(id + '-out');
+        function apply() {
+            settings[key] = parseFloat(input.value);
+            output.textContent = format(settings[key]);
+            update();
+        }
+        input.addEventListener('input', apply);
+        return { input: input, apply: apply };
+    }
+
+    var bindings = [
+        bind('cap', 'cap', function (v) { return oneDecimal.format(v) + ' kWh'; }),
+        bind('power', 'power', function (v) { return oneDecimal.format(v) + ' kW'; }),
+        bind('price', 'price', function (v) { return euro.format(v) + ' / kWh'; }),
+        bind('import', 'importPrice', function (v) { return oneDecimal.format(v * 100) + ' c/kWh'; }),
+        bind('inject', 'injectPrice', function (v) { return oneDecimal.format(v * 100) + ' c/kWh'; }),
+        bind('discount', 'discount', function (v) { return oneDecimal.format(v) + ' %'; })
+    ];
+
+    document.querySelectorAll('[data-day]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            selectedDay = parseInt(button.dataset.day, 10);
+            document.querySelectorAll('[data-day]').forEach(function (other) {
+                other.setAttribute('aria-pressed', String(other === button));
+            });
+            update();
+        });
+    });
+
+    document.getElementById('reset').addEventListener('click', function () {
+        var keys = ['cap', 'power', 'price', 'importPrice', 'injectPrice', 'discount'];
+        var ids = ['cap', 'power', 'price', 'import', 'inject', 'discount'];
+        ids.forEach(function (id, index) {
+            document.getElementById(id).value = DEFAULTS[keys[index]];
+        });
+        bindings.forEach(function (binding) { binding.apply(); });
+    });
+
+    document.getElementById('toggle-params').addEventListener('click', function () {
+        document.getElementById('params').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('cap').focus();
+    });
+
+    bindings.forEach(function (binding) { binding.apply(); });
+})();
+</script>
+</body>
+</html>

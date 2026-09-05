@@ -97,7 +97,41 @@ home:
   contact_description: A new idea, a technical challenge, or a system that could work better. Tell us what you're thinking.
   footer_note: Thoughtful technology. Personal collaboration.
 
+demos:
+  eyebrow: See it running
+  title: Working software, not screenshots.
+  description: Each project below runs as a real application inside this page. Change the inputs and the software answers, exactly as it does for its users.
+  tab_label: Choose a product demo
+  launch: Start the demo
+  launch_note: Runs in your browser. No account, nothing leaves this page.
+  open: Open in a new tab
+  case: Read the project story
+  disclaimer: The demos use synthetic demonstration data and fictional accounts, and their interfaces are in Dutch, like the applications themselves. They show how the software behaves, not real customer results.
+  solarstash:
+    tagline: Energy analytics
+    summary: Simulate a home battery against a full year of quarter-hourly meter data and see whether the investment holds up.
+    point_one: Move capacity, battery price, and tariffs, and watch savings, payback, and net present value recalculate.
+    point_two: All 35,040 intervals are simulated in the browser, interval by interval, including efficiency and power limits.
+    point_three: The value curve shows where a battery stops paying for itself, instead of recommending one regardless.
+    frame: SolarStash battery analysis demo
+  buurhuur:
+    tagline: Community platform
+    summary: Browse the neighbourhood catalogue and take a rental request through its full workflow, from both sides.
+    point_one: Search and filter the catalogue, then switch between the grid and list views.
+    point_two: Request an item from a neighbour, then accept or decline the requests that arrive for your own.
+    point_three: Pause a listing to take it out of the catalogue, or publish a new one.
+    frame: BuurHuur rental platform demo
+  tafeltuin:
+    tagline: Playful learning
+    summary: Choose your multiplication tables, play a practice round, and grow the garden of animals that rewards it.
+    point_one: Set the tables, round length, and time limit, then answer with the keyboard or the on-screen keypad.
+    point_two: Every answer feeds accuracy, response time, and per-table progress.
+    point_three: Growth points unlock animals, the same reward loop that keeps learners coming back.
+    frame: Tafeltuin multiplication practice demo
+
 projects:
+  demo_cta: Open the interactive demo
+  demo_note: Runs in your browser with demonstration data. The interface is in Dutch, like the application itself.
   solarstash:
     category: Energy analytics
     description: Turning electricity-consumption data into clear battery and solar investment scenarios.
