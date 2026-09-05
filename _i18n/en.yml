@@ -17,6 +17,13 @@ global:
   send-mail: Send us an Email
 
 navigation:
+  skip: Skip to content
+  main: Main navigation
+  footer: Footer navigation
+  menu: Menu
+  team: Our team
+  language: Language
+  talk: Let's talk
   home: Home
   blog: Blog
   projects: Projects
@@ -40,3 +47,75 @@ footer:
   contact: Contact us
   email: Email
   social: Follow us
+
+home:
+  eyebrow: Technology with a human touch
+  title: Good ideas.
+  title_accent: Beautifully built.
+  description: From ambitious software to smarter connected spaces. We bring engineering and design together to make technology work for you.
+  primary_cta: Let's build something
+  secondary_cta: Explore our services
+  note: Your ideas. Our expertise. A direct collaboration.
+  visual_eyebrow: YOUR NEXT CHAPTER
+  visual_title: Built around you.
+  visual_code: Engineering
+  visual_design: Design
+  visual_status: Thoughtfully built, together
+  visual_connected: Better connected
+  visual_connected_note: Software. People. Spaces.
+  expertise: Different disciplines. One connected approach.
+  expertise_design: Human-centered design
+  expertise_systems: Connected systems
+  clients_title: Some of our clients
+  services_eyebrow: What we do
+  services_title: The right expertise for your next step.
+  services_description: Build something new, improve what you have, or connect the pieces. We turn technical challenges into practical solutions.
+  service_details: Explore service
+  approach_eyebrow: How we work
+  approach_title: Complex challenges. Clear thinking.
+  approach_description: No unnecessary layers. You work directly with the people who design and build your solution, from the first conversation to the final details.
+  step_one_title: Understand first
+  step_one_description: We listen, ask questions, and get to know your goals. The right solution starts with understanding the real problem.
+  step_two_title: Make it thoughtful
+  step_two_description: Solid architecture and considered design, working together. We choose technology that fits your needs, not the other way around.
+  step_three_title: Build it together
+  step_three_description: Open communication, hands-on development, and room for feedback. You stay involved as your idea takes shape.
+  work_eyebrow: Ideas in action
+  work_title: Thoughtful software. Working examples.
+  work_cta: Explore our projects
+  team_eyebrow: The people behind the code
+  team_title: Two perspectives. One shared standard.
+  team_description: Backend depth meets frontend craft. We're Frederick and Mieke, bringing complementary skills and a personal approach to your project.
+  frederick_role: Software engineering & architecture
+  frederick_summary: Frederick turns complex business challenges into reliable software. His focus is on Java, Spring Boot, AWS, and systems built to last.
+  mieke_role: Frontend development & design
+  mieke_summary: Mieke connects thoughtful design with intuitive development. With a background in product design, she puts real people at the heart of every interface.
+  person_more: More about my background
+  resume: Resume
+  contact_eyebrow: Your next chapter
+  contact_title: What would you like to build?
+  contact_description: A new idea, a technical challenge, or a system that could work better. Tell us what you're thinking.
+  footer_note: Thoughtful technology. Personal collaboration.
+
+projects:
+  solarstash:
+    category: Energy analytics
+    description: Turning electricity-consumption data into clear battery and solar investment scenarios.
+    post-image-alt: SolarStash battery analysis showing projected savings, payback, negative net present value, and energy-flow comparisons.
+    post-image-caption: A running battery simulation using synthetic household data. These are modelled results, not measured customer savings or guaranteed returns.
+    screenshot_alt: SolarStash battery-capacity optimisation with a net-present-value curve below zero across the tested capacities.
+    screenshot_caption: The optimisation view makes an unprofitable scenario explicit rather than recommending a battery regardless of the result. Synthetic demonstration data and assumptions.
+  buurhuur:
+    category: Community platform
+    description: A neighbourhood rental-platform MVP connecting an item catalogue with owner tools and rental requests.
+    post-image-alt: BuurHuur rental catalogue with search, categories, daily prices, and illustrated demo items including a drill, tent, and projector.
+    post-image-caption: The real catalogue interface with fictional accounts and original demo illustrations, not live rental offers or product photographs.
+    screenshot_alt: BuurHuur request-management screen showing outgoing rentals and incoming requests with accepted, cancelled, rejected, and pending statuses.
+    screenshot_caption: Incoming and outgoing rental requests created through the application using fictional accounts. Pending requests can be accepted or declined by the owner.
+  tafeltuin:
+    category: Playful learning
+    description: Multiplication practice with encouraging feedback, collectible animal rewards, and progress stored in the browser.
+    post-image-alt: Tafeltuin practice setup with selectable multiplication tables, a colourful animal garden, and the next reward to unlock.
+    post-image-caption: The actual Dutch-language practice screen after automated demo rounds. No real learner's history is shown.
+    screenshot_alt: Tafeltuin completed-round screen showing answered questions, accuracy, response time, growth points, and three newly earned animals.
+    screenshot_caption: Rewards earned through completed demonstration rounds. The displayed scores and response times are synthetic examples, not evidence of learning outcomes.

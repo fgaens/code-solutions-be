@@ -1,0 +1,14 @@
+{% if site.projects.size > 0 %}
+<section class="section-space work-section" aria-labelledby="work-title">
+    <div class="container">
+        <div class="section-heading">
+            <div><p class="eyebrow">{% t home.work_eyebrow %}</p><h2 class="section-title" id="work-title">{% t home.work_title %}</h2></div>
+            <a class="text-link" href="{{ site.baseurl }}/projects.html">{% t home.work_cta %}{% include icon.html name='arrow' %}</a>
+        </div>
+        <div class="listing-grid featured-projects">
+            {% assign selected_projects = site.projects | where: 'featured', true | sort: 'order' %}
+            {% for project in selected_projects limit: 2 %}{% include project-card.html %}{% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}

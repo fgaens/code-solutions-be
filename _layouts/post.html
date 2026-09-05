@@ -3,51 +3,77 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html>
-
-<head>
-    {% include head.html %}
-</head>
-
+<html lang="{{ site.lang }}">
+{% include head.html %}
 <body>
     {% include navbar.html %}
-
-    <section class="hero is-fullheight" id="post">
-        <div class="hero-body">
-            <div class="container">
-                <a href="{{page.url | relative_url}}" class="has-text-black" id="title">
-                    <h1 class="title has-text-centered is-2 has-text-weight-semibold ">{{page.title}}</h1>
-                </a>
-
-                <br />
-
-                <div>
-                    {% unless page.author.size == 0 %}
-                    <p id="description" class="content is-small has-text-weight-semibold is-uppercase">
-                        Published by: {{page.author | strip | strip_html | strip_newlines }}, on {{ page.date | date:
-                        "%-B %d, %Y" }}</p>
-                    {% endunless %}
-                </div>
-
-                <div class="content">
-                    <p>{{ content }}</p>
-                </div>
-
-                <div>
-                    {%- assign tags = page.tags -%}
-                    {%- unless tags.size == 0 -%}
-                    <p class="subtitle is-uppercase">
-                        <i class="fas fa-tags"></i>
-                        {% assign i = 0 %}
-                        {% for tags in page.tags %}
-                        <span class="tag is-link">{{page.tags[i]}}</span>
-                        {% assign i = i | plus:1 %}
-                        {% endfor %}
+    <main id="main-content" class="page-main">
+        <div class="container">
+            <p>
+                {% if page.collection == 'projects' %}
+                <a class="text-link" href="{{ site.baseurl }}/projects.html">{% if site.lang == 'nl' %}Alle projecten{% else %}All projects{% endif %}</a>
+                {% else %}
+                <a class="text-link" href="{{ site.baseurl }}/blog.html">{% if site.lang == 'nl' %}Alle artikelen{% else %}All articles{% endif %}</a>
+                {% endif %}
+            </p>
+            {% if site.lang == 'nl' and page.lang == 'en' %}
+            <p class="entry-meta">Dit artikel is beschikbaar in het Engels.</p>
+            {% endif %}
+            <article{% if page.collection == 'projects' %} class="project-article"{% endif %} lang="{{ page.lang | default: site.lang }}">
+                <header class="article-header">
+                    <p class="eyebrow">{% if page.collection == 'projects' %}Project{% else %}Blog{% endif %}</p>
+                    <h1 class="section-title">{{ page.title | escape }}</h1>
+                    {% if page.description and page.description != '' %}
+                    <p class="section-copy">{{ page.description | strip_html | escape }}</p>
+                    {% endif %}
+                    <p class="entry-meta">
+                        {% if page.author and page.author != '' %}<span>{{ page.author | escape }}</span>{% endif %}
+                        {% if page.date and page.collection != 'projects' %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>{% endif %}
                     </p>
-                    {%- endunless -%}
+                </header>
+                {% if page.post-image and page.post-image != '' %}
+                {% assign image_url = page.post-image %}
+                {% assign image_start = image_url | slice: 0, 1 %}
+                {% assign image_prefix = image_url | slice: 0, 2 %}
+                {% if image_start == '/' and image_prefix != '//' %}
+                {% assign root_url = site.baseurl_root %}
+                {% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+                {% assign image_url = root_url | append: image_url %}
+                {% endif %}
+                <figure class="article-cover-figure">
+                    {% if page.collection == 'projects' %}<a href="{{ image_url | escape }}">{% endif %}
+                    <img class="article-cover" src="{{ image_url | escape }}" alt="{{ page.post-image-alt | default: '' | escape }}">
+                    {% if page.collection == 'projects' %}</a>{% endif %}
+                    {% if page.post-image-caption %}<figcaption>{{ page.post-image-caption | escape }}</figcaption>{% endif %}
+                </figure>
+                {% endif %}
+                <div class="article-body content">
+                    {{ content }}
                 </div>
-            </div>
-    </section>
+                {% if page.screenshots.size > 0 %}
+                {% assign root_url = site.baseurl_root %}
+                {% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+                <div class="project-screenshots">
+                    {% for screenshot in page.screenshots %}
+                    {% capture screenshot_alt %}{% t screenshot.alt %}{% endcapture %}
+                    {% capture screenshot_caption %}{% t screenshot.caption %}{% endcapture %}
+                    <figure>
+                        <a href="{{ root_url }}{{ screenshot.image }}"><img src="{{ root_url }}{{ screenshot.image }}" alt="{{ screenshot_alt | escape }}" loading="lazy" decoding="async"></a>
+                        <figcaption>{{ screenshot_caption | escape }}</figcaption>
+                    </figure>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if page.tags.size > 0 %}
+                <ul class="entry-meta" aria-label="{% if site.lang == 'nl' %}Onderwerpen{% else %}Topics{% endif %}">
+                    {% for tag in page.tags %}
+                    <li>{{ tag | escape }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </article>
+        </div>
+    </main>
+    {% include footer.html %}
 </body>
-
 </html>

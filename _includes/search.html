@@ -1,11 +1,22 @@
-<div class="field has-addons has-text-weight-medium has-text-grey" id="search">
-    <p class="control">
-        <input id="search-input" class="input is-shadowless is-uppercase has-text-grey has-text-weight-normal" type="text"
-            placeholder="Search Here">
-    </p>
-    <p class="control">
-        <button class="button">
-            <i class="fas fa-search has-text-grey"></i>
-        </button>
-    </p>
+<div class="search-field" role="search" hidden>
+    <label for="search-input">{% if include.collection == 'projects' %}{% if site.lang == 'nl' %}Zoek projecten{% else %}Search projects{% endif %}{% else %}{% if site.lang == 'nl' %}Zoek artikelen{% else %}Search articles{% endif %}{% endif %}</label>
+    <input id="search-input" class="input" type="search" aria-controls="entry-list" autocomplete="off">
+    <p class="empty-state" id="search-status" role="status" aria-live="polite" aria-atomic="true"></p>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('search-input');
+        const cards = Array.from(document.querySelectorAll('#entry-list [data-entry]'));
+        const status = document.getElementById('search-status');
+        input.closest('.search-field').hidden = false;
+        input.addEventListener('input', function () {
+            const query = input.value.trim().toLocaleLowerCase();
+            let matches = 0;
+            cards.forEach(function (card) {
+                card.hidden = !card.textContent.toLocaleLowerCase().includes(query);
+                if (!card.hidden) matches += 1;
+            });
+            status.textContent = matches === 0 ? {% if site.lang == 'nl' %}'Geen resultaten. Probeer een andere zoekterm.'{% else %}'No results. Try another search term.'{% endif %} : '';
+        });
+    });
+</script>

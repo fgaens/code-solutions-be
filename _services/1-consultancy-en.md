@@ -2,6 +2,7 @@
 title: Consultancy
 layout: page
 lang: en
+summary: Strengthen your team with hands-on software expertise. From architecture and backend modernization to frontend development and delivery.
 image: "/assets/images/consultancy.jpeg"
 ---
 

@@ -1,13 +1,5 @@
-<!-- Main container -->
-<nav class="level has-text-centered">
-    <!-- Left side -->
-    <div class="level-left">
-        <p class="subtitle is-uppercase has-text-weight-medium has-text-grey">Projects</p>
-    </div>
-    <!-- Right side -->
-    <div class="level-right">
-        <div class="level-item">
-            {% include search.html %}
-        </div>
-    </div>
-</nav>
+<header class="page-intro">
+    <p class="eyebrow">Code Solutions</p>
+    <h1 class="section-title">{% if site.lang == 'nl' %}Projecten{% else %}Projects{% endif %}</h1>
+    <p class="section-copy">{% if site.lang == 'nl' %}Een selectie van ons werk: van energieanalyse en deelplatformen tot spelenderwijs leren.{% else %}A selection of our work, from energy analysis and community platforms to playful learning.{% endif %}</p>
+</header>

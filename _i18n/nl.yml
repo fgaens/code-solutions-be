@@ -21,6 +21,13 @@ code: nl
 icon: 🇳🇱
 
 navigation:
+  skip: Ga naar de inhoud
+  main: Hoofdnavigatie
+  footer: Footernavigatie
+  menu: Menu
+  team: Ons team
+  language: Taal
+  talk: Even praten?
   home: Home
   blog: Blog
   projects: Projecten
@@ -40,3 +47,74 @@ services:
     title: Domotica
     description: We bieden geavanceerde domotica-oplossingen...
 
+home:
+  eyebrow: Technologie met een menselijk gezicht
+  title: Goede ideeën.
+  title_accent: Sterk gebouwd.
+  description: Van ambitieuze software tot slim verbonden omgevingen. We brengen ontwikkeling en design samen om technologie voor jou te laten werken.
+  primary_cta: Laten we iets bouwen
+  secondary_cta: Ontdek onze diensten
+  note: Jouw ideeën. Onze expertise. Rechtstreeks samenwerken.
+  visual_eyebrow: JOUW VOLGENDE STAP
+  visual_title: Gebouwd rond jou.
+  visual_code: Ontwikkeling
+  visual_design: Design
+  visual_status: Doordacht gebouwd, samen
+  visual_connected: Beter verbonden
+  visual_connected_note: Software. Mensen. Omgevingen.
+  expertise: Verschillende disciplines. Eén samenhangende aanpak.
+  expertise_design: Mensgericht design
+  expertise_systems: Verbonden systemen
+  clients_title: Een greep uit onze klanten
+  services_eyebrow: Wat we doen
+  services_title: De juiste expertise voor jouw volgende stap.
+  services_description: Iets nieuws bouwen, verbeteren wat er al is, of alles verbinden. We vertalen technische uitdagingen naar praktische oplossingen.
+  service_details: Ontdek deze dienst
+  approach_eyebrow: Hoe we werken
+  approach_title: Complexe uitdagingen. Een heldere aanpak.
+  approach_description: Geen onnodige tussenstappen. Je werkt rechtstreeks met de mensen die jouw oplossing ontwerpen en bouwen, van het eerste gesprek tot de laatste details.
+  step_one_title: Eerst begrijpen
+  step_one_description: We luisteren, stellen vragen en leren je doelen kennen. De juiste oplossing begint bij het begrijpen van het echte probleem.
+  step_two_title: Doordacht ontwerpen
+  step_two_description: Sterke architectuur en doordacht design, samen. We kiezen technologie die bij jouw behoeften past, niet andersom.
+  step_three_title: Samen bouwen
+  step_three_description: Open communicatie, praktische ontwikkeling en ruimte voor feedback. Je blijft betrokken terwijl jouw idee vorm krijgt.
+  work_eyebrow: Ideeën in actie
+  work_title: Doordachte software. Werkende voorbeelden.
+  work_cta: Ontdek onze projecten
+  team_eyebrow: De mensen achter de code
+  team_title: Twee perspectieven. Dezelfde hoge lat.
+  team_description: Sterke backends en doordachte frontends. Wij zijn Frederick en Mieke, met aanvullende expertise en een persoonlijke aanpak voor jouw project.
+  frederick_role: Softwareontwikkeling & architectuur
+  frederick_summary: Frederick vertaalt complexe bedrijfsuitdagingen naar betrouwbare software. Zijn focus ligt op Java, Spring Boot, AWS en systemen die lang meegaan.
+  mieke_role: Frontend-ontwikkeling & design
+  mieke_summary: Mieke verbindt doordacht design met intuïtieve ontwikkeling. Vanuit haar achtergrond in productontwikkeling zet ze echte mensen centraal in elke interface.
+  person_more: Meer over mijn achtergrond
+  resume: Cv
+  contact_eyebrow: Jouw volgende stap
+  contact_title: Wat wil jij bouwen?
+  contact_description: Een nieuw idee, een technische uitdaging of een systeem dat beter kan. Vertel ons waar je aan denkt.
+  footer_note: Doordachte technologie. Persoonlijke samenwerking.
+
+projects:
+  solarstash:
+    category: Energieanalyse
+    description: Van elektriciteitsverbruiksgegevens naar heldere investeringsscenario's voor batterijen en zonnepanelen.
+    post-image-alt: Batterijanalyse in SolarStash met geraamde besparingen, terugverdientijd, negatieve netto contante waarde en vergelijkingen van energiestromen.
+    post-image-caption: Een werkende batterijsimulatie met synthetische huishoudgegevens. Dit zijn gemodelleerde resultaten, geen gemeten besparingen bij klanten of gegarandeerde rendementen.
+    screenshot_alt: Optimalisatie van de batterijcapaciteit in SolarStash, met een curve van de netto contante waarde die voor alle geteste capaciteiten onder nul blijft.
+    screenshot_caption: De optimalisatieweergave maakt een onrendabel scenario expliciet, in plaats van ongeacht het resultaat een batterij aan te bevelen. Synthetische demonstratiegegevens en aannames.
+  buurhuur:
+    category: Buurtplatform
+    description: Een MVP van een verhuurplatform voor de buurt dat een catalogus verbindt met beheertools voor eigenaars en huuraanvragen.
+    post-image-alt: Verhuurcatalogus van BuurHuur met zoekfunctie, categorieën, dagprijzen en geïllustreerde demospullen, waaronder een boormachine, tent en projector.
+    post-image-caption: De echte catalogusinterface met fictieve accounts en speciaal gemaakte demo-illustraties, geen echte huuraanbiedingen of productfoto's.
+    screenshot_alt: Aanvragenbeheer in BuurHuur met uitgaande huuraanvragen en inkomende aanvragen met de statussen aanvaard, geannuleerd, geweigerd en in afwachting.
+    screenshot_caption: Inkomende en uitgaande huuraanvragen aangemaakt via de applicatie met fictieve accounts. Openstaande aanvragen kunnen door de eigenaar worden aanvaard of geweigerd.
+  tafeltuin:
+    category: Spelenderwijs leren
+    description: Maaltafels oefenen met aanmoedigende feedback, dieren om te verzamelen als beloning en voortgang die in de browser wordt opgeslagen.
+    post-image-alt: Oefeninstellingen van Tafeltuin met selecteerbare maaltafels, een kleurrijke tuin met dieren en de volgende vrij te spelen beloning.
+    post-image-caption: Het echte Nederlandstalige oefenscherm na geautomatiseerde demorondes. Er wordt geen oefengeschiedenis van een echte leerling getoond.
+    screenshot_alt: Het scherm na een voltooide ronde in Tafeltuin met beantwoorde vragen, het percentage juiste antwoorden, antwoordtijd, groeipunten en drie nieuw verdiende dieren.
+    screenshot_caption: Beloningen verdiend door demonstratierondes af te werken. De getoonde scores en antwoordtijden zijn synthetische voorbeelden, geen bewijs van leerresultaten.

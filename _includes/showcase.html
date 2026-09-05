@@ -1,29 +1,36 @@
-<section class="hero is-fullheight has-text-centered" id="hero">
-  <div class="hero-body">
-    <div class="container">
-      <div class="mb-5">
-        <img src="{{ '/assets/images/logo/code-solutions-logo-dark-background.png' | absolute_url }}" alt="Code Solutions Logo" style="max-width: 120px; margin-bottom: 1rem;">
-      </div>
-      <h1 class="title has-text-white is-size-1 is-uppercase has-text-weight-bold">
-        {% t global.title %}
-      </h1>
-      <h3 class="subtitle has-text-white-bis is-uppercase has-text-weight-medium is-marginless">
-        {% t global.description %}
-      </h3>
-
-      <hr>
-      <a href="{{site.url}}{{site.baseurl}}/#services"
-        class="button is-white is-rounded is-outlined is-uppercase has-text-weight-normal">{% t global.read-more %}</a>
-      </a>
+<section class="showcase" aria-labelledby="hero-title">
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="container showcase-grid">
+        <div class="showcase-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span>{% t home.eyebrow %}</p>
+            <h1 id="hero-title">{% t home.title %} <span>{% t home.title_accent %}</span></h1>
+            <p class="hero-description">{% t home.description %}</p>
+            <div class="action-group">
+                <a class="action-link" href="mailto:{{ site.email }}">{% t home.primary_cta %}{% include icon.html name='arrow' %}</a>
+                <a class="text-link" href="#services">{% t home.secondary_cta %}{% include icon.html name='arrow' %}</a>
+            </div>
+            <p class="hero-note">{% t home.note %}</p>
+        </div>
+        <div class="solution-visual" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="studio-window">
+                <div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span>code solutions / studio</span><span class="window-symbol">&#10022;</span></div>
+                <div class="studio-body">
+                    <div class="studio-sidebar"><span class="studio-mark">c<span> s</span></span><i></i><i></i><i></i><i></i></div>
+                    <div class="studio-canvas">
+                        <span class="visual-label">{% t home.visual_eyebrow %}</span>
+                        <p class="visual-title">{% t home.visual_title %}</p>
+                        <div class="canvas-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                        <div class="canvas-modules"><span>{% include icon.html name='code' %} {% t home.visual_code %}</span><span>{% include icon.html name='web' %} {% t home.visual_design %}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="floating-code"><span class="code-filename">your-next-idea.ts</span><code><span class="syntax-purple">const</span> solution = {<br>&nbsp; technology: <span class="syntax-green">'thoughtful'</span>,<br>&nbsp; design: <span class="syntax-green">'human'</span>,<br>&nbsp; builtFor: <span class="syntax-green">'you'</span><br>};</code><div class="code-status"><span></span>{% t home.visual_status %}</div></div>
+            <div class="floating-connection"><span class="connection-icon">{% include icon.html name='network' %}</span><div><strong>{% t home.visual_connected %}</strong><span>{% t home.visual_connected_note %}</span></div></div>
+        </div>
     </div>
-    <div class="images">
-      <figure class="image">
-        <img src="{{site.author-image-2 | absolute_url}}" alt="{{site.author-name-2}}">
-      </figure>
-      <figure class="image">
-        <img src="{{site.author-image-1 | absolute_url}}" alt="{{site.author-name-1}}">
-      </figure>
+    <div class="container expertise-strip">
+        <p>{% t home.expertise %}</p>
+        <div><span>Java &amp; Spring Boot</span><span>AWS</span><span>{% t home.expertise_design %}</span><span>{% t home.expertise_systems %}</span></div>
     </div>
-  </div>
-  <div class="hero-footer"></div>
 </section>
