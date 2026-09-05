@@ -5,6 +5,7 @@
 - This is a Jekyll static website, not a backend application despite the repository name. CI uses Ruby 3.2; `Gemfile.lock` records Bundler 2.6.2.
 - Install with `bundle install`; serve locally with `bundle exec jekyll serve`.
 - Validate with `JEKYLL_ENV=production bundle exec jekyll build --baseurl ""`. CI supplies the GitHub Pages base path instead of the empty local base path; see `.github/workflows/deploy.yml`.
+- GitHub Settings > Pages must use **GitHub Actions** as its source. The built-in branch publisher / `actions/jekyll-build-pages` lacks the multilingual plugin and fails on `t`/`tf`; use the existing Bundler-based workflow instead.
 - No separate test, lint, or typecheck suite is configured. For UI changes, also check English `/` and Dutch `/nl/`, including navigation and shared assets.
 - `_site/` and Jekyll caches are generated and ignored; edit source files, not build output. Keep agent documentation in `_config.yml`'s `exclude` list to avoid publishing it.
 
