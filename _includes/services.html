@@ -1,12 +1,16 @@
-<section class="hero is-fullheight" id="services">
-    <div class="hero-body">
-        <div class="container">
-<!--             <h2 class="title">{% t global.services %}</h2> -->
+<section class="section-space services-section" id="services" aria-labelledby="services-title">
+    <div class="container">
+        <div class="section-heading">
+            <div><p class="eyebrow">{% t home.services_eyebrow %}</p><h2 class="section-title" id="services-title">{% t home.services_title %}</h2></div>
+            <p class="section-copy">{% t home.services_description %}</p>
+        </div>
+        <div class="services-grid">
+            {% assign services = site.services | where: 'lang', site.lang | sort: 'path' %}
+            {% assign service_icons = 'code,web,network,automation' | split: ',' %}
+            {% for service in services %}
+                {% assign service_icon = service_icons[forloop.index0] %}
+                {% include service-card.html %}
+            {% endfor %}
         </div>
     </div>
-    <div id="results-container"></div>
-    {% assign services = site.services | where:"lang", site.lang %}
-    {% for service in services %}
-        {% include service-card.html %}
-    {% endfor %}
 </section>

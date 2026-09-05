@@ -2,7 +2,7 @@
 markdown: kramdown
 
 # URL of the Site
-url: ''
+url: 'https://www.codesolutions.be'
 # Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
 baseurl: ''
 
@@ -67,6 +67,7 @@ collections:
 
 # Exclude
 exclude:
+  - AGENTS.md
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/

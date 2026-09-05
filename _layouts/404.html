@@ -3,28 +3,20 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang }}">
 {% include head.html %}
-
 <body>
-    <section class="hero is-fullheight has-text-centered has-background-black-ter">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title is-1 is-uppercase has-text-weight-bold has-text-white">
-                    {{page.title}}
-                </h1>
-                <h3 class="is-uppercase has-text-weight-medium is-marginless has-text-grey-light">
-                    {{content}}
-                </h3>
-                <hr>
-                <div class="columns is-marginless is-inline-flex-desktop">
-                    <a href="{{site.url}}{{site.baseurl}}/"
-                        class="button is-white column is-rounded is-outlined is-uppercase has-text-weight-normal">Home</a>
-                    </a>
-                </div>
-            </div>
+    {% include navbar.html %}
+    <main id="main-content" class="page-main">
+        <div class="container">
+            <header class="page-intro">
+                <p class="eyebrow">404</p>
+                <h1 class="section-title">{% if site.lang == 'nl' %}Pagina niet gevonden{% else %}Page not found{% endif %}</h1>
+                <p class="section-copy">{% if site.lang == 'nl' %}De pagina die je zoekt is niet gevonden.{% else %}The page you're looking for could not be found.{% endif %}</p>
+            </header>
+            <a class="text-link" href="{{ site.baseurl }}/">{% if site.lang == 'nl' %}Terug naar de homepage{% else %}Back to the homepage{% endif %}</a>
         </div>
-    </section>
+    </main>
+    {% include footer.html %}
 </body>
-
 </html>

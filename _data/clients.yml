@@ -1,0 +1,34 @@
+- name: DKV
+  image: /assets/images/clients/dkv.svg
+  width: 1400
+  height: 333
+  display_width: 140
+  source: https://www.dkv.be/themes/custom/gbltoolbox/img/logo-dkv.svg
+
+- name: Evonik
+  image: /assets/images/clients/evonik.svg
+  width: 2129
+  height: 548
+  display_width: 180
+  source: https://history.evonik.com/media/cms-core/img/evonik2020.svg?409f
+
+- name: ENGIE
+  image: /assets/images/clients/engie.svg
+  width: 78
+  height: 28
+  display_width: 126
+  source: https://www.engie.be/.resources/assets/images/logo-blue.svg
+
+- name: Fednot
+  image: /assets/images/clients/fednot.png
+  width: 1772
+  height: 254
+  display_width: 190
+  source: https://www.fednot.be/wp-content/uploads/FEDNOT-pos-wide.png
+
+- name: Smals
+  image: /assets/images/clients/smals.svg
+  width: 165
+  height: 60
+  display_width: 148
+  source: https://www.smals.be/themes/custom/websmals_bs4/logo.svg

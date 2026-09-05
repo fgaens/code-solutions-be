@@ -1,0 +1,14 @@
+{% assign root_url = site.baseurl_root %}
+{% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+<section class="clients-section" id="clients" aria-labelledby="clients-title">
+    <div class="container">
+        <h2 class="clients-title" id="clients-title">{% t home.clients_title %}</h2>
+        <ul class="client-list" role="list">
+            {% for client in site.data.clients %}
+            <li style="--logo-width: {{ client.display_width }}px">
+                <img src="{{ root_url }}{{ client.image }}" alt="{{ client.name | escape }}" width="{{ client.width }}" height="{{ client.height }}" loading="lazy" decoding="async">
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

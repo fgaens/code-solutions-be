@@ -2,6 +2,7 @@
 title: Consultancy
 layout: page
 lang: nl
+summary: Versterk je team met praktische software-expertise. Van architectuur en backend-modernisering tot frontend-ontwikkeling en oplevering.
 image: "/assets/images/consultancy.jpeg"
 ---
 

@@ -2,6 +2,7 @@
 title: Networking
 layout: page
 lang: en
+summary: Keep your home or business reliably connected. Thoughtful network design, the right equipment, and hands-on installation from start to finish.
 image: "/assets/images/networking.jpeg"
 ---
 

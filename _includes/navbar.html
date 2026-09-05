@@ -1,91 +1,37 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="navbar" style="background-color: #3E5266;">
-    <div class="container">
-
-        <!-- logo or branding image on left side -->
-        <div class="navbar-brand">
-            <a class="navbar-item"
-                href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                <img src="{{ '/assets/images/logo/code-solutions-logo-dark-background.png' | absolute_url }}" alt="Code Solutions Logo" style="max-height: 3rem;">
-            </a>
-            <div class="navbar-burger" data-target="navbar-menu" style="color: white;">
-                <span></span>
-                <span></span>
-                <span></span>
+{% assign root_url = site.baseurl_root %}
+{% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+{% assign switch_path = page.url %}
+{% if page.layout == 'project' %}{% assign switch_path = '/projects.html' %}{% endif %}
+{% if page.layout == 'blog' %}{% assign switch_path = '/blog.html' %}{% endif %}
+{% if page.layout == '404' %}{% assign switch_path = '/404.html' %}{% endif %}
+{% if page.collection == 'posts' %}{% assign switch_path = '/blog.html' %}{% endif %}
+{% if page.collection == 'services' %}{% assign switch_path = '/#services' %}{% endif %}
+<a class="skip-link" href="#main-content">{% t navigation.skip %}</a>
+<header class="site-header">
+    <nav class="container site-nav" aria-label="{% t navigation.main %}">
+        <a class="brand" href="{{ site.baseurl }}/" aria-label="Code Solutions - {% t global.home %}">
+            <img src="{{ root_url }}/assets/images/logo/code-solutions-logo-light-background.png" alt="Code Solutions" width="154" height="61">
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" hidden>
+            <span>{% t navigation.menu %}</span><span class="menu-lines" aria-hidden="true"></span>
+        </button>
+        <div class="site-menu" id="site-menu">
+            <div class="nav-links">
+                <a href="{{ site.baseurl }}/#services">{% t global.services %}</a>
+                <a href="{{ site.baseurl }}/#team">{% t navigation.team %}</a>
+                <a href="{{ site.baseurl }}/projects.html"{% if page.layout == 'project' or page.collection == 'projects' %} aria-current="page"{% endif %}>{% t global.projects %}</a>
+                <a href="{{ site.baseurl }}/blog.html"{% if page.layout == 'blog' or page.collection == 'posts' %} aria-current="page"{% endif %}>{% t global.blog %}</a>
+            </div>
+            <div class="nav-actions">
+                <div class="language-switch" aria-label="{% t navigation.language %}">
+                    {% if site.lang == 'en' %}
+                    <span aria-current="true" lang="en">EN</span><a data-language-switch href="{{ root_url }}/nl{{ switch_path }}" lang="nl" hreflang="nl" aria-label="Nederlands">NL</a>
+                    {% else %}
+                    <a data-language-switch href="{{ root_url }}{{ switch_path }}" lang="en" hreflang="en" aria-label="English">EN</a><span aria-current="true" lang="nl">NL</span>
+                    {% endif %}
+                </div>
+                <a class="action-link action-small" href="{{ site.baseurl }}/#contact">{% t navigation.talk %}{% include icon.html name='arrow' %}</a>
             </div>
         </div>
-
-        <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
-        <div class="navbar-menu" id="navbar-menu" style="background-color: #3E5266;">
-            <!-- navbar items | left side -->
-            <!-- <div class="navbar-start">
-            </div> -->
-            <!-- navbar items | right side -->
-            <div class="navbar-end">
-                <a class="navbar-item has-text-white {% if page.layout == 'default' %}is-active{% endif %}"
-                    href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">{% t global.home %}</a>
-                <a class="navbar-item has-text-white" href="{{site.url}}{{site.baseurl}}/#services">{% t global.services %}</a>
-                <a class="navbar-item has-text-white" href="{{site.url}}{{site.baseurl}}/#contact">{% t global.contact %}</a>
-                <a class="navbar-item has-text-white {% if page.layout == 'blog' %}is-active{% endif %}"
-                    href="{{site.url}}{{site.baseurl}}/blog">{% t global.blog %}</a>
-                <a class="navbar-item has-text-white {% if page.layout == 'project' %}is-active{% endif %}"
-                    href="{{site.url}}{{site.baseurl}}/projects">{% t global.projects %}</a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link has-text-white">
-                        {% if site.lang == "en" %}
-                            🇬🇧 {% t global.english %}
-                        {% else %}
-                            🇳🇱 {% t global.dutch %}
-                        {% endif %}
-                    </a>
-                    <div class="navbar-dropdown is-left" style="background-color: #3E5266;">
-                        {% for lang in site.languages %}
-                            {% if lang != site.lang %}
-                                {% if page.url contains '/blog/' or page.url contains '/projects/' %}
-                                    {% if lang == site.default_lang %}
-                                        <a href="{{ page.url | remove_first: '/nl' }}" class="navbar-item has-text-white">
-                                    {% else %}
-                                        <a href="/{{ lang }}{{ page.url }}" class="navbar-item has-text-white">
-                                    {% endif %}
-                                {% else %}
-                                    {% if lang == site.default_lang %}
-                                        <a href="/" onclick="window.location.href='/' + window.location.hash; event.preventDefault();" class="navbar-item has-text-white">
-                                    {% else %}
-                                        <a href="/{{ lang }}/" onclick="window.location.href='/{{ lang }}/' + window.location.hash; event.preventDefault();" class="navbar-item has-text-white">
-                                    {% endif %}
-                                {% endif %}
-                                    {% if lang == "en" %}
-                                        🇬🇧 {% t global.english %}
-                                    {% else %}
-                                        🇳🇱 {% t global.dutch %}
-                                    {% endif %}
-                                </a>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-
-        </div>
-    </div>
-</nav>
-<!-- Bulma Navbar JS -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        /* Get all "navbar-burger" elements */
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-        /* Check if there are any navbar burgers */
-        if ($navbarBurgers.length > 0) {
-            /* Add a click event on each of them */
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-                    /* Get the target from the "data-target" attribute */
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
-                    /* Toggle the class on both the "navbar-burger" and the "navbar-menu" */
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-                });
-            });
-        }
-    });
-</script>
+    </nav>
+</header>

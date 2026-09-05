@@ -1,26 +1,10 @@
+{% assign root_url = site.baseurl_root %}
+{% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
 <head>
     {% include meta.html %}
-    <title>{{site.title}}</title>
-    <link rel="stylesheet" href="{% if site.baseurl %}{{site.baseurl}}{% else %}{% endif %}/assets/css/style.css">
-    <script src="https://kit.fontawesome.com/6a97161b76.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="{% if site.favicon-url %}{{site.favicon-url}}{% else %}{{ 'assets/images/logo/code-solutions-logo-profile-large-white-background.jpg' | absolute_url }}{% endif %}" type="image/x-icon">
-
-<!--     Language redirect -->
-    <script type="text/javascript">
-     function handleLanguageRedirect() {
-       const browserLang = navigator.language || navigator.userLanguage;
-       if (window.location.pathname === '/') {
-         if (browserLang.startsWith('nl') && !document.cookie.includes('language_redirect=true')) {
-           document.cookie = 'language_redirect=true; path=/';
-           window.location.href = '/nl/';
-         }
-       }
-     }
-    </script>
-
-    <script type="text/javascript">
-     if (typeof window !== 'undefined') {
-       window.onload = handleLanguageRedirect;
-     }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ root_url }}/assets/css/style.css">
+    <link rel="icon" href="{{ root_url }}/assets/images/logo/code-solutions-logo-profile-large-white-background.jpg">
+    <script src="{{ root_url }}/assets/js/site.js" defer data-root="{{ root_url }}"></script>
 </head>

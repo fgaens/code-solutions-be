@@ -2,6 +2,7 @@
 title: Netwerken
 layout: page
 lang: nl
+summary: Verbind je woning of bedrijf op een betrouwbare manier. Doordacht netwerkontwerp, de juiste apparatuur en installatie van begin tot eind.
 image: "/assets/images/networking.jpeg"
 ---
 

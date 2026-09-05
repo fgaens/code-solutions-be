@@ -1,14 +1,18 @@
-<a href="{{project.url | absolute_url}}">
-<div class="columns has-text-centered" id="blog-card">
-    <div class="column is-marginless is-paddingless is-one-third-desktop is-one-third-fullhd is-one-third-tablet">
-        <div class="image is-16by9" style="background-image: url({{project.post-image}});"></div>
+<article class="entry-card project-card" lang="{{ project.lang | default: site.lang }}" data-entry>
+    {% if project.post-image and project.post-image != '' %}
+    {% assign image_url = project.post-image %}
+    {% assign image_start = image_url | slice: 0, 1 %}
+    {% assign image_prefix = image_url | slice: 0, 2 %}
+    {% if image_start == '/' and image_prefix != '//' %}
+    {% assign root_url = site.baseurl_root %}
+    {% if root_url == nil %}{% assign root_url = site.baseurl %}{% endif %}
+    {% assign image_url = root_url | append: image_url %}
+    {% endif %}
+    <img class="entry-card-image" src="{{ image_url | escape }}" alt="" loading="lazy" decoding="async">
+    {% endif %}
+    <div class="entry-card-body">
+        <p class="entry-meta">{{ project.category | escape }}</p>
+        <h2><a class="text-link" href="{{ site.baseurl }}{{ project.url }}">{{ project.title | escape }}</a></h2>
+        <p>{{ project.description | default: project.excerpt | strip_html | normalize_whitespace | truncate: 240 | escape }}</p>
     </div>
-        <div class="column has-text-left-desktop has-text-left-tablet">
-            <h1 class="title is-size-4-touch">{{project.title}}</h1>
-            <div class="content has-text-grey">
-                {{ project.content | truncate: 300 | strip_html | strip_newlines | strip | escape }}
-                <hr class="has-background-grey">
-            </div>
-        </div>
-</div>
-</a>
+</article>

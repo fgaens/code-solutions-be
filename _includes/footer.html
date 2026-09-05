@@ -1,7 +1,7 @@
-<footer id="footer">
-    <!--Footer Main Section-->
-    <div class="has-background-black">
-        <div class="container columns">
-        </div>
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div><a class="footer-brand" href="{{ site.baseurl }}/">Code Solutions<span>.</span></a><p>{% t global.description %}</p></div>
+        <nav aria-label="{% t navigation.footer %}"><a href="{{ site.baseurl }}/#services">{% t global.services %}</a><a href="{{ site.baseurl }}/projects.html">{% t global.projects %}</a><a href="{{ site.baseurl }}/blog.html">{% t global.blog %}</a><a href="mailto:{{ site.email }}">{% t global.contact %}</a></nav>
     </div>
+    <div class="container footer-bottom"><span>&copy; {{ site.time | date: '%Y' }} Code Solutions</span><span>{% t home.footer_note %}</span></div>
 </footer>

@@ -1,7 +1,8 @@
 ---
-title: Websites and webapplications
+title: Websites & web applications
 layout: page
 lang: en
+summary: Turn your ideas into intuitive digital experiences. Custom websites and applications, designed around your business and the people who use them.
 image: "/assets/images/web.jpeg"
 ---
 

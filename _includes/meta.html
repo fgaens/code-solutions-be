@@ -1,46 +1,33 @@
-<!-- Include Meta Tags Here -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1 user-scalable=no, shrink-to-fit=no">
-<meta content='#000000' name='theme-color'/>
-<meta name="keywords" content="{{site.site-keywords}}">
-<title>{{site.title}}{% if page.title %} | {{page.title}}{% endif %}</title>
-
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta name="og:image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
-<meta name="og:image:alt" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
-<meta name="article:author" content="https://www.facebook.com/{{site.facebook_username-1}}">
-<meta name="og:site_name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="og:type" content="website">
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="twitter:description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta name="twitter:site" content="@{{site.twitter_username}}">
-<meta name="twitter:creator" content="@{{site.twitter_username}}">
-<meta name="twitter:image:src" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
-<!-- Search Engine -->
-<meta name="description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta name="image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
-<meta name="author" content="{{site.author-name-1}}"/>
-<meta itemprop="description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">
-<meta itemprop="image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{site.google-analytics}}"></script>
+{% capture site_description %}{% t global.description %}{% endcapture %}
+{% assign description = page.description | default: site_description | strip_html | normalize_whitespace %}
+{% assign social_image = page.post-image | default: site.site-image %}
+{% assign canonical_path = page.url %}
+{% if page.layout == 'project' %}{% assign canonical_path = '/projects.html' %}{% endif %}
+{% if page.layout == 'blog' %}{% assign canonical_path = '/blog.html' %}{% endif %}
+{% if page.layout == '404' %}{% assign canonical_path = '/404.html' %}{% endif %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f9fc">
+<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+<meta name="description" content="{{ description | escape }}">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ canonical_path }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}">
+<meta property="og:description" content="{{ description | escape }}">
+<meta property="og:image" content="{{ site.url }}{{ root_url }}{{ social_image }}">
+<meta property="og:image:alt" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ canonical_path }}">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ description | escape }}">
+<meta name="twitter:image" content="{{ site.url }}{{ root_url }}{{ social_image }}">
+{% if site.google-analytics and jekyll.environment == 'production' %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google-analytics }}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
-    gtag('config', '{{site.google-analytics}}');
+    gtag('config', '{{ site.google-analytics }}');
 </script>
+{% endif %}

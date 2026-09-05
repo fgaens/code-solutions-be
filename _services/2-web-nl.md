@@ -2,6 +2,7 @@
 title: Websites en webapplicaties
 layout: page
 lang: nl
+summary: Maak van je ideeën intuïtieve digitale ervaringen. Websites en applicaties op maat, ontworpen rond jouw bedrijf en de mensen die ze gebruiken.
 image: "/assets/images/web.jpeg"
 ---
 
