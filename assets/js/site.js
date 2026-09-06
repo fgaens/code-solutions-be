@@ -59,6 +59,34 @@ const demoTabs = Array.from(document.querySelectorAll('.demo-tab'));
 
 if (demoTabs.length) {
     const demoPanels = demoTabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+    let demoObserver = null;
+
+    function loadDemo(panel) {
+        const viewport = panel.querySelector('.demo-viewport');
+        if (!viewport || viewport.querySelector('iframe')) return;
+
+        if (demoObserver) {
+            demoObserver.disconnect();
+            demoObserver = null;
+        }
+
+        const status = viewport.querySelector('.demo-status');
+        if (status) status.textContent = viewport.dataset.demoLoading;
+
+        const frame = document.createElement('iframe');
+        frame.title = viewport.dataset.demoTitle;
+        frame.addEventListener('load', () => {
+            viewport.classList.add('is-live');
+            if (status) status.textContent = '';
+        });
+        frame.src = viewport.dataset.demoSrc;
+        viewport.appendChild(frame);
+    }
+
+    function selectedDemoIndex() {
+        const index = demoTabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true');
+        return index === -1 ? 0 : index;
+    }
 
     function selectDemo(index, moveFocus) {
         demoTabs.forEach((tab, position) => {
@@ -67,6 +95,7 @@ if (demoTabs.length) {
             tab.tabIndex = active ? 0 : -1;
             demoPanels[position].hidden = !active;
         });
+        loadDemo(demoPanels[index]);
         if (moveFocus) demoTabs[index].focus();
     }
 
@@ -83,18 +112,15 @@ if (demoTabs.length) {
             }
         });
     });
-}
 
-document.querySelectorAll('[data-demo-launch]').forEach((button) => {
-    button.addEventListener('click', () => {
-        const viewport = button.closest('.demo-viewport');
-        const frame = document.createElement('iframe');
-        frame.src = button.dataset.demoSrc;
-        frame.title = button.dataset.demoTitle;
-        frame.loading = 'lazy';
-        viewport.classList.add('is-live');
-        viewport.appendChild(frame);
-        button.remove();
-        frame.focus();
-    });
-});
+    const demoSection = document.getElementById('demos');
+
+    if (demoSection && 'IntersectionObserver' in window) {
+        demoObserver = new IntersectionObserver((entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) loadDemo(demoPanels[selectedDemoIndex()]);
+        }, { rootMargin: '200px 0px' });
+        demoObserver.observe(demoSection);
+    } else {
+        loadDemo(demoPanels[selectedDemoIndex()]);
+    }
+}
