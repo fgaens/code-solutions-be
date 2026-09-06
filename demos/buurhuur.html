@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BuurHuur &mdash; interactieve demo | Code Solutions</title>
+<meta name="description" content="Interactieve demo van BuurHuur: doorzoek het buurtaanbod, beheer je eigen spullen en volg huuraanvragen van aanvraag tot goedkeuring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+    --ink: #101828;
+    --muted: #667085;
+    --purple: #5b4ee0;
+    --line: #e7e9f2;
+    --surface: #f7f8fc;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: white; color: var(--ink); font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { line-height: 1.2; margin: 0; letter-spacing: -.03em; }
+button { font: inherit; cursor: pointer; }
+input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid #8f88ee; outline-offset: 2px; border-radius: 4px; }
+[hidden] { display: none !important; }
+
+.exit-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 10px 20px; background: var(--ink); color: white; font-size: 13px; }
+.exit-bar a { color: white; font-weight: 600; text-decoration: none; }
+.exit-bar a:hover { text-decoration: underline; }
+
+.topbar { display: flex; align-items: center; gap: 18px; padding: 16px 26px; border-bottom: 1px solid var(--line); }
+.burger { display: inline-flex; flex-direction: column; gap: 4px; border: 0; background: none; padding: 4px; }
+.burger i { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; }
+.wordmark { font-size: 21px; font-weight: 700; letter-spacing: -.04em; }
+.tagline { margin-left: auto; font-size: 14px; color: var(--muted); }
+
+.shell { display: grid; grid-template-columns: 232px 1fr; min-height: 640px; }
+.sidebar { border-right: 1px solid var(--line); padding: 24px 18px; display: flex; flex-direction: column; gap: 6px; }
+.sidebar-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 0 14px 12px; }
+.side-link { display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 0; background: none; text-align: left; width: 100%; padding: 12px 16px; border-radius: 10px; font-size: 15px; font-weight: 500; color: #33405a; border-left: 3px solid transparent; }
+.side-link:hover { background: #f3f2fd; }
+.side-link[aria-current=page] { background: #eeecfb; color: var(--purple); font-weight: 600; border-left-color: var(--purple); }
+.side-badge { min-width: 22px; padding: 0 7px; border-radius: 100px; background: var(--purple); color: white; font-size: 12px; font-weight: 700; text-align: center; }
+.sidebar-foot { margin-top: auto; display: grid; gap: 14px; }
+.sidebar-note { background: linear-gradient(140deg, #eceafd, #f2effd 45%, #fdeee7); border-radius: 12px; padding: 16px; font-size: 13px; color: #46506b; line-height: 1.5; }
+.sidebar-user { font-size: 13px; color: var(--muted); padding: 0 4px; }
+.sidebar-user strong { display: block; color: var(--purple); font-weight: 700; margin-top: 4px; }
+
+.content { background: var(--surface); padding: 26px 30px 44px; min-width: 0; }
+.hero { border-radius: 16px; padding: 28px 30px; background: linear-gradient(115deg, #ece9fc, #f1ebfb 40%, #fdece4); display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.hero .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6c5fd6; margin: 0 0 10px; }
+.hero h1 { font-size: 34px; font-weight: 700; }
+.hero p { max-width: 430px; color: #46506b; margin: 10px 0 0; font-size: 15px; }
+.view-toggle { display: inline-flex; gap: 4px; background: white; border-radius: 10px; padding: 4px; }
+.view-toggle button { border: 0; background: none; border-radius: 8px; width: 34px; height: 32px; color: #7a8499; display: inline-grid; place-items: center; }
+.view-toggle button[aria-pressed=true] { background: var(--purple); color: white; }
+
+.filters { display: flex; gap: 14px; margin: 22px 0; flex-wrap: wrap; }
+.search-field { position: relative; flex: 1; min-width: 220px; }
+.search-field svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.search-field input { width: 100%; padding: 12px 16px 12px 42px; border: 1px solid var(--line); border-radius: 10px; background: white; }
+.filters select { padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: white; min-width: 190px; }
+
+.catalogue { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); }
+.catalogue.is-list { grid-template-columns: 1fr; }
+.item-card { border: 1px solid var(--line); border-radius: 14px; background: white; overflow: hidden; text-align: left; padding: 0; display: flex; flex-direction: column; transition: box-shadow .18s ease, transform .18s ease; }
+.item-card:hover { box-shadow: 0 12px 24px -14px #10182833; transform: translateY(-2px); }
+.catalogue.is-list .item-card { flex-direction: row; align-items: stretch; }
+.catalogue.is-list .art { width: 168px; flex-shrink: 0; }
+.art { position: relative; aspect-ratio: 16 / 10; display: grid; place-items: center; }
+.art svg { width: 72%; height: auto; }
+.art span { position: absolute; left: 10px; bottom: 8px; font-size: 8px; letter-spacing: .12em; color: #10182859; font-weight: 600; }
+.item-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.chip { align-self: flex-start; font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #5b4ee0; background: #eeecfb; padding: 4px 9px; border-radius: 6px; }
+.item-body h3 { font-size: 17px; font-weight: 700; }
+.item-price { font-weight: 600; color: #33405a; }
+.item-owner { margin-top: auto; padding-top: 10px; border-top: 1px solid #eef0f6; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 10px; }
+.paused-flag { color: #9b6a1f; font-weight: 600; }
+.empty { border: 1px dashed var(--line); border-radius: 14px; padding: 40px; text-align: center; color: var(--muted); background: white; }
+
+.page-head { margin-bottom: 22px; }
+.page-head h1 { font-size: 30px; font-weight: 700; }
+.page-head p { color: var(--muted); margin: 8px 0 0; }
+.back-link { border: 0; background: none; color: var(--purple); font-weight: 600; padding: 0 0 14px; }
+
+.detail { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+.panel { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.panel h2 { font-size: 20px; font-weight: 700; }
+.panel h3 { font-size: 16px; font-weight: 700; }
+.detail .art { border-radius: 14px; aspect-ratio: 16 / 9; }
+.detail-meta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; font-size: 14px; color: var(--muted); }
+.field { display: grid; gap: 6px; margin-top: 14px; }
+.field label { font-size: 13px; font-weight: 600; color: #46506b; }
+.field input, .field select, .field textarea { padding: 11px 13px; border: 1px solid var(--line); border-radius: 10px; background: white; width: 100%; }
+.field textarea { resize: vertical; min-height: 76px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.primary { border: 0; border-radius: 10px; background: var(--purple); color: white; font-weight: 600; padding: 12px 22px; margin-top: 18px; }
+.primary:hover { background: #4a3fce; }
+.primary[disabled] { background: #c6c2ea; cursor: not-allowed; }
+.hint { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+.own-note { margin-top: 16px; border-radius: 10px; background: #f2f4f8; padding: 14px 16px; font-size: 14px; color: #46506b; }
+
+.table-wrap { background: white; border: 1px solid var(--line); border-radius: 14px; overflow: auto; margin-bottom: 26px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 13px; font-weight: 600; color: #46506b; background: #eef0f7; padding: 14px 18px; white-space: nowrap; }
+td { padding: 14px 18px; border-top: 1px solid #f0f2f7; vertical-align: middle; }
+td.actions { text-align: right; white-space: nowrap; }
+.status { display: inline-block; padding: 4px 11px; border-radius: 7px; font-size: 13px; font-weight: 600; }
+.status.aangevraagd { background: #fdf3d4; color: #8a6516; }
+.status.geaccepteerd { background: #dff3e5; color: #1f6b3d; }
+.status.geweigerd { background: #fce4e4; color: #a33232; }
+.status.geannuleerd { background: #eceef3; color: #5d6b80; }
+.accept { border: 0; border-radius: 8px; background: #14603a; color: white; font-weight: 600; padding: 9px 18px; }
+.accept:hover { background: #0f4c2e; }
+.decline { border: 0; background: none; color: #a33232; font-weight: 600; padding: 9px 10px; }
+.cancel { border: 0; background: none; color: var(--muted); font-weight: 600; padding: 9px 10px; }
+.toast { position: sticky; top: 12px; z-index: 5; margin-bottom: 18px; border-radius: 12px; padding: 13px 18px; background: #14603a; color: white; font-size: 14px; font-weight: 500; }
+
+.app-footer { border-top: 1px solid var(--line); padding: 20px 26px 30px; text-align: center; font-size: 13px; color: var(--muted); }
+.app-footer strong { color: var(--ink); }
+
+@media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; }
+    .sidebar { border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .sidebar-label, .sidebar-foot { display: none; }
+    .side-link { width: auto; border-left: 0; border-radius: 100px; padding: 9px 16px; }
+    .side-link[aria-current=page] { border-left: 0; }
+    .detail { grid-template-columns: 1fr; }
+    .hero { flex-direction: column; }
+    .hero h1 { font-size: 27px; }
+    .content { padding: 20px 18px 34px; }
+    .tagline { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="exit-bar" id="exit-bar" hidden>
+    <span>BuurHuur &middot; interactieve demo met fictieve accounts</span>
+    <a href="/#demos">&larr; Terug naar Code Solutions</a>
+</div>
+
+<header class="topbar">
+    <button type="button" class="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+    <span class="wordmark">BuurHuur</span>
+    <span class="tagline">Goed voor je buurt. Goed voor je spullen.</span>
+</header>
+
+<div class="shell">
+    <nav class="sidebar" aria-label="Hoofdnavigatie">
+        <p class="sidebar-label">Jouw buurt</p>
+        <button type="button" class="side-link" data-view="aanbod" aria-current="page">Aanbod</button>
+        <button type="button" class="side-link" data-view="spullen">Mijn spullen</button>
+        <button type="button" class="side-link" data-view="aanvragen">Mijn aanvragen <span class="side-badge" id="badge">0</span></button>
+        <div class="sidebar-foot">
+            <p class="sidebar-note">Minder kopen. Meer delen. Samen maken we ruimte voor meer.</p>
+            <p class="sidebar-user">lotte@example.test<strong>Afmelden</strong></p>
+        </div>
+    </nav>
+    <main class="content" id="view" tabindex="-1"></main>
+</div>
+
+<footer class="app-footer">
+    BuurHuur &middot; buurtverhuur-MVP &middot; fictieve accounts, originele demo-illustraties<br>
+    Een <strong>CodeSolutions</strong>-product &middot; betaling en overdracht blijven bewust offline
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    if (window.top === window.self) {
+        var exitBar = document.getElementById('exit-bar');
+        exitBar.querySelector('a').href = window.location.pathname.replace(/demos\/[^/]*$/, '') + '#demos';
+        exitBar.hidden = false;
+    }
+
+    var ME = 'lotte';
+    var CATEGORIES = ['Gereedschap', 'Outdoor', 'Elektronica', 'Tuin', 'Keuken', 'Vervoer'];
+
+    var ART = {
+        drill: ['#e9e5fb', '<circle cx="90" cy="60" r="38" fill="#fff" opacity=".55"/><rect x="52" y="44" width="52" height="30" rx="8" fill="#6c5ce0"/><rect x="100" y="52" width="34" height="14" rx="4" fill="#4a3fce"/><rect x="130" y="55" width="18" height="8" rx="3" fill="#9aa4b8"/><path d="M62 72h20l-6 26H66z" fill="#4a3fce"/><rect x="58" y="94" width="30" height="10" rx="4" fill="#37307f"/><rect x="66" y="50" width="24" height="6" rx="3" fill="#fff" opacity=".55"/>'],
+        tent: ['#e2f0e8', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".5"/><path d="M90 26 138 98H42z" fill="#e08a52"/><path d="M90 26 114 98H66z" fill="#f0a869"/><path d="M90 42v56" stroke="#1f4b3a" stroke-width="7"/><path d="M90 26 42 98h18L90 44l30 54h18z" fill="#1f4b3a" opacity=".85"/><rect x="34" y="96" width="112" height="7" rx="3.5" fill="#cfe0d5"/>'],
+        projector: ['#e4ecf6', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".55"/><rect x="40" y="42" width="100" height="46" rx="10" fill="#f2f5fa" stroke="#c4d0e0" stroke-width="3"/><circle cx="112" cy="65" r="15" fill="#20334f"/><circle cx="112" cy="65" r="7" fill="#5b9de0"/><rect x="52" y="56" width="34" height="5" rx="2.5" fill="#c4d0e0"/><rect x="52" y="68" width="24" height="5" rx="2.5" fill="#c4d0e0"/><rect x="52" y="88" width="12" height="10" rx="3" fill="#c4d0e0"/><rect x="116" y="88" width="12" height="10" rx="3" fill="#c4d0e0"/>'],
+        washer: ['#fbf0dd', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".5"/><rect x="54" y="46" width="52" height="50" rx="10" fill="#f2b93c"/><rect x="62" y="36" width="34" height="14" rx="6" fill="#4a4a55"/><path d="M106 58c22 0 26 10 26 22" stroke="#4a4a55" stroke-width="6" fill="none" stroke-linecap="round"/><rect x="126" y="76" width="10" height="26" rx="4" fill="#6c5ce0"/><circle cx="66" cy="100" r="8" fill="#4a4a55"/><circle cx="98" cy="100" r="8" fill="#4a4a55"/><rect x="62" y="58" width="36" height="16" rx="5" fill="#fff" opacity=".6"/>'],
+        mixer: ['#fbe6e3', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".5"/><path d="M48 96c0-8 6-14 14-14h20c8 0 14 6 14 14z" fill="#d05a4e"/><rect x="44" y="94" width="60" height="10" rx="5" fill="#b34438"/><path d="M56 44h58c8 0 12 5 12 12v10H56z" fill="#d05a4e"/><rect x="52" y="40" width="66" height="10" rx="5" fill="#b34438"/><rect x="76" y="66" width="10" height="18" rx="4" fill="#9aa4b8"/><path d="M66 78h30l-4 16H70z" fill="#eef1f6" stroke="#c9d2de" stroke-width="2"/>'],
+        grill: ['#e2eee9', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".5"/><path d="M46 58h88c0 22-18 34-44 34S46 80 46 58z" fill="#2f4f45"/><rect x="42" y="52" width="96" height="9" rx="4.5" fill="#1f3a32"/><path d="M62 90 52 108M118 90l10 18M90 92v16" stroke="#1f3a32" stroke-width="6" stroke-linecap="round"/><path d="M74 40c0-6 8-6 8-12M92 40c0-6 8-6 8-12" stroke="#9fb8ad" stroke-width="4" stroke-linecap="round" fill="none"/>'],
+        ladder: ['#fdf1e2', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".5"/><path d="M64 24 50 104M116 24l14 80" stroke="#e0a44f" stroke-width="8" stroke-linecap="round"/><path d="M62 42h56M59 60h62M56 78h68" stroke="#c98a35" stroke-width="7" stroke-linecap="round"/>'],
+        trailer: ['#e4ecf6', '<circle cx="90" cy="58" r="36" fill="#fff" opacity=".5"/><path d="M40 60h84v26H40z" fill="#5b7ba6"/><path d="M40 60h84l-8-16H48z" fill="#7d9ac2"/><rect x="120" y="72" width="30" height="7" rx="3.5" fill="#4a4a55"/><circle cx="62" cy="92" r="12" fill="#2f3b4d"/><circle cx="62" cy="92" r="5" fill="#c4d0e0"/><circle cx="106" cy="92" r="12" fill="#2f3b4d"/><circle cx="106" cy="92" r="5" fill="#c4d0e0"/>']
+    };
+
+    var items = [
+        { id: 1, title: 'Accuboormachine', category: 'Gereedschap', price: 6, owner: 'lotte', zip: 3000, art: 'drill', paused: false },
+        { id: 2, title: 'Tent voor vier', category: 'Outdoor', price: 10, owner: 'lotte', zip: 3000, art: 'tent', paused: false },
+        { id: 3, title: 'Beamer voor je filmavond', category: 'Elektronica', price: 15, owner: 'lotte', zip: 3000, art: 'projector', paused: false },
+        { id: 4, title: 'Hogedrukreiniger', category: 'Tuin', price: 12, owner: 'lotte', zip: 3000, art: 'washer', paused: false },
+        { id: 5, title: 'Keukenmachine', category: 'Keuken', price: 8, owner: 'noor', zip: 3000, art: 'mixer', paused: false },
+        { id: 6, title: 'Barbecue voor de buurt', category: 'Tuin', price: 9, owner: 'sam', zip: 3010, art: 'grill', paused: false },
+        { id: 7, title: 'Ladder van 6 meter', category: 'Gereedschap', price: 7, owner: 'noor', zip: 3000, art: 'ladder', paused: false },
+        { id: 8, title: 'Aanhangwagen', category: 'Vervoer', price: 18, owner: 'sam', zip: 3010, art: 'trailer', paused: false }
+    ];
+
+    var requests = [
+        { id: 101, itemId: 5, renter: 'lotte', from: '2026-09-19', to: '2026-09-21', status: 'geaccepteerd' },
+        { id: 102, itemId: 6, renter: 'lotte', from: '2026-09-12', to: '2026-09-14', status: 'geannuleerd' },
+        { id: 103, itemId: 4, renter: 'noor', from: '2026-09-23', to: '2026-09-25', status: 'geaccepteerd' },
+        { id: 104, itemId: 3, renter: 'noor', from: '2026-09-13', to: '2026-09-15', status: 'geweigerd' },
+        { id: 105, itemId: 2, renter: 'sam', from: '2026-09-17', to: '2026-09-19', status: 'aangevraagd' },
+        { id: 106, itemId: 1, renter: 'sam', from: '2026-09-10', to: '2026-09-12', status: 'aangevraagd' }
+    ];
+
+    var nextId = 200;
+    var state = { view: 'aanbod', layout: 'grid', query: '', category: '', itemId: null, toast: '' };
+    var view = document.getElementById('view');
+    var euro = new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2 });
+
+    function escapeHtml(value) {
+        return String(value).replace(/[&<>"]/g, function (character) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character];
+        });
+    }
+
+    function itemById(id) {
+        return items.filter(function (item) { return item.id === id; })[0];
+    }
+
+    function artwork(item, label) {
+        var art = ART[item.art];
+        return '<div class="art" style="background:' + art[0] + '">' +
+            '<svg viewBox="0 0 180 120" aria-hidden="true">' + art[1] + '</svg>' +
+            (label === false ? '' : '<span>BUURHUUR / DEMO-ILLUSTRATIE</span>') + '</div>';
+    }
+
+    function openRequests() {
+        return requests.filter(function (request) {
+            return request.status === 'aangevraagd' && itemById(request.itemId).owner === ME;
+        }).length;
+    }
+
+    function toast(message) {
+        state.toast = message;
+    }
+
+    function renderCatalogue() {
+        var visible = items.filter(function (item) {
+            if (item.paused) return false;
+            if (state.category && item.category !== state.category) return false;
+            return item.title.toLowerCase().indexOf(state.query.toLowerCase()) !== -1;
+        });
+
+        var cards = visible.map(function (item) {
+            return '<button type="button" class="item-card" data-open="' + item.id + '">' +
+                artwork(item) +
+                '<div class="item-body">' +
+                '<span class="chip">' + escapeHtml(item.category) + '</span>' +
+                '<h3>' + escapeHtml(item.title) + '</h3>' +
+                '<p class="item-price">' + euro.format(item.price) + ' / dag</p>' +
+                '<p class="item-owner"><span>' + escapeHtml(item.owner) + ' &middot; ' + item.zip + '</span>' +
+                (item.owner === ME ? '<span>jouw item</span>' : '') + '</p>' +
+                '</div></button>';
+        }).join('');
+
+        return '<section class="hero">' +
+            '<div><p class="eyebrow">Kleine plannen, grootse buren</p>' +
+            '<h1>In jouw buurt</h1>' +
+            '<p>Van een klus in huis tot een weekend buiten. Huur wat je nodig hebt, bij je buren.</p></div>' +
+            '<div class="view-toggle" role="group" aria-label="Weergave">' +
+            '<button type="button" data-layout="grid" aria-pressed="' + (state.layout === 'grid') + '" aria-label="Rasterweergave"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg></button>' +
+            '<button type="button" data-layout="list" aria-pressed="' + (state.layout === 'list') + '" aria-label="Lijstweergave"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="2" width="14" height="3" rx="1.5"/><rect x="1" y="7" width="14" height="3" rx="1.5"/><rect x="1" y="12" width="14" height="3" rx="1.5"/></svg></button>' +
+            '</div></section>' +
+            '<div class="filters">' +
+            '<div class="search-field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
+            '<input type="search" id="search" placeholder="Zoek op naam" value="' + escapeHtml(state.query) + '" aria-label="Zoek op naam"></div>' +
+            '<select id="category" aria-label="Categorie"><option value="">Alle categorie&euml;n</option>' +
+            CATEGORIES.map(function (category) {
+                return '<option' + (state.category === category ? ' selected' : '') + '>' + category + '</option>';
+            }).join('') + '</select></div>' +
+            (visible.length
+                ? '<div class="catalogue' + (state.layout === 'list' ? ' is-list' : '') + '">' + cards + '</div>'
+                : '<p class="empty">Geen spullen gevonden. Pas je zoekterm of categorie aan.</p>');
+    }
+
+    function renderDetail() {
+        var item = itemById(state.itemId);
+        var mine = item.owner === ME;
+        var history = requests.filter(function (request) {
+            return request.itemId === item.id && request.renter === ME;
+        });
+
+        var form = mine
+            ? '<p class="own-note">Dit item staat op jouw naam. Aanvragen van buren verschijnen bij <strong>Mijn aanvragen</strong>.</p>'
+            : '<form id="request-form">' +
+                '<div class="field-row">' +
+                '<div class="field"><label for="from">Van</label><input type="date" id="from" value="' + defaultDate(4) + '" required></div>' +
+                '<div class="field"><label for="to">Tot</label><input type="date" id="to" value="' + defaultDate(6) + '" required></div>' +
+                '</div>' +
+                '<div class="field"><label for="message">Bericht voor ' + escapeHtml(item.owner) + '</label>' +
+                '<textarea id="message" placeholder="Vertel kort waarvoor je het nodig hebt."></textarea></div>' +
+                '<p class="hint" id="price-hint"></p>' +
+                '<button type="submit" class="primary">Aanvraag versturen</button>' +
+                '</form>';
+
+        return '<button type="button" class="back-link" data-view="aanbod">&larr; Terug naar het aanbod</button>' +
+            '<div class="detail">' +
+            '<section class="panel">' + artwork(item, false) +
+            '<h2 style="margin-top:18px">' + escapeHtml(item.title) + '</h2>' +
+            '<p class="detail-meta"><span>' + escapeHtml(item.category) + '</span><span>' + euro.format(item.price) + ' / dag</span>' +
+            '<span>' + escapeHtml(item.owner) + ' &middot; ' + item.zip + '</span></p>' +
+            '<p class="hint">Ophalen en terugbrengen spreek je onderling af. BuurHuur regelt de aanvraag, niet de betaling.</p>' +
+            (history.length ? '<h3 style="margin-top:22px">Jouw eerdere aanvragen</h3>' + history.map(function (request) {
+                return '<p class="hint">' + request.from + ' &rarr; ' + request.to + ' &middot; <span class="status ' + request.status + '">' + capitalise(request.status) + '</span></p>';
+            }).join('') : '') +
+            '</section>' +
+            '<section class="panel"><h3>' + (mine ? 'Jouw item' : 'Vraag dit item aan') + '</h3>' + form + '</section>' +
+            '</div>';
+    }
+
+    function renderMyItems() {
+        var mine = items.filter(function (item) { return item.owner === ME; });
+        var rows = mine.map(function (item) {
+            return '<tr><td>' + escapeHtml(item.title) + '</td>' +
+                '<td>' + escapeHtml(item.category) + '</td>' +
+                '<td>' + euro.format(item.price) + ' / dag</td>' +
+                '<td>' + (item.paused ? '<span class="status geannuleerd">Gepauzeerd</span>' : '<span class="status geaccepteerd">Actief</span>') + '</td>' +
+                '<td class="actions"><button type="button" class="cancel" data-toggle="' + item.id + '">' +
+                (item.paused ? 'Heractiveer' : 'Pauzeer') + '</button></td></tr>';
+        }).join('');
+
+        return '<div class="page-head"><h1>Mijn spullen</h1>' +
+            '<p>Wat je deelt, bepaal je zelf. Pauzeer een item wanneer je het even nodig hebt.</p></div>' +
+            '<div class="table-wrap"><table><thead><tr><th>Item</th><th>Categorie</th><th>Prijs</th><th>Status</th><th></th></tr></thead>' +
+            '<tbody>' + rows + '</tbody></table></div>' +
+            '<section class="panel"><h3>Nieuw item toevoegen</h3>' +
+            '<form id="new-item"><div class="field"><label for="new-title">Titel</label>' +
+            '<input id="new-title" required maxlength="48" placeholder="Bijvoorbeeld: Steekwagen"></div>' +
+            '<div class="field-row"><div class="field"><label for="new-category">Categorie</label>' +
+            '<select id="new-category">' + CATEGORIES.map(function (category) { return '<option>' + category + '</option>'; }).join('') + '</select></div>' +
+            '<div class="field"><label for="new-price">Prijs per dag</label>' +
+            '<input type="number" id="new-price" min="1" max="99" step="1" value="8" required></div></div>' +
+            '<button type="submit" class="primary">Plaats in het aanbod</button></form></section>';
+    }
+
+    function renderRequests() {
+        var outgoing = requests.filter(function (request) { return request.renter === ME; });
+        var incoming = requests.filter(function (request) { return itemById(request.itemId).owner === ME; });
+
+        var outgoingRows = outgoing.length ? outgoing.map(function (request) {
+            return '<tr><td>' + escapeHtml(itemById(request.itemId).title) + '</td>' +
+                '<td>' + request.from + ' &rarr; ' + request.to + '</td>' +
+                '<td><span class="status ' + request.status + '">' + capitalise(request.status) + '</span></td>' +
+                '<td class="actions">' + (request.status === 'aangevraagd'
+                    ? '<button type="button" class="cancel" data-cancel="' + request.id + '">Annuleer</button>' : '') + '</td></tr>';
+        }).join('') : '<tr><td colspan="4">Je hebt nog niets aangevraagd.</td></tr>';
+
+        var incomingRows = incoming.length ? incoming.map(function (request) {
+            return '<tr><td>' + escapeHtml(itemById(request.itemId).title) + '</td>' +
+                '<td>' + escapeHtml(request.renter) + '</td>' +
+                '<td>' + request.from + ' &rarr; ' + request.to + '</td>' +
+                '<td><span class="status ' + request.status + '">' + capitalise(request.status) + '</span></td>' +
+                '<td class="actions">' + (request.status === 'aangevraagd'
+                    ? '<button type="button" class="accept" data-accept="' + request.id + '">Accepteer</button>' +
+                      '<button type="button" class="decline" data-decline="' + request.id + '">Weiger</button>' : '') + '</td></tr>';
+        }).join('') : '<tr><td colspan="5">Nog geen aanvragen voor jouw spullen.</td></tr>';
+
+        return '<div class="page-head"><h1>Mijn aanvragen</h1>' +
+            '<p>Een goed begin is een goede afspraak. Volg je huurplannen en help je buren op weg.</p></div>' +
+            '<div class="table-wrap"><table><thead><tr><th>Item</th><th>Periode</th><th>Status</th><th></th></tr></thead>' +
+            '<tbody>' + outgoingRows + '</tbody></table></div>' +
+            '<h2 style="font-size:24px;margin-bottom:16px">Aanvragen voor mijn spullen</h2>' +
+            '<div class="table-wrap"><table><thead><tr><th>Item</th><th>Huurder</th><th>Periode</th><th>Status</th><th></th></tr></thead>' +
+            '<tbody>' + incomingRows + '</tbody></table></div>';
+    }
+
+    function capitalise(value) {
+        return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+
+    function defaultDate(offset) {
+        var date = new Date(2026, 8, 5 + offset);
+        return date.toISOString().slice(0, 10);
+    }
+
+    function render() {
+        var body = '';
+        if (state.toast) {
+            body += '<p class="toast" role="status">' + escapeHtml(state.toast) + '</p>';
+            state.toast = '';
+        }
+        if (state.view === 'aanbod') body += renderCatalogue();
+        if (state.view === 'item') body += renderDetail();
+        if (state.view === 'spullen') body += renderMyItems();
+        if (state.view === 'aanvragen') body += renderRequests();
+        view.innerHTML = body;
+
+        document.getElementById('badge').textContent = String(openRequests());
+        document.querySelectorAll('.side-link').forEach(function (link) {
+            var active = link.dataset.view === state.view || (state.view === 'item' && link.dataset.view === 'aanbod');
+            if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+        });
+        updatePriceHint();
+    }
+
+    function updatePriceHint() {
+        var hint = document.getElementById('price-hint');
+        if (!hint) return;
+        var item = itemById(state.itemId);
+        var from = new Date(document.getElementById('from').value);
+        var to = new Date(document.getElementById('to').value);
+        var days = Math.round((to - from) / 86400000) + 1;
+        if (isNaN(days) || days < 1) {
+            hint.textContent = 'Kies een einddatum die na de startdatum ligt.';
+            return;
+        }
+        hint.innerHTML = days + (days === 1 ? ' dag' : ' dagen') + ' &times; ' + euro.format(item.price) + ' = <strong>' + euro.format(days * item.price) + '</strong>';
+    }
+
+    document.querySelectorAll('.side-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            state.view = link.dataset.view;
+            render();
+            view.focus();
+        });
+    });
+
+    view.addEventListener('click', function (event) {
+        var open = event.target.closest('[data-open]');
+        if (open) { state.itemId = parseInt(open.dataset.open, 10); state.view = 'item'; render(); return; }
+
+        var back = event.target.closest('[data-view]');
+        if (back) { state.view = back.dataset.view; render(); return; }
+
+        var layout = event.target.closest('[data-layout]');
+        if (layout) { state.layout = layout.dataset.layout; render(); return; }
+
+        var accept = event.target.closest('[data-accept]');
+        if (accept) { setStatus(parseInt(accept.dataset.accept, 10), 'geaccepteerd', 'Aanvraag geaccepteerd. De huurder krijgt bericht.'); return; }
+
+        var decline = event.target.closest('[data-decline]');
+        if (decline) { setStatus(parseInt(decline.dataset.decline, 10), 'geweigerd', 'Aanvraag geweigerd.'); return; }
+
+        var cancel = event.target.closest('[data-cancel]');
+        if (cancel) { setStatus(parseInt(cancel.dataset.cancel, 10), 'geannuleerd', 'Je aanvraag is geannuleerd.'); return; }
+
+        var toggle = event.target.closest('[data-toggle]');
+        if (toggle) {
+            var item = itemById(parseInt(toggle.dataset.toggle, 10));
+            item.paused = !item.paused;
+            toast(item.paused ? item.title + ' staat nu op pauze.' : item.title + ' staat weer in het aanbod.');
+            render();
+        }
+    });
+
+    view.addEventListener('input', function (event) {
+        if (event.target.id === 'search') {
+            state.query = event.target.value;
+            var position = event.target.selectionStart;
+            render();
+            var field = document.getElementById('search');
+            field.focus();
+            field.setSelectionRange(position, position);
+        }
+        if (event.target.id === 'from' || event.target.id === 'to') updatePriceHint();
+    });
+
+    view.addEventListener('change', function (event) {
+        if (event.target.id === 'category') { state.category = event.target.value; render(); }
+    });
+
+    view.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (event.target.id === 'request-form') {
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            if (!from || !to || to < from) { toast('Kies een einddatum die na de startdatum ligt.'); render(); return; }
+            requests.push({ id: nextId++, itemId: state.itemId, renter: ME, from: from, to: to, status: 'aangevraagd' });
+            toast('Aanvraag verstuurd naar ' + itemById(state.itemId).owner + '. Je vindt ze bij Mijn aanvragen.');
+            state.view = 'aanvragen';
+            render();
+        }
+        if (event.target.id === 'new-item') {
+            var title = document.getElementById('new-title').value.trim();
+            if (!title) return;
+            var kinds = Object.keys(ART);
+            items.push({
+                id: nextId++, title: title,
+                category: document.getElementById('new-category').value,
+                price: parseInt(document.getElementById('new-price').value, 10) || 8,
+                owner: ME, zip: 3000, art: kinds[items.length % kinds.length], paused: false
+            });
+            toast(title + ' staat nu in het buurtaanbod.');
+            render();
+        }
+    });
+
+    function setStatus(id, status, message) {
+        requests.forEach(function (request) {
+            if (request.id === id) request.status = status;
+        });
+        toast(message);
+        render();
+    }
+
+    render();
+})();
+</script>
+</body>
+</html>

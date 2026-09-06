@@ -2,6 +2,7 @@
 title: Tafeltuin
 layout: post
 order: 3
+demo: /demos/tafeltuin.html
 featured: false
 category: projects.tafeltuin.category
 description: projects.tafeltuin.description

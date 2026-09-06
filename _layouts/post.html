@@ -31,6 +31,14 @@ layout: compress
                         {% if page.date and page.collection != 'projects' %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>{% endif %}
                     </p>
                 </header>
+                {% if page.demo and page.demo != '' %}
+                {% assign demo_root = site.baseurl_root %}
+                {% if demo_root == nil %}{% assign demo_root = site.baseurl %}{% endif %}
+                <p class="project-demo-cta">
+                    <a class="action-link" href="{{ demo_root }}{{ page.demo }}">{% t projects.demo_cta %}{% include icon.html name='arrow' %}</a>
+                    <span>{% t projects.demo_note %}</span>
+                </p>
+                {% endif %}
                 {% if page.post-image and page.post-image != '' %}
                 {% assign image_url = page.post-image %}
                 {% assign image_start = image_url | slice: 0, 1 %}

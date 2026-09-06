@@ -96,7 +96,41 @@ home:
   contact_description: Een nieuw idee, een technische uitdaging of een systeem dat beter kan. Vertel ons waar je aan denkt.
   footer_note: Doordachte technologie. Persoonlijke samenwerking.
 
+demos:
+  eyebrow: Zie het werken
+  title: Werkende software, geen screenshots.
+  description: Elk project hieronder draait als echte applicatie in deze pagina. Verander de invoer en de software antwoordt, precies zoals bij de gebruikers ervan.
+  tab_label: Kies een productdemo
+  launch: Start de demo
+  launch_note: Draait in je browser. Geen account, niets verlaat deze pagina.
+  open: Openen in een nieuw tabblad
+  case: Lees het projectverhaal
+  disclaimer: De demo's gebruiken synthetische demonstratiedata en fictieve accounts. Ze tonen hoe de software zich gedraagt, niet echte klantresultaten.
+  solarstash:
+    tagline: Energieanalyse
+    summary: Simuleer een thuisbatterij op een volledig jaar kwartierdata en zie of de investering standhoudt.
+    point_one: Verschuif capaciteit, batterijprijs en tarieven en zie besparing, terugverdientijd en netto contante waarde meebewegen.
+    point_two: Alle 35.040 intervallen worden in je browser doorgerekend, interval per interval, inclusief rendement en vermogenslimiet.
+    point_three: De waardecurve laat zien waar een batterij zichzelf niet meer terugverdient, in plaats van er hoe dan ook een aan te raden.
+    frame: SolarStash batterijanalyse-demo
+  buurhuur:
+    tagline: Buurtplatform
+    summary: Doorzoek het buurtaanbod en volg een huuraanvraag door de hele flow, vanuit beide kanten.
+    point_one: Zoek en filter het aanbod en wissel tussen raster- en lijstweergave.
+    point_two: Vraag een item aan bij een buur en accepteer of weiger de aanvragen die voor jouw spullen binnenkomen.
+    point_three: Pauzeer een item om het uit het aanbod te halen, of plaats er een nieuw bij.
+    frame: BuurHuur verhuurplatform-demo
+  tafeltuin:
+    tagline: Spelend leren
+    summary: Kies je tafels, speel een oefenronde en laat de dierentuin groeien die het beloont.
+    point_one: Stel tafels, rondelengte en tijdslimiet in en antwoord met het toetsenbord of het cijferpaneel.
+    point_two: Elk antwoord telt mee voor je score, je antwoordtijd en je voortgang per tafel.
+    point_three: Groeipunten ontgrendelen dieren, dezelfde beloningslus die kinderen doet terugkomen.
+    frame: Tafeltuin maaltafels-demo
+
 projects:
+  demo_cta: Open de interactieve demo
+  demo_note: Draait in je browser met demonstratiedata, zonder account.
   solarstash:
     category: Energieanalyse
     description: Van elektriciteitsverbruiksgegevens naar heldere investeringsscenario's voor batterijen en zonnepanelen.

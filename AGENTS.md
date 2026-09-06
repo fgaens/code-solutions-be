@@ -1,5 +1,10 @@
 # Repository Guidance
 
+## Feature Planning
+
+- Use repo-local `openspec/` for new feature proposals, specs, and tasks; keep independent features in separate changes. See `openspec/README.md` for the OpenCode commands and lifecycle.
+- `/opsx-propose` is planning only. Review the generated artifacts before explicitly starting `/opsx-apply`; archive after implementation and verification. Repository-specific artifact guidance lives in `openspec/config.yaml`, not global `openspec config` settings.
+
 ## Commands and Validation
 
 - This is a Jekyll static website, not a backend application despite the repository name. CI uses Ruby 3.2; `Gemfile.lock` records Bundler 2.6.2.
@@ -19,6 +24,16 @@
 - Projects include body-only Markdown from `_i18n/{en,nl}/projects/` via `{% tf projects/<slug>.md %}`. Shared front matter uses `translate_props` for localized metadata; screenshot alt/caption values are translation keys. Do not set `lang: en` on these bilingual documents or move the collection itself under `_i18n/`.
 - Project `order` controls the listing; `featured: true` selects homepage entries (maximum two). Application screenshots live in `assets/images/projects/`; keep demo-data captions and full-size screenshots intact. Project pages intentionally omit dates rather than inventing launch dates.
 - `assets/js/site.js` redirects Dutch-language browsers from the English homepage once per `language_redirect` cookie. Explicit language switching sets that cookie and preserves fragments; English-only posts switch to the target blog listing.
+
+## Product Demos
+
+- `demos/*.html` are standalone, self-contained applications: one HTML file each with its own inline CSS and JavaScript, no build step, no framework, no network calls. They have no YAML front matter, so Jekyll copies them verbatim as static files.
+- `demos` is listed in `_config.yml`'s `exclude_from_localizations`, so each demo is served once at `/demos/<slug>.html` rather than duplicated under `/nl/`. The demo interfaces stay in Dutch because the applications themselves are Dutch; only the surrounding site copy is translated.
+- Demo pages must work standalone and embedded. Each one shows its "back to Code Solutions" bar only when `window.top === window.self`, and derives that link from `window.location.pathname` so it survives a deployment base path.
+- `_includes/product-demos.html` renders the homepage section from `_data/demos.yml` (slug, project title, poster image) plus `demos.*` keys in `_i18n/{en,nl}.yml`. The multilingual plugin expands Liquid inside `{% t %}` keys, which is what makes `{% t demos.{{ demo.slug }}.tagline %}` work. Keep both dictionaries aligned when adding a demo.
+- Demos load only on demand: the panel shows the project cover image with a launch button, and `assets/js/site.js` creates the `iframe` on click. Do not add `src` to the markup, and keep the tablist's `aria-selected`/`tabindex` handling in that script.
+- SolarStash generates a deterministic synthetic year (35,040 quarter-hour intervals, seeded PRNG) at load and caches simulation results per capacity/power. Its figures are modelled, never measured; keep the demo notice and the honest negative-outcome messaging intact.
+- Projects link to their demo through the `demo` front matter key in `_projects/*.md`, rendered by `_layouts/post.html`.
 
 ## Layout and Styling
 

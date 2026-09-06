@@ -68,6 +68,8 @@ collections:
 # Exclude
 exclude:
   - AGENTS.md
+  - openspec/
+  - .opencode/
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -82,5 +84,5 @@ exclude:
 # Multi lingual
 languages: [ "en", "nl" ]
 default_lang: "en"
-exclude_from_localizations: [ "assets", "images", "css", "js", "favicon.ico" ]
+exclude_from_localizations: [ "assets", "demos", "images", "css", "js", "favicon.ico" ]
 language_data: data.languages
