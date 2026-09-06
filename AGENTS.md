@@ -37,7 +37,7 @@
 
 ## Layout and Styling
 
-- `index.md` only selects `layout: default`. `_layouts/default.html` assembles homepage includes and does not render `{{ content }}`. Shared navigation behavior lives in `assets/js/site.js`; listings filter their rendered cards via `_includes/search.html`.
+- `index.md` only selects `layout: default`. `_layouts/default.html` assembles homepage includes and does not render `{{ content }}`. Shared navigation behavior lives in `assets/js/site.js`; the blog listing filters its rendered cards via `_includes/search.html`; the Projects listing renders its full grid without a search control.
 - `assets/css/style.scss` is the compiled stylesheet entrypoint; preserve its empty YAML front matter. `_sass/main.scss` defines design tokens and imports DM Sans and Bulma 0.8.2 from CDNs. Icons are inline SVG via `_includes/icon.html`; there is no Node asset build.
 - `_includes/head.html` emits the complete `<head>` element. Layouts must not wrap it in another `<head>`; shared navigation's skip link targets `main#main-content`.
 - Client order, sizing, and official asset sources live in `_data/clients.yml`; logos are local under `assets/images/clients/`. Preserve their official colors/proportions and the section's white background.
