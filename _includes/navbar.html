@@ -4,6 +4,7 @@
 {% if page.layout == 'project' %}{% assign switch_path = '/projects.html' %}{% endif %}
 {% if page.layout == 'blog' %}{% assign switch_path = '/blog.html' %}{% endif %}
 {% if page.layout == '404' %}{% assign switch_path = '/404.html' %}{% endif %}
+{% if page.layout == 'course' %}{% assign switch_path = '/ai-everyday.html' %}{% endif %}
 {% if page.collection == 'posts' %}{% assign switch_path = '/blog.html' %}{% endif %}
 {% if page.collection == 'services' %}{% assign switch_path = '/#services' %}{% endif %}
 <a class="skip-link" href="#main-content">{% t navigation.skip %}</a>
@@ -20,6 +21,7 @@
                 <a href="{{ site.baseurl }}/#services">{% t global.services %}</a>
                 <a href="{{ site.baseurl }}/projects.html"{% if page.layout == 'project' or page.collection == 'projects' %} aria-current="page"{% endif %}>{% t global.projects %}</a>
                 <a href="{{ site.baseurl }}/blog.html"{% if page.layout == 'blog' or page.collection == 'posts' %} aria-current="page"{% endif %}>{% t global.blog %}</a>
+                <a href="{{ site.baseurl }}/ai-everyday.html"{% if page.layout == 'course' %} aria-current="page"{% endif %}>{% t global.ai-course %}</a>
             </div>
             <div class="nav-actions">
                 <div class="language-switch" aria-label="{% t navigation.language %}">

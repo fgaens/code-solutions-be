@@ -9,6 +9,7 @@ global:
   contact: Contact
   blog: Blog
   projects: Projects
+  ai-course: AI Course
 
   read-more: Read more
   send-mail: Send us an Email
@@ -139,3 +140,147 @@ projects:
     post-image-caption: The actual Dutch-language practice screen after automated demo rounds. No real learner's history is shown.
     screenshot_alt: Tafeltuin completed-round screen showing answered questions, accuracy, response time, growth points, and three newly earned animals.
     screenshot_caption: Rewards earned through completed demonstration rounds. The displayed scores and response times are synthetic examples, not evidence of learning outcomes.
+
+course:
+  description: "Personal AI sessions without jargon: letters, paperwork, plans, staying safe and autonomous agents. One-on-one or for your group, in Dutch or English."
+  hero:
+    eyebrow: AI course for everyone
+    title: AI for everyday life
+    subtitle: From your first question to an agent that works for you on its own
+    lead: Personal guidance without jargon for anyone who is curious about ChatGPT, Claude, Gemini or Copilot. You learn step by step how it helps you at home and at work, how to stay safe, and how to let an agent carry out tasks by itself.
+    cta-formats: Choose your format
+    cta-programme: See the programme
+
+  recognise:
+    eyebrow: Sound familiar?
+    title: AI is everywhere. Getting real use out of it is another matter.
+    items:
+      - You tried ChatGPT once, got a vague answer and never opened it again.
+      - Your children or colleagues use AI for everything, and you wonder what you are missing.
+      - You do not know which answers you can trust, or what is safe to type in.
+      - Everyone talks about AI agents, but you have no idea what they could do for you.
+
+  path:
+    eyebrow: How it works
+    title: Three steps, at your pace.
+    intro: You practise with your own questions, on your own device.
+    steps:
+      - name: Start
+        tagline: Ask the right way
+        text: You install an assistant on your smartphone or computer and learn to ask questions that get you a useful answer straight away.
+      - name: Use
+        tagline: Put AI to work on real chores
+        text: You get help with a difficult letter, a mail, a weekly menu or a travel plan, and you learn to check the answers and protect your privacy.
+      - name: Hand over
+        tagline: Let it run by itself
+        text: You build an agent that carries out a recurring task on its own, within the limits you set.
+
+  audience:
+    eyebrow: Who is it for
+    title: For anyone who is curious.
+    items:
+      - name: Curious beginners of every age
+        icon: home
+        text: You have a smartphone or computer and use mail and the internet. That is all you need. No technical knowledge, no jargon.
+      - name: Self-employed and professionals
+        icon: layers
+        text: You already use AI and want to hand recurring work over to an agent, without learning to program.
+      - name: Associations, libraries and municipalities
+        icon: network
+        text: You are looking for an accessible evening about AI for your members or residents, with time to try it themselves.
+
+  programme:
+    eyebrow: Programme
+    title: Five modules. You choose.
+    intro: After each module you can do something new. You follow the ones you need, at your pace.
+    module-label: Module
+    result-label: "After this you can:"
+    tools: We show ChatGPT, Claude, Gemini and Copilot side by side. The free versions are enough for the first four modules; for the module on agents, count on a paid subscription.
+    modules:
+      - name: Getting started
+        topics:
+          - "Which assistant to pick: ChatGPT, Claude, Gemini or Copilot, free or paid"
+          - Installing it on your smartphone, tablet and computer
+          - Asking a question so that you get a useful answer
+          - Talking instead of typing, and showing a photo instead of explaining
+        result: use an assistant on your own device and talk to it with ease.
+      - name: Letters, mail and paperwork
+        topics:
+          - Having a difficult letter from the government, bank or insurer explained in plain language
+          - Writing a reply, complaint or application that sounds like you
+          - Having long documents summarised
+          - Refreshing your cover letter and CV
+        result: understand a difficult letter and answer it yourself.
+      - name: Plans, learning and hobbies
+        topics:
+          - A trip, weekly menu or shopping list tailored to your household
+          - Learning something new, or helping with homework without taking it over
+          - Ideas for garden, kitchen and DIY, starting from a photo
+          - Letting the assistant remember who you are, so you do not repeat yourself
+        result: make a plan you will still use this week.
+      - name: Safe and sensible
+        topics:
+          - When AI gets it wrong, and how to check an answer
+          - What you had better not share, and which settings protect your privacy
+          - Recognising scams, fake messages, deepfakes and cloned voices
+          - "AI and children: agreements that work"
+        result: judge what you can trust and what you cannot.
+      - name: Autonomous agents
+        topics:
+          - "From question to assignment: an assistant that takes steps itself instead of only answering"
+          - Writing out a recurring task as a workflow and keeping it as a reusable skill
+          - Connecting the assistant to your mail, calendar and files
+          - Scheduling tasks that run by themselves, within the limits you set
+        result: let an agent do a recurring task for you on its own.
+
+  formats:
+    eyebrow: Formats and prices
+    title: One-on-one, or with your whole group.
+    intro: Every session starts from your own questions and your own device.
+    vat-note: "Prices exclude 21% VAT. Including VAT: €119.79 and €393.25."
+    items:
+      - name: Personal session
+        tagline: One-on-one
+        price: "€99"
+        unit: per 1.5-hour session
+        features:
+          - 1.5 hours one-on-one, entirely about your questions and your device
+          - You choose the modules and the number of sessions
+          - Place and time by arrangement
+          - Also available as a gift voucher
+        cta: Book a session
+        subject: AI for everyday life - personal session
+      - name: For your group
+        tagline: For associations, libraries and municipalities
+        price: "€325"
+        unit: per session
+        features:
+          - Talk with live examples, about 2 hours
+          - Participants try it themselves on their own smartphone
+          - On location in Flanders, travel included
+          - In Dutch or English
+        cta: Request a date
+        subject: AI for everyday life - group session
+
+  faq:
+    eyebrow: Frequently asked questions
+    title: Good to know.
+    items:
+      - question: Do I need technical knowledge?
+        answer: No. If you can send a mail and look something up on the internet, you can follow. That also holds for the module on agents.
+      - question: What do I need?
+        answer: A smartphone, tablet or computer with internet. The free versions of the assistants are enough to start; we show you how to install them. For agents, count on a paid subscription.
+      - question: In which language are the sessions given?
+        answer: In Dutch or English, whichever you prefer.
+      - question: Is it safe to use AI?
+        answer: "A full module is about safety: what you had better not share, how to check an answer and how to recognise fake messages."
+      - question: Can I cancel?
+        answer: Yes. You can cancel free of charge up to 14 days after booking. If a session has already taken place by then, you only pay for that session.
+      - question: Can I give a session as a gift?
+        answer: Yes. Send us a mail and you receive a gift voucher that you can print or forward.
+
+  closing:
+    eyebrow: Just ask
+    title: Not sure if this is for you?
+    text: Send us a mail and tell us what you would like AI to help you with. You get an honest answer.
+    subject: AI for everyday life - question
