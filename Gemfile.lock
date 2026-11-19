@@ -17,6 +17,7 @@ GEM
     ffi (1.17.1-arm-linux-gnu)
     ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
     google-protobuf (4.29.2)
       bigdecimal
@@ -102,6 +103,8 @@ GEM
       google-protobuf (~> 4.29)
     sass-embedded (1.83.1-x86_64-linux-android)
       google-protobuf (~> 4.29)
+    sass-embedded (1.83.1-x86_64-linux-gnu)
+      google-protobuf (~> 4.29)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -139,6 +142,7 @@ PLATFORMS
   riscv64-linux-musl
   ruby
   x86_64-cygwin
+  x86_64-linux
   x86_64-linux-android
 
 DEPENDENCIES
