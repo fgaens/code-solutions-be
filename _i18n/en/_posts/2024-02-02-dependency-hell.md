@@ -11,14 +11,13 @@ tags:
 - Evergreen
 ---
 
-Maintaining up-to-date dependencies in your project repositories is a critical practice in the world of software development. It ensures that your code remains secure, efficient, and compatible with the latest innovations. Regularly updating dependencies helps patch vulnerabilities, improve performance, and unlock new features, ultimately enhancing the reliability of your software.
-However, manually managing dependencies across multiple project repositories within your organisation can be an overwhelming burden. It demands significant time and effort to track version changes, evaluate compatibility, and apply updates systematically. The complexity multiplies as the number of repositories grows, making it a formidable challenge for any development team. In this blog post, we'll delve into strategies to alleviate the burden of manual dependency management, allowing you to streamline your development process and focus on delivering high-quality software.
+Keeping dependencies up to date is one of the more important routines in software development. Updates patch vulnerabilities, improve performance and give access to new features, and they keep your code compatible with the libraries around it.
+
+Doing this by hand across many repositories is another matter. Tracking new versions, checking compatibility and applying updates takes time, and the effort grows with every repository you add. This post shows how to automate most of that work with two tools: Dependabot and Evergreen.
 
 ## Meet Dependabot
 
-Despite its not-so-recent debut, Dependabot continues to stand strong as an essential tool within the ever-evolving landscape of modern software development. With a history of reliability and performance, Dependabot has consistently supported developers in their quest to maintain the up-to-dateness of their projects.
-
-To initiate Dependabot for your repository, simply craft a new file named .github/dependabot.yml within your repository.
+Dependabot is not new, but it remains a reliable way to keep a project's dependencies current. To enable it for a repository, add a file named `.github/dependabot.yml`.
 
 ```yaml
 ---
@@ -30,13 +29,13 @@ updates:
         interval: 'weekly'
 ```
 
-This workflow is designed to run on a weekly basis, proactively identifying and addressing outdated dependencies within your project. When executed, Dependabot will automatically generate a pull request, simplifying the process of updating these dependencies to their latest versions. 
+With this configuration Dependabot checks for outdated dependencies every week and opens a pull request to update them to the latest version.
 
 ## Taking it one step further
 
-Managing this across numerous repositories in a sizable organization can be a daunting and monotonous undertaking. In addressing this challenge, Evergreen emerges as the solution to simplify and streamline the process. This powerful GitHub action is specifically designed to automate the propagation of Dependabot workflows across all your repositories. Evergreen can seamlessly scan your organization's repositories and identify those lacking the Dependabot setup. With a single action, it can create pull requests, ensuring that every repository benefits from Dependabot's dependency update automation, making maintenance a breeze.
+Adding that file to every repository in a large organisation is tedious, and it is easy to miss one. Evergreen, a GitHub Action, automates this step. It scans the repositories in your organisation, identifies those without a Dependabot configuration and opens a pull request to add one, so that every repository gets the same automated updates.
 
-To set up Evergreen, you'll need to create an additional workflow file named .github/workflows/evergreen.yml.
+To set up Evergreen, create an additional workflow file named `.github/workflows/evergreen.yml`.
 
 ```yaml
 ---
@@ -62,18 +61,18 @@ To set up Evergreen, you'll need to create an additional workflow file named .gi
               ORGANIZATION: fgaens
 ```
 
-This workflow, named evergreen.yml, is a configuration file for the Evergreen GitHub action. It specifies the schedule at which Evergreen will run, weekly in this case, and it requires a Personal Access Token (PAT) to access and modify repositories within your organization. 
+This workflow defines the schedule on which Evergreen runs. It requires a personal access token (PAT) to access and modify the repositories in your organisation.
 
-## Customizing for your needs
+## Adapting it to your needs
 
-Since this is merely an illustrative example, it's important to note that both Dependabot and Evergreen offer extensive configuration options to tailor these actions to your specific requirements. The configuration can be customized to match your organization's specific needs, from update schedules to dependency handling strategies.
+The configuration above is a minimal example. Both Dependabot and Evergreen offer many more options, from update schedules to the way individual dependencies are handled, so you can adapt them to your organisation.
 
-## Demo and Resources
+## Demo and resources
 
-You can find a working example of this setup in action in our demo repository. Check out the links below for more information and resources.
+A working example of this setup is available in our demo repository. The links below lead to the repository and the documentation.
 
 ### Links
 
-- [Demo Repository](https://github.com/fgaens/lab-evergreen-demo/actions)
-- [Evergreen Documentation](https://github.com/github/evergreen)
-- [Dependabot Documentation](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
+- [Demo repository](https://github.com/fgaens/lab-evergreen-demo/actions)
+- [Evergreen documentation](https://github.com/github/evergreen)
+- [Dependabot documentation](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
