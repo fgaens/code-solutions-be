@@ -6,7 +6,16 @@ summary: Versterk je team met praktische software-expertise. Van architectuur en
 image: "/assets/images/consultancy.jpeg"
 ---
 
-Als ervaren software consultants en full-stack ontwikkelaars beschikken wij over een complementair pakket aan competenties voor het realiseren van hoogwaardige softwareoplossingen. Door onze brede technische expertise ontwikkelen wij moderne, gebruiksvriendelijke systemen die vlot geïntegreerd kunnen worden in uw bestaande bedrijfsprocessen. Ons dienstenpakket omvat architecturaal ontwerp, technische analyses, implementatie- en teststrategieën, alsmede de ontwikkeling van kwalitatief hoogstaande gebruikersinterfaces.
+We versterken softwareteams met twee complementaire profielen: backend en architectuur in het Java-ecosysteem, en frontend-ontwikkeling met aandacht voor gebruikerservaring. Samen dekken we het traject van architectuur en technische analyse tot implementatie, testen en oplevering.
 
-Op basis van onze uitgebreide ervaring bij vooraanstaande ondernemingen, streven wij naar de realisatie van efficiënte, innovatieve en gepersonaliseerde softwareoplossingen die nauwkeurig aansluiten bij uw specifieke behoeften. Voor een gedetailleerd inzicht in onze professionele trajecten, bezoek:
-[Frederick's cv](https://fgaens.github.io/curriculum-vitae/){:target="_blank"} en [Mieke's cv](https://mi3k3.github.io/curriculum-vitae/){:target="_blank"}.
+## Backend en architectuur
+
+Binnen het Java-ecosysteem ontwerpen we architecturen, voeren we technische analyses uit en moderniseren we bestaande backends. We bepalen implementatie- en teststrategieën en voeren CI/CD-praktijken in, zodat wijzigingen gecontroleerd in productie komen.
+
+## Frontend en gebruikerservaring
+
+We bouwen interfaces rond de mensen die ze gebruiken: helder, consistent en vlot in gebruik. Gebruikersgericht ontwerp maakt vanaf het begin deel uit van het werk en wordt er niet achteraf aan toegevoegd.
+
+## Ervaring
+
+We voerden opdrachten uit voor grote organisaties. De details vind je in onze cv's: [het cv van Frederick](https://fgaens.github.io/curriculum-vitae/){:target="_blank"} en [het cv van Mieke](https://mi3k3.github.io/curriculum-vitae/){:target="_blank"}.

@@ -2,8 +2,20 @@
 title: Websites & web applications
 layout: page
 lang: en
-summary: Turn your ideas into intuitive digital experiences. Custom websites and applications, designed around your business and the people who use them.
+summary: Turn your ideas into a website or application that is easy to use. Custom-built around your business and the people who use it.
 image: "/assets/images/web.jpeg"
 ---
 
-We specialize in designing and developing bespoke websites and applications for small to medium-sized businesses. Our approach focuses on creating user-friendly, scalable, and efficient digital solutions that are tailored to the unique requirements and goals of each business. With an emphasis on quality and innovation, we ensure that every project, from initial concept to final deployment, is handled with precision and professionalism, delivering impactful digital presences for our clients.
+We design and build custom websites and web applications for small and medium-sized businesses. Each project starts from what your business needs and what your users expect.
+
+## Designed for use
+
+A website or application has to be clear to the people who use it. We pay attention to structure, navigation and readability, on desktop and on mobile, so that visitors find what they are looking for.
+
+## Built to last
+
+We choose technology that fits the size of the project and can grow with it. The result is efficient, scalable and straightforward to extend when your needs change.
+
+## From concept to launch
+
+You work with the same people from the first concept to deployment. We keep the scope clear and show progress along the way, so you know where the project stands at every stage.

@@ -12,7 +12,7 @@ global:
   ai-course: AI Course
 
   read-more: Read more
-  send-mail: Send us an Email
+  send-mail: Send us an email
 
 navigation:
   skip: Skip to content
@@ -20,7 +20,7 @@ navigation:
   footer: Footer navigation
   menu: Menu
   language: Language
-  talk: Let's talk
+  talk: Get in touch
   home: Home
   blog: Blog
   projects: Projects
@@ -49,11 +49,11 @@ home:
   eyebrow: Technology with a human touch
   title: Good ideas.
   title_accent: Beautifully built.
-  description: From ambitious software to smarter connected spaces. We bring engineering and design together to make technology work for you.
-  primary_cta: Let's build something
+  description: From custom software to reliable networks and smart automation. We combine engineering and design so that technology works for you.
+  primary_cta: Discuss your project
   secondary_cta: Explore our services
   note: Your ideas. Our expertise. A direct collaboration.
-  visual_eyebrow: YOUR NEXT CHAPTER
+  visual_eyebrow: YOUR NEXT PROJECT
   visual_title: Built around you.
   visual_code: Engineering
   visual_design: Design
@@ -61,38 +61,38 @@ home:
   visual_connected: Better connected
   visual_connected_note: Software. People. Spaces.
   expertise: Different disciplines. One connected approach.
-  expertise_design: Human-centered design
+  expertise_design: Human-centred design
   expertise_systems: Connected systems
-  clients_title: Some of our clients
+  clients_title: A selection of our clients
   services_eyebrow: What we do
   services_title: The right expertise for your next step.
   services_description: Build something new, improve what you have, or connect the pieces. We turn technical challenges into practical solutions.
-  service_details: Explore service
+  service_details: View this service
   approach_eyebrow: How we work
   approach_title: Complex challenges. Clear thinking.
   approach_description: No unnecessary layers. You work directly with the people who design and build your solution, from the first conversation to the final details.
   step_one_title: Understand first
   step_one_description: We listen, ask questions, and get to know your goals. The right solution starts with understanding the real problem.
-  step_two_title: Make it thoughtful
+  step_two_title: Design with care
   step_two_description: Solid architecture and considered design, working together. We choose technology that fits your needs, not the other way around.
-  step_three_title: Build it together
+  step_three_title: Build together
   step_three_description: Open communication, hands-on development, and room for feedback. You stay involved as your idea takes shape.
-  work_eyebrow: Ideas in action
+  work_eyebrow: Our work
   work_title: Thoughtful software. Working examples.
   work_cta: Explore our projects
-  contact_eyebrow: Your next chapter
+  contact_eyebrow: Contact
   contact_title: What would you like to build?
-  contact_description: A new idea, a technical challenge, or a system that could work better. Tell us what you're thinking.
+  contact_description: A new idea, a technical challenge, or a system that could work better. Tell us what you have in mind.
   footer_note: Thoughtful technology. Personal collaboration.
 
 demos:
   eyebrow: Interactive demos
   title: Try it yourself.
-  description: Choose a project and explore the demo. No account needed.
+  description: Choose a project and explore the demo. No account required.
   tab_label: Choose a product demo
   loading: Loading demo…
   open: Open in a new tab
-  case: Read the project story
+  case: Read about this project
   disclaimer: The demos use synthetic demonstration data and fictional accounts, and their interfaces are in Dutch, like the applications themselves. They show how the software behaves, not real customer results.
   solarstash:
     tagline: Energy analytics
@@ -112,7 +112,7 @@ demos:
     tagline: Playful learning
     summary: Choose your multiplication tables, play a practice round, and grow the garden of animals that rewards it.
     point_one: Set the tables, round length, and time limit, then answer with the keyboard or the on-screen keypad.
-    point_two: Every answer feeds accuracy, response time, and per-table progress.
+    point_two: Every answer counts towards accuracy, response time, and per-table progress.
     point_three: Growth points unlock animals, the same reward loop that keeps learners coming back.
     frame: Tafeltuin multiplication practice demo
 

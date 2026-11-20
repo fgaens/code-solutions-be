@@ -6,6 +6,12 @@ summary: Verbind je woning of bedrijf op een betrouwbare manier. Doordacht netwe
 image: "/assets/images/networking.jpeg"
 ---
 
-Wij bieden uitgebreide netwerkoplossingen aan, waaronder de installatie van netwerkapparatuur voor zowel particulieren als kleine bedrijven. Onze diensten zorgen voor een betrouwbare en efficiënte netwerkopzet, afgestemd op de specifieke connectiviteitsbehoeften van elke klant. 
+We ontwerpen en installeren netwerken voor woningen en kleine bedrijven. Het doel is een netwerk dat betrouwbaar en veilig is en past bij de manier waarop je het gebruikt.
 
-Met focus op naadloze integratie en optimale prestaties bieden we ondersteuning van begin tot eind - van het selecteren van de juiste apparatuur tot de uiteindelijke implementatie - waarbij we zorgen voor een robuust en veilig netwerk voor uw woning of bedrijf.
+## Het juiste ontwerp en de juiste apparatuur
+
+We vertrekken van jouw situatie: het gebouw, het aantal gebruikers en toestellen, en waarvoor het netwerk dient. Op basis daarvan kiezen we apparatuur die bij je behoeften past.
+
+## Installatie en configuratie
+
+We installeren en configureren de apparatuur en integreren ze met wat je al hebt. Je krijgt ondersteuning van de keuze van de apparatuur tot de uiteindelijke ingebruikname, met als resultaat een netwerk dat goed presteert en degelijk beveiligd is.

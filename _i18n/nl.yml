@@ -12,7 +12,7 @@ global:
   ai-course: AI-cursus
 
   read-more: Lees meer
-  send-mail: Stuur ons een mail
+  send-mail: Stuur ons een e-mail
 
 name: Nederlands
 code: nl
@@ -24,7 +24,7 @@ navigation:
   footer: Footernavigatie
   menu: Menu
   language: Taal
-  talk: Even praten?
+  talk: Neem contact op
   home: Home
   blog: Blog
   projects: Projecten
@@ -48,11 +48,11 @@ home:
   eyebrow: Technologie met een menselijk gezicht
   title: Goede ideeën.
   title_accent: Sterk gebouwd.
-  description: Van ambitieuze software tot slim verbonden omgevingen. We brengen ontwikkeling en design samen om technologie voor jou te laten werken.
-  primary_cta: Laten we iets bouwen
+  description: Van software op maat tot betrouwbare netwerken en slimme automatisering. We brengen ontwikkeling en design samen, zodat technologie voor jou werkt.
+  primary_cta: Bespreek je project
   secondary_cta: Ontdek onze diensten
   note: Jouw ideeën. Onze expertise. Rechtstreeks samenwerken.
-  visual_eyebrow: JOUW VOLGENDE STAP
+  visual_eyebrow: JOUW VOLGENDE PROJECT
   visual_title: Gebouwd rond jou.
   visual_code: Ontwikkeling
   visual_design: Design
@@ -62,11 +62,11 @@ home:
   expertise: Verschillende disciplines. Eén samenhangende aanpak.
   expertise_design: Mensgericht design
   expertise_systems: Verbonden systemen
-  clients_title: Een greep uit onze klanten
+  clients_title: Een selectie van onze klanten
   services_eyebrow: Wat we doen
   services_title: De juiste expertise voor jouw volgende stap.
   services_description: Iets nieuws bouwen, verbeteren wat er al is, of alles verbinden. We vertalen technische uitdagingen naar praktische oplossingen.
-  service_details: Ontdek deze dienst
+  service_details: Bekijk deze dienst
   approach_eyebrow: Hoe we werken
   approach_title: Complexe uitdagingen. Een heldere aanpak.
   approach_description: Geen onnodige tussenstappen. Je werkt rechtstreeks met de mensen die jouw oplossing ontwerpen en bouwen, van het eerste gesprek tot de laatste details.
@@ -76,12 +76,12 @@ home:
   step_two_description: Sterke architectuur en doordacht design, samen. We kiezen technologie die bij jouw behoeften past, niet andersom.
   step_three_title: Samen bouwen
   step_three_description: Open communicatie, praktische ontwikkeling en ruimte voor feedback. Je blijft betrokken terwijl jouw idee vorm krijgt.
-  work_eyebrow: Ideeën in actie
+  work_eyebrow: Ons werk
   work_title: Doordachte software. Werkende voorbeelden.
   work_cta: Ontdek onze projecten
-  contact_eyebrow: Jouw volgende stap
+  contact_eyebrow: Contact
   contact_title: Wat wil jij bouwen?
-  contact_description: Een nieuw idee, een technische uitdaging of een systeem dat beter kan. Vertel ons waar je aan denkt.
+  contact_description: Een nieuw idee, een technische uitdaging of een systeem dat beter kan. Vertel ons wat je voor ogen hebt.
   footer_note: Doordachte technologie. Persoonlijke samenwerking.
 
 demos:
@@ -91,7 +91,7 @@ demos:
   tab_label: Kies een productdemo
   loading: Demo wordt geladen…
   open: Openen in een nieuw tabblad
-  case: Lees het projectverhaal
+  case: Lees meer over dit project
   disclaimer: De demo's gebruiken synthetische demonstratiedata en fictieve accounts. Ze tonen hoe de software zich gedraagt, niet echte klantresultaten.
   solarstash:
     tagline: Energieanalyse

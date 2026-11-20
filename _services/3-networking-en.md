@@ -2,8 +2,16 @@
 title: Networking
 layout: page
 lang: en
-summary: Keep your home or business reliably connected. Thoughtful network design, the right equipment, and hands-on installation from start to finish.
+summary: Keep your home or business reliably connected. Careful network design, the right equipment, and hands-on installation from start to finish.
 image: "/assets/images/networking.jpeg"
 ---
 
-We offer comprehensive networking solutions, including the installation of networking equipment for both residential homes and small businesses. Our services ensure a reliable and efficient network setup, tailored to meet the specific connectivity needs of each client. With a focus on seamless integration and optimal performance, we provide end-to-end support—from selecting the right equipment to final implementation—ensuring a robust and secure network for your home or business.
+We design and install networks for homes and small businesses. The aim is a network that is reliable, secure and suited to how you use it.
+
+## The right design and equipment
+
+We start from your situation: the building, the number of users and devices, and what the network is used for. On that basis we select equipment that matches your needs.
+
+## Installation and configuration
+
+We install and configure the equipment and integrate it with what you already have. You are supported from the choice of equipment to the final implementation, and you end up with a network that performs well and is properly secured.
