@@ -20,7 +20,7 @@ The site SHALL publish the course page at `/ai-everyday.html` in English and `/n
 
 ### Requirement: The programme covers five modules including autonomous agents
 
-The page SHALL list five modules in order: getting started; letters, mail and paperwork; plans, learning and hobbies; safe and sensible; and autonomous agents. Each module SHALL state its topics and the result a participant can expect.
+The page SHALL list five modules in order: getting started; writing and documents; research, analysis and planning; reliability, privacy and security; and autonomous agents. Each module SHALL state its topics and the result a participant can expect.
 
 #### Scenario: Agents module
 - **WHEN** a visitor reads the programme in either language
@@ -29,17 +29,17 @@ The page SHALL list five modules in order: getting started; letters, mail and pa
 
 ### Requirement: Formats and prices are shown with a VAT-inclusive amount
 
-The page SHALL present exactly two formats: a one-on-one session at €99 per 1.5 hours and a group session at €325 per session, both excluding VAT. The page SHALL state the VAT-inclusive amount for each price. The page SHALL NOT offer online lessons, a self-paced course, or a waiting list.
+The page SHALL present exactly three formats: a one-on-one session at €99 per 1.5 hours, a full programme of five one-on-one sessions at €450, and a group session at €325 per session, all excluding VAT. The page SHALL state the VAT-inclusive amount for each price. The page SHALL NOT offer online lessons, a self-paced course, or a waiting list.
 
 #### Scenario: English prices
 - **WHEN** a visitor opens the formats section on `/ai-everyday.html`
-- **THEN** the cards show "€99" per 1.5-hour session and "€325" per session
-- **AND** a note states that prices exclude 21% VAT and gives €119.79 and €393.25 including VAT
+- **THEN** the cards show "€99" per 1.5-hour session, "€450" for 5 sessions and "€325" per session
+- **AND** a note states that prices exclude 21% VAT and gives €119.79, €544.50 and €393.25 including VAT
 
 #### Scenario: Dutch prices
 - **WHEN** a visitor opens the formats section on `/nl/ai-everyday.html`
-- **THEN** the cards show "€ 99" per sessie van 1,5 uur and "€ 325" per sessie
-- **AND** a note states "Prijzen exclusief 21% btw" and gives € 119,79 and € 393,25 including VAT
+- **THEN** the cards show "€ 99" per sessie van 1,5 uur, "€ 450" voor 5 sessies and "€ 325" per sessie
+- **AND** a note states "Prijzen exclusief 21% btw" and gives € 119,79, € 544,50 and € 393,25 including VAT
 
 ### Requirement: Visitors request a session by email
 

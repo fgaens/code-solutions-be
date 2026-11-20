@@ -141,121 +141,132 @@ projects:
     screenshot_caption: Beloningen verdiend door demonstratierondes af te werken. De getoonde scores en antwoordtijden zijn synthetische voorbeelden, geen bewijs van leerresultaten.
 
 course:
-  description: "Persoonlijke AI-sessies zonder vakjargon: brieven, papierwerk, plannen, veilig blijven en autonome agents. Eén op één of voor je groep, in het Nederlands of het Engels."
+  description: "Persoonlijke AI-opleiding zonder vakjargon: teksten en documenten, onderzoek en planning, veilig werken en autonome agents. Eén op één of voor je groep, in het Nederlands of het Engels."
   hero:
-    eyebrow: AI-cursus voor iedereen
+    eyebrow: Praktische AI-opleiding
     title: AI voor elke dag
-    subtitle: Van je eerste vraag tot een agent die zelfstandig voor je werkt
-    lead: Persoonlijke begeleiding zonder vakjargon voor wie nieuwsgierig is naar ChatGPT, Claude, Gemini of Copilot. Je leert stap voor stap hoe je er thuis en op het werk iets aan hebt, hoe je veilig blijft, en hoe je een agent zelfstandig taken laat uitvoeren.
-    cta-formats: Kies je formule
+    subtitle: Van je eerste vraag tot een agent die zelfstandig taken uitvoert
+    lead: Persoonlijke, praktijkgerichte begeleiding in ChatGPT, Claude, Gemini en Copilot. Je leert AI toepassen op je eigen werk en administratie, de resultaten kritisch beoordelen en terugkerende taken overdragen aan een agent.
+    cta-formats: Bekijk formules en prijzen
     cta-programme: Bekijk het programma
 
   recognise:
     eyebrow: Herkenbaar?
-    title: AI is overal. Er echt iets aan hebben is iets anders.
+    title: AI is overal beschikbaar. Er goed mee werken vraagt oefening.
     items:
-      - Je hebt ChatGPT één keer geprobeerd, kreeg een vaag antwoord en hebt het nooit meer geopend.
-      - Je kinderen of collega's gebruiken AI voor alles, en je vraagt je af wat je mist.
-      - Je weet niet welke antwoorden je kan vertrouwen, of wat je er veilig in kan typen.
-      - Iedereen heeft het over AI-agents, maar je hebt geen idee wat die voor jou kunnen doen.
+      - Je hebt ChatGPT uitgetest, kreeg een te algemeen antwoord en hebt het daarna niet meer geprobeerd.
+      - Mensen in je omgeving gebruiken AI dagelijks, en je weet niet goed waar het voor jou een meerwaarde heeft.
+      - Je weet niet op welke antwoorden je kan vertrouwen, of welke informatie je veilig kan delen.
+      - Er wordt veel over AI-agents gesproken, maar het is onduidelijk wat ze voor jou kunnen overnemen.
 
   path:
     eyebrow: Zo werkt het
     title: Drie stappen, op jouw tempo.
-    intro: Je oefent met je eigen vragen, op je eigen toestel.
+    intro: Je werkt met je eigen vragen, op je eigen toestel.
     steps:
       - name: Beginnen
-        tagline: Stel je vraag goed
-        text: Je installeert een assistent op je smartphone of computer en leert vragen stellen waarop je meteen een bruikbaar antwoord krijgt.
+        tagline: Stel je vraag doeltreffend
+        text: Je stelt een assistent in op je smartphone of computer en leert een vraag zo formuleren dat het eerste antwoord bruikbaar is.
       - name: Gebruiken
-        tagline: Zet AI in voor echte klusjes
-        text: Je laat je helpen met een moeilijke brief, een mail, een weekmenu of een reisplan, en leert de antwoorden nakijken en je privacy beschermen.
+        tagline: Pas AI toe op echt werk
+        text: Je gebruikt AI om e-mails en rapporten op te stellen, lange documenten samen te vatten, vergaderingen voor te bereiden en opties te vergelijken. Je leert de resultaten controleren en vertrouwelijke informatie beschermen.
       - name: Uit handen geven
-        tagline: Laat het vanzelf lopen
-        text: Je bouwt een agent die een terugkerende taak zelfstandig uitvoert, binnen de grenzen die jij bepaalt.
+        tagline: Laat het zelfstandig lopen
+        text: Je richt een agent in die een terugkerende taak zelfstandig uitvoert, binnen de grenzen die jij bepaalt.
 
   audience:
     eyebrow: Voor wie
-    title: Voor wie nieuwsgierig is.
+    title: Voor wie AI goed wil gebruiken.
     items:
-      - name: Nieuwsgierige beginners van elke leeftijd
+      - name: Nieuw met AI
         icon: home
-        text: Je hebt een smartphone of computer en gebruikt mail en internet. Meer heb je niet nodig. Geen technische kennis, geen vakjargon.
+        text: Je gebruikt e-mail en internet op een smartphone of computer. Technische voorkennis is niet nodig.
       - name: Zelfstandigen en professionals
         icon: layers
-        text: Je gebruikt AI al en wil terugkerend werk uit handen geven aan een agent, zonder dat je moet leren programmeren.
+        text: Je gebruikt AI al en wil terugkerend werk overdragen aan een agent, zonder te leren programmeren.
       - name: Verenigingen, bibliotheken en gemeenten
         icon: network
-        text: Je zoekt een toegankelijke avond over AI voor je leden of inwoners, met tijd om het zelf te proberen.
+        text: Je zoekt een toegankelijke sessie over AI voor je leden, inwoners of team, met tijd om zelf te oefenen.
 
   programme:
     eyebrow: Programma
-    title: Vijf modules. Jij kiest.
-    intro: Na elke module kan je iets nieuws. Je volgt wat je nodig hebt, op jouw tempo.
+    title: Vijf modules. Kies wat je nodig hebt.
+    intro: Elke module eindigt met een concrete vaardigheid. Je volgt de modules die voor jou relevant zijn, op je eigen tempo.
     module-label: Module
-    result-label: "Daarna kan je:"
-    tools: We tonen ChatGPT, Claude, Gemini en Copilot naast elkaar. De gratis versies volstaan voor de eerste vier modules; voor de module over agents reken je best op een betalend abonnement.
+    result-label: "Na deze module kan je:"
+    tools: We vergelijken ChatGPT, Claude, Gemini en Copilot naast elkaar. De gratis versies volstaan voor de eerste vier modules; voor de module over agents is doorgaans een betalend abonnement nodig.
     modules:
       - name: Aan de slag
         topics:
-          - "Welke assistent je kiest: ChatGPT, Claude, Gemini of Copilot, gratis of betalend"
-          - Installeren op je smartphone, tablet en computer
-          - Een vraag zo stellen dat je een bruikbaar antwoord krijgt
-          - Praten in plaats van typen, en een foto tonen in plaats van iets uit te leggen
-        result: een assistent op je eigen toestel gebruiken en er vlot mee praten.
-      - name: Brieven, mails en papierwerk
+          - "Een assistent kiezen: ChatGPT, Claude, Gemini of Copilot, gratis of betalend"
+          - Instellen op je smartphone, tablet en computer
+          - "Een vraag formuleren die een bruikbaar antwoord oplevert: context, doel en vorm"
+          - Werken met spraak, foto's en documenten in plaats van alleen tekst
+        result: een assistent op je eigen toestellen gebruiken en er bruikbare antwoorden uit halen.
+      - name: Teksten en documenten
         topics:
-          - Een moeilijke brief van overheid, bank of verzekeraar laten uitleggen in gewone taal
-          - Een antwoord, klacht of aanvraag schrijven die klinkt zoals jij
-          - Lange documenten laten samenvatten
-          - Je sollicitatiebrief en cv opfrissen
-        result: een moeilijke brief begrijpen en zelf beantwoorden.
-      - name: Plannen, leren en hobby's
+          - E-mails, offertes en rapporten opstellen en verbeteren in je eigen stijl
+          - Lange documenten zoals contracten, rapporten en algemene voorwaarden samenvatten
+          - Vergadernotities omzetten in een verslag met actiepunten
+          - Teksten vertalen en nalezen in het Nederlands, Engels en Frans
+        result: sneller een heldere tekst schrijven en de kern uit een lang document halen.
+      - name: Onderzoek, analyse en planning
         topics:
-          - Een reis, weekmenu of boodschappenlijst op maat van je gezin
-          - Iets nieuws leren, of helpen bij huiswerk zonder het over te nemen
-          - Ideeën voor tuin, keuken en klussen, vertrekkend van een foto
-          - De assistent laten onthouden wie je bent, zodat je niets moet herhalen
-        result: een plan maken dat je deze week nog gebruikt.
-      - name: Veilig en verstandig
+          - Een onderwerp onderzoeken met bronvermelding, en producten, leveranciers of offertes vergelijken
+          - "Cijfers analyseren: van een spreadsheet of export naar een helder overzicht"
+          - Een vergadering, presentatie of projectplan voorbereiden
+          - Je context en voorkeuren bewaren, zodat je ze niet telkens moet herhalen
+        result: een beslissing of plan voorbereiden op basis van bronnen die je kan nakijken.
+      - name: Betrouwbaarheid, privacy en veiligheid
         topics:
-          - Wanneer AI zich vergist, en hoe je een antwoord nakijkt
-          - Wat je beter niet deelt, en welke instellingen je privacy beschermen
-          - Oplichting, valse berichten, deepfakes en nagemaakte stemmen herkennen
-          - "AI en kinderen: afspraken die werken"
-        result: inschatten wat je kan vertrouwen en wat niet.
+          - Waarom AI fouten maakt, en hoe je een antwoord controleert
+          - Welke informatie je beter niet deelt, en welke instellingen je privacy beschermen
+          - Phishing, deepfakes en nagemaakte stemmen herkennen
+          - Duidelijke afspraken maken over AI-gebruik, op het werk en thuis
+        result: inschatten waarop je kan vertrouwen en waarop niet.
       - name: Autonome agents
         topics:
-          - "Van vraag naar opdracht: een assistent die zelf stappen zet in plaats van alleen te antwoorden"
-          - Een terugkerende taak uitschrijven als workflow en bewaren als herbruikbare skill
+          - "Van antwoorden naar uitvoeren: hoe een agent zelf stappen plant en uitvoert"
+          - Een terugkerende taak beschrijven als workflow en bewaren als herbruikbare skill
           - De assistent koppelen aan je mail, agenda en bestanden
-          - Taken inplannen die vanzelf lopen, binnen de grenzen die jij bepaalt
-        result: een agent zelfstandig een terugkerende taak voor je laten doen.
+          - Taken inplannen die automatisch lopen, binnen de grenzen en goedkeuringen die jij bepaalt
+        result: een agent een terugkerende taak zelfstandig laten uitvoeren.
 
   formats:
     eyebrow: Formules en prijzen
-    title: Eén op één, of met je hele groep.
-    intro: Elke sessie vertrekt van je eigen vragen en je eigen toestel.
-    vat-note: "Prijzen exclusief 21% btw. Inclusief btw: € 119,79 en € 393,25."
+    title: Eén op één of voor je groep.
+    intro: Elke sessie is opgebouwd rond je eigen vragen, op je eigen toestel. Eén module neemt doorgaans één sessie in beslag.
+    vat-note: "Prijzen exclusief 21% btw. Inclusief btw: € 119,79, € 544,50 en € 393,25."
     items:
       - name: Persoonlijke sessie
         tagline: Eén op één
         price: "€ 99"
         unit: per sessie van 1,5 uur
         features:
-          - 1,5 uur één op één, volledig rond jouw vragen en jouw toestel
+          - 1,5 uur één op één, afgestemd op jouw vragen en jouw toestel
           - Je kiest zelf de modules en het aantal sessies
           - Plaats en tijdstip in overleg
-          - Ook als cadeaubon
+          - Ook beschikbaar als cadeaubon
         cta: Boek een sessie
         subject: AI voor elke dag - persoonlijke sessie
+      - name: Volledig programma
+        tagline: Eén op één, vijf sessies
+        price: "€ 450"
+        unit: voor 5 sessies
+        features:
+          - Vijf sessies van 1,5 uur, één op één
+          - Alle vijf modules, afgestemd op jouw vragen en jouw toestel
+          - Gepland op jouw tempo, plaats en tijdstip in overleg
+          - € 45 voordeliger dan vijf losse sessies
+        cta: Boek het programma
+        subject: AI voor elke dag - volledig programma
       - name: Voor je groep
-        tagline: Voor verenigingen, bibliotheken en gemeenten
+        tagline: Op locatie
         price: "€ 325"
         unit: per sessie
         features:
-          - Voordracht met live voorbeelden, ongeveer 2 uur
-          - Deelnemers proberen het zelf op hun eigen smartphone
+          - Presentatie met live demonstraties, ongeveer 2 uur
+          - Deelnemers oefenen op hun eigen smartphone
           - Op locatie in Vlaanderen, verplaatsing inbegrepen
           - In het Nederlands of het Engels
         cta: Vraag een datum
@@ -266,20 +277,20 @@ course:
     title: Goed om te weten.
     items:
       - question: Heb ik technische kennis nodig?
-        answer: Nee. Als je een mail kan sturen en iets kan opzoeken op het internet, kan je volgen. Dat geldt ook voor de module over agents.
+        answer: Nee. Als je een e-mail kan versturen en iets kan opzoeken op het internet, kan je elke module volgen, ook die over agents.
       - question: Wat heb ik nodig?
-        answer: Een smartphone, tablet of computer met internet. De gratis versies van de assistenten volstaan om te starten; we tonen hoe je ze installeert. Voor agents reken je best op een betalend abonnement.
+        answer: Een smartphone, tablet of computer met internetverbinding. De gratis versies van de assistenten volstaan om te starten, en we tonen hoe je ze instelt. Voor de module over agents is doorgaans een betalend abonnement nodig.
       - question: In welke taal worden de sessies gegeven?
-        answer: In het Nederlands of het Engels, wat jij verkiest.
+        answer: In het Nederlands of het Engels, naar jouw voorkeur.
       - question: Is het veilig om AI te gebruiken?
-        answer: "Een volledige module gaat over veiligheid: wat je beter niet deelt, hoe je een antwoord nakijkt en hoe je valse berichten herkent."
+        answer: "Ja, op voorwaarde dat je de grenzen kent. Eén module is hieraan gewijd: welke informatie je beter niet deelt, hoe je een antwoord controleert en hoe je frauduleuze berichten herkent."
       - question: Kan ik annuleren?
         answer: Ja. Je kan kosteloos annuleren tot 14 dagen na je boeking. Heeft er dan al een sessie plaatsgevonden, dan betaal je alleen die sessie.
       - question: Kan ik een sessie cadeau geven?
-        answer: Ja. Stuur ons een mail en je krijgt een cadeaubon die je kan afdrukken of doorsturen.
+        answer: Ja. Stuur ons een e-mail en je ontvangt een cadeaubon die je kan afdrukken of doorsturen.
 
   closing:
-    eyebrow: Vraag het gerust
-    title: Twijfel je of dit iets voor jou is?
-    text: Stuur ons een mail en vertel waarbij AI je zou mogen helpen. Je krijgt een eerlijk antwoord.
+    eyebrow: Vragen?
+    title: Twijfel je of dit bij je past?
+    text: Vertel ons waarvoor je AI wil inzetten. We zeggen je eerlijk of deze sessies daarvoor geschikt zijn.
     subject: AI voor elke dag - vraag

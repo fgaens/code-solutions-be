@@ -243,7 +243,7 @@
 .course-topics li { margin-bottom: 6px; }
 .course-card > .course-result { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink); }
 .course-card > .course-price { margin: 4px 0 24px; font-size: 46px; font-weight: 700; line-height: 1.1; letter-spacing: -.045em; color: var(--ink); }
-.course-price span { margin-left: 10px; font-size: 14px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.course-price span { display: block; margin-top: 8px; font-size: 14px; font-weight: 500; line-height: 1.4; letter-spacing: 0; color: var(--muted); }
 .course-format .course-checklist { margin-bottom: 30px; }
 .course-format .action-link { margin-top: auto; align-self: start; }
 .course-note { margin-top: 26px; font-size: 13px; color: var(--muted); }
@@ -301,6 +301,7 @@
     .demo-points { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .demo-notes { flex-direction: column; align-items: start; gap: 26px; }
     .course-split { gap: 40px; }
+    .course-grid-three { grid-template-columns: 1fr; }
     .course-card { padding: 28px; }
 }
 

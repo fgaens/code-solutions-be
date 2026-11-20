@@ -6,7 +6,7 @@ Code Solutions wants to offer personal AI coaching to private individuals, self-
 
 - Add a bilingual course page, "AI for everyday life" / "AI voor elke dag", at `/ai-everyday.html` and `/nl/ai-everyday.html`.
 - Present the offer in sections: introduction, recognisable situations, three learning steps, audience, a five-module programme ending with autonomous agents, formats with prices, frequently asked questions, and a contact call to action.
-- Offer two formats, both in person and requested by email: a one-on-one session (€99 per 1.5 hours) and a group session for associations, libraries, and municipalities (€325 per session). Prices are shown excluding VAT, with the VAT-inclusive amounts stated below them.
+- Offer three formats, all in person and requested by email: a one-on-one session (€99 per 1.5 hours), a full programme of five one-on-one sessions (€450), and a group session for associations, libraries, and municipalities (€325 per session). Prices are shown excluding VAT, with the VAT-inclusive amounts stated below them.
 - Add an "AI Course" / "AI-cursus" link to the shared navigation and the footer, and make language switching and the canonical URL resolve to the course page.
 
 ## Non-goals
