@@ -26,8 +26,8 @@ github_username-1: fgaens
 linkedin_username-2: mieke-nijs-2a854133
 github_username-2: Mi3k3
 
-# Google Analytics
-google-analytics: G-JBY0KRXYH9
+# Cloudflare Web Analytics
+cloudflare-analytics-token: e0bd4820c38342a68fe891134f57eb46
 
 # Disqus
 disqus-shortname: thedevslot

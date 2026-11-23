@@ -23,12 +23,6 @@
 <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
 <meta name="twitter:description" content="{{ description | escape }}">
 <meta name="twitter:image" content="{{ site.url }}{{ root_url }}{{ social_image }}">
-{% if site.google-analytics and jekyll.environment == 'production' %}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google-analytics }}"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ site.google-analytics }}');
-</script>
+{% if site.cloudflare-analytics-token and jekyll.environment == 'production' %}
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cloudflare-analytics-token }}"}'></script>
 {% endif %}
